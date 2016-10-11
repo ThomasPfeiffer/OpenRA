@@ -42,6 +42,10 @@ namespace OpenRA
 		ISound video;
 		MusicInfo currentMusic;
 
+	    public Sound()
+	    {
+	        soundEngine = null;
+	    }
 		public Sound(string engineName)
 		{
 			var enginePath = Platform.ResolvePath(".", "OpenRA.Platforms." + engineName + ".dll");
@@ -107,6 +111,10 @@ namespace OpenRA
 
 		ISound Play(Player player, string name, bool headRelative, WPos pos, float volumeModifier = 1f, bool loop = false)
 		{
+		    if (soundEngine == null)
+		    {
+		        return null;
+		    }
 			if (string.IsNullOrEmpty(name))
 				return null;
 			if (player != null && player != player.World.LocalPlayer)

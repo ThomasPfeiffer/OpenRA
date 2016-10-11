@@ -49,9 +49,11 @@ namespace OpenRA
 		{
 			Languages = new string[0];
 			Manifest = new Manifest(mod);
+		    
 			ModFiles.LoadFromManifest(Manifest);
+            
 
-			ObjectCreator = new ObjectCreator(Manifest, ModFiles);
+            ObjectCreator = new ObjectCreator(Manifest, ModFiles);
 			Manifest.LoadCustomData(ObjectCreator);
 
 			if (useLoadScreen)
@@ -111,6 +113,11 @@ namespace OpenRA
 
 		public void InitializeLoaders(IReadOnlyFileSystem fileSystem)
 		{
+		    if (RunSettings.Headless)
+		    {
+		        InitializeLoadersNoGraphics(fileSystem);
+		        return;
+		    }
 			// all this manipulation of static crap here is nasty and breaks
 			// horribly when you use ModData in unexpected ways.
 			ChromeMetrics.Initialize(this);
@@ -125,7 +132,19 @@ namespace OpenRA
 			CursorProvider = new CursorProvider(this);
 		}
 
-		TLoader[] GetLoaders<TLoader>(IEnumerable<string> formats, string name)
+        // ===========================================================================================================================
+        // BEGIN No Graphics Implementation
+        // ===========================================================================================================================
+
+        public void InitializeLoadersNoGraphics(IReadOnlyFileSystem fileSystem)
+        {
+            // all this manipulation of static crap here is nasty and breaks
+            // horribly when you use ModData in unexpected ways.
+            ChromeMetrics.Initialize(this);
+            ChromeProvider.Initialize(this);
+        }
+
+        TLoader[] GetLoaders<TLoader>(IEnumerable<string> formats, string name)
 		{
 			var loaders = new List<TLoader>();
 			foreach (var format in formats)
@@ -193,17 +212,27 @@ namespace OpenRA
 			LoadTranslations(map);
 
 			// Reinitialize all our assets
-			InitializeLoaders(map);
+		    if (RunSettings.Headless)
+		    {
+		        InitializeLoadersNoGraphics(map);
+		    }
+		    else
+		    {
+			    InitializeLoaders(map);
+            }
 
-			// Load music with map assets mounted
-			using (new Support.PerfTimer("Map.Music"))
+            // Load music with map assets mounted
+            using (new Support.PerfTimer("Map.Music"))
 				foreach (var entry in map.Rules.Music)
 					entry.Value.Load(map);
 
-			VoxelProvider.Initialize(VoxelLoader, map, MiniYaml.Load(map, Manifest.VoxelSequences, map.VoxelSequenceDefinitions));
-			VoxelLoader.Finish();
+		    if (!RunSettings.Headless)
+		    {
+		        VoxelProvider.Initialize(VoxelLoader, map, MiniYaml.Load(map, Manifest.VoxelSequences, map.VoxelSequenceDefinitions));
+		        VoxelLoader.Finish();
+		    }
 
-			return map;
+		    return map;
 		}
 
 		public void Dispose()

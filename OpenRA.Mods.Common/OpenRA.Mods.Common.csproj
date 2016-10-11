@@ -48,6 +48,16 @@
       </CustomCommands>
     </CustomCommands>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Headless|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Headless\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="FuzzyLogicLibrary">
       <HintPath>..\thirdparty\download\FuzzyLogicLibrary.dll</HintPath>
@@ -300,6 +310,8 @@
     <Compile Include="Traits\C4Demolition.cs" />
     <Compile Include="Traits\Health.cs" />
     <Compile Include="Traits\PowerTooltip.cs" />
+    <Compile Include="Traits\Stats\AutoDownloadRedAltertPackagesLogic.cs" />
+    <Compile Include="Traits\Stats\SignalGameOver.cs" />
     <Compile Include="Traits\VeteranProductionIconOverlay.cs" />
     <Compile Include="Traits\Capturable.cs" />
     <Compile Include="Traits\CaptureNotification.cs" />
@@ -739,6 +751,7 @@
     <Compile Include="UtilityCommands\ExtractMapRules.cs" />
     <Compile Include="Traits\ScriptTags.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>mkdir "$(SolutionDir)mods/common/"

@@ -192,7 +192,7 @@ namespace OpenRA.Mods.Common.Traits
 			if (disposed)
 				return;
 
-			render.Dispose();
+            if(!RunSettings.Headless) render.Dispose();
 			disposed = true;
 		}
 	}

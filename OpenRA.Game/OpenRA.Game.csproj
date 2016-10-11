@@ -53,6 +53,12 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <Optimize>true</Optimize>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Headless|x86'">
+    <OutputPath>..\</OutputPath>
+    <PlatformTarget>x86</PlatformTarget>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -157,6 +163,7 @@
     <Compile Include="Primitives\SegmentStream.cs" />
     <Compile Include="Primitives\SpatiallyPartitioned.cs" />
     <Compile Include="Primitives\ConcurrentCache.cs" />
+    <Compile Include="RunSettings.cs" />
     <Compile Include="SelectableExts.cs" />
     <Compile Include="Selection.cs" />
     <Compile Include="Server\Connection.cs" />

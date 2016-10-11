@@ -99,7 +99,13 @@ namespace OpenRA
 				Info = world.Map.Rules.Actors[name];
 				foreach (var trait in Info.TraitsInConstructOrder())
 				{
-					AddTrait(trait.Create(init));
+				    if (RunSettings.Headless)
+				    {
+                        if (MayBeRenderable(trait))
+                            continue;
+                    }
+                    
+                    AddTrait(trait.Create(init));
 
 					// Some traits rely on properties provided by IOccupySpace in their initialization,
 					// so we must ready it now, we cannot wait until all traits have finished construction.
@@ -116,9 +122,12 @@ namespace OpenRA
 			EffectiveOwner = TraitOrDefault<IEffectiveOwner>();
 			facing = TraitOrDefault<IFacing>();
 			health = TraitOrDefault<IHealth>();
-			renderModifiers = TraitsImplementing<IRenderModifier>().ToArray();
-			renders = TraitsImplementing<IRender>().ToArray();
-			disables = TraitsImplementing<IDisable>().ToArray();
+		    if (!RunSettings.Headless)
+		    {
+		        renderModifiers = TraitsImplementing<IRenderModifier>().ToArray();
+		        renders = TraitsImplementing<IRender>().ToArray();
+		    }
+		    disables = TraitsImplementing<IDisable>().ToArray();
 			visibilityModifiers = TraitsImplementing<IVisibilityModifier>().ToArray();
 			defaultVisibility = Trait<IDefaultVisibility>();
 			Targetables = TraitsImplementing<ITargetable>().ToArray();
@@ -170,6 +179,7 @@ namespace OpenRA
 
 		public IEnumerable<IRenderable> Render(WorldRenderer wr)
 		{
+		    if (RunSettings.Headless) return null;
 			// PERF: Avoid LINQ.
 			var renderables = Renderables(wr);
 			foreach (var modifier in renderModifiers)
@@ -179,17 +189,28 @@ namespace OpenRA
 
 		IEnumerable<IRenderable> Renderables(WorldRenderer wr)
 		{
-			// PERF: Avoid LINQ.
-			// Implementations of Render are permitted to return both an eagerly materialized collection or a lazily
-			// generated sequence.
-			// For large amounts of renderables, a lazily generated sequence (e.g. as returned by LINQ, or by using
-			// `yield`) will avoid the need to allocate a large collection.
-			// For small amounts of renderables, allocating a small collection can often be faster and require less
-			// memory than creating the objects needed to represent a sequence.
-			foreach (var render in renders)
-				foreach (var renderable in render.Render(this, wr))
-					yield return renderable;
-		}
+            if (RunSettings.Headless)
+            {
+                yield return null;
+            }
+            else
+            {
+                // PERF: Avoid LINQ.
+                // Implementations of Render are permitted to return both an eagerly materialized collection or a lazily
+                // generated sequence.
+                // For large amounts of renderables, a lazily generated sequence (e.g. as returned by LINQ, or by using
+                // `yield`) will avoid the need to allocate a large collection.
+                // For small amounts of renderables, allocating a small collection can often be faster and require less
+                // memory than creating the objects needed to represent a sequence.
+                foreach (var render in renders)
+                {
+                    foreach (var renderable in render.Render(this, wr))
+                    {
+                        yield return renderable;
+                    }
+                }
+            }
+        }
 
 		public void QueueActivity(bool queued, Activity nextActivity)
 		{
@@ -379,9 +400,34 @@ namespace OpenRA
 			return false;
 		}
 
-		#region Scripting interface
+        // ===========================================================================================================================
+        // BEGIN No Graphics Implementation
+        // ===========================================================================================================================
 
-		Lazy<ScriptActorInterface> luaInterface;
+        private bool MayBeRenderable(ITraitInfo trait)
+        {
+            // If this is an unaccepted graphic type, don't allow it to be created.
+            if (UNACCEPTED_TYPES.Contains(trait.GetType().Name))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        // Types which are ONLY graphical in nature.
+        private static readonly string[] UNACCEPTED_TYPES = {
+            "FloatingText"
+        };
+
+        // ===========================================================================================================================
+        // END No Graphics Implementation
+        // ===========================================================================================================================
+
+
+        #region Scripting interface
+
+        Lazy<ScriptActorInterface> luaInterface;
 		public void OnScriptBind(ScriptContext context)
 		{
 			if (luaInterface == null)

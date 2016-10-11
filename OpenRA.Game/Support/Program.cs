@@ -113,7 +113,8 @@ namespace OpenRA
 
 		static RunStatus Run(string[] args)
 		{
-			Game.Initialize(new Arguments(args));
+            
+            Game.Initialize(new Arguments(args));
 			GC.Collect();
 			var status = Game.Run();
 			if (status == RunStatus.Restart)

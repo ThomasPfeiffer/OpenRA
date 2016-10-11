@@ -174,9 +174,12 @@ namespace OpenRA
 					if (!p.Stances.ContainsKey(q))
 						p.Stances[q] = Stance.Neutral;
 
-			Game.Sound.SoundVolumeModifier = 1.0f;
+		    if (!RunSettings.Headless)
+		    {
+			    Game.Sound.SoundVolumeModifier = 1.0f;
+            }
 
-			gameInfo = new GameInformation
+            gameInfo = new GameInformation
 			{
 				Mod = Game.ModData.Manifest.Mod.Id,
 				Version = Game.ModData.Manifest.Mod.Version,
@@ -227,9 +230,15 @@ namespace OpenRA
 
 			foreach (var wlh in WorldActor.TraitsImplementing<IWorldLoaded>())
 			{
-				// These have already been initialized
-				if (wlh == ScreenMap)
-					continue;
+                if (RunSettings.Headless && !IsAcceptedType(wlh))
+                    continue;
+
+			    if (!RunSettings.Headless)
+			    {
+                    // These have already been initialized
+                    if (wlh == ScreenMap)
+                        continue;
+                }
 
 				using (new PerfTimer(wlh.GetType().Name + ".WorldLoaded"))
 					wlh.WorldLoaded(this, wr);
@@ -246,7 +255,24 @@ namespace OpenRA
 				rc.Metadata = new ReplayMetadata(gameInfo);
 		}
 
-		public Actor CreateActor(string name, TypeDictionary initDict)
+        private bool IsAcceptedType(IWorldLoaded wlh)
+        {
+            return ACCEPTED_TYPES.Contains(wlh.GetType().Name);
+        }
+
+        // Types which are necessary to load (Non-Graphic types)
+        private readonly string[] ACCEPTED_TYPES = {
+            "DevCommands",
+            "PlayerCommands",
+            "HelpCommand",
+            "DomainIndex",
+            "SpawnMapActors",
+            "MPStartLocations",
+            "SpawnMPUnits",
+            "ResourceClaimLayer"
+        };
+
+        public Actor CreateActor(string name, TypeDictionary initDict)
 		{
 			return CreateActor(true, name, initDict);
 		}
@@ -422,11 +448,14 @@ namespace OpenRA
 
 			frameEndActions.Clear();
 
-			Game.Sound.StopAudio();
-			Game.Sound.StopVideo();
+		    if (!RunSettings.Headless)
+            {
+                Game.Sound.StopAudio();
+                Game.Sound.StopVideo();
+            }
 
-			// Dispose newer actors first, and the world actor last
-			foreach (var a in actors.Values.Reverse())
+            // Dispose newer actors first, and the world actor last
+            foreach (var a in actors.Values.Reverse())
 				a.Dispose();
 
 			// Actor disposals are done in a FrameEndTask

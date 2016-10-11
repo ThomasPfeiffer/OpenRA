@@ -9,6 +9,7 @@
  */
 #endregion
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using OpenRA.Effects;
@@ -88,9 +89,18 @@ namespace OpenRA.Mods.Common.Effects
 		{
 			world.AddFrameEndTask(w => w.Remove(this));
 			weapon.Impact(Target.FromPos(pos), firedBy.PlayerActor, Enumerable.Empty<int>());
-			world.WorldActor.Trait<ScreenShaker>().AddEffect(20, pos, 5);
 
-			foreach (var flash in world.WorldActor.TraitsImplementing<FlashPaletteEffect>())
+            // Shaker can be null in No-Graphics implementation.
+            try
+            {
+                world.WorldActor.Trait<ScreenShaker>().AddEffect(20, pos, 5);
+            }
+            catch (InvalidOperationException)
+            {
+                Console.WriteLine("Attempted to shake screen for nuke launch");
+            }
+
+            foreach (var flash in world.WorldActor.TraitsImplementing<FlashPaletteEffect>())
 				if (flash.Info.Type == flashType)
 					flash.Enable(-1);
 		}

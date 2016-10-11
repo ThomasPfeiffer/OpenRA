@@ -24,55 +24,87 @@ namespace OpenRA.Graphics
 
 		public readonly Size TileSize;
 		public readonly World World;
+		readonly Lazy<DeveloperMode> devTrait;
+
 		public readonly Theater Theater;
 		public Viewport Viewport { get; private set; }
 
 		public event Action PaletteInvalidated = null;
-
-		readonly HardwarePalette palette = new HardwarePalette();
-		readonly Dictionary<string, PaletteReference> palettes = new Dictionary<string, PaletteReference>();
+		readonly HardwarePalette palette;
+		readonly Dictionary<string, PaletteReference> palettes;
 		readonly TerrainRenderer terrainRenderer;
-		readonly Lazy<DeveloperMode> devTrait;
 		readonly Func<string, PaletteReference> createPaletteReference;
 
 		internal WorldRenderer(World world)
 		{
-			World = world;
-			TileSize = World.Map.Grid.TileSize;
-			Viewport = new Viewport(this, world.Map);
+		    if (RunSettings.Headless)
+		    {
+		        World = world;
+		        TileSize = World.Map.Grid.TileSize;
+		        devTrait =
+		            Exts.Lazy(() => world.LocalPlayer != null ? world.LocalPlayer.PlayerActor.Trait<DeveloperMode>() : null);
+		        PaletteInvalidated = null;
+		        palette = null;
+		        palettes = null;
+		        terrainRenderer = null;
+		        createPaletteReference = null;
+		        Theater = null;
+		        Viewport = null;
+		    }
+		    else
+		    {
+                palette = new HardwarePalette();
+                palettes = new Dictionary<string, PaletteReference>();
 
-			createPaletteReference = CreatePaletteReference;
 
-			foreach (var pal in world.TraitDict.ActorsWithTrait<ILoadsPalettes>())
-				pal.Trait.LoadPalettes(this);
 
-			foreach (var p in world.Players)
-				UpdatePalettesForPlayer(p.InternalName, p.Color, false);
+                World = world;
+                TileSize = World.Map.Grid.TileSize;
+                Viewport = new Viewport(this, world.Map);
 
-			palette.Initialize();
+                createPaletteReference = CreatePaletteReference;
 
-			Theater = new Theater(world.Map.Rules.TileSet);
-			terrainRenderer = new TerrainRenderer(world, this);
+                foreach (var pal in world.TraitDict.ActorsWithTrait<ILoadsPalettes>())
+                    pal.Trait.LoadPalettes(this);
 
-			devTrait = Exts.Lazy(() => world.LocalPlayer != null ? world.LocalPlayer.PlayerActor.Trait<DeveloperMode>() : null);
+                foreach (var p in world.Players)
+                    UpdatePalettesForPlayer(p.InternalName, p.Color, false);
+
+                palette.Initialize();
+
+                Theater = new Theater(world.Map.Rules.TileSet);
+                terrainRenderer = new TerrainRenderer(world, this);
+
+                devTrait = Exts.Lazy(() => world.LocalPlayer != null ? world.LocalPlayer.PlayerActor.Trait<DeveloperMode>() : null);
+            }
 		}
 
 		public void UpdatePalettesForPlayer(string internalName, HSLColor color, bool replaceExisting)
 		{
+		    if (RunSettings.Headless) return;
+
 			foreach (var pal in World.WorldActor.TraitsImplementing<ILoadsPlayerPalettes>())
 				pal.LoadPlayerPalettes(this, internalName, color, replaceExisting);
 		}
 
 		PaletteReference CreatePaletteReference(string name)
 		{
-			var pal = palette.GetPalette(name);
+            if (RunSettings.Headless) return null;
+
+            var pal = palette.GetPalette(name);
 			return new PaletteReference(name, palette.GetPaletteIndex(name), pal, palette);
 		}
 
-		public PaletteReference Palette(string name) { return palettes.GetOrAdd(name, createPaletteReference); }
+	    public PaletteReference Palette(string name)
+	    {
+            if (RunSettings.Headless) return null;
+            return palettes.GetOrAdd(name, createPaletteReference);
+	    }
 		public void AddPalette(string name, ImmutablePalette pal, bool allowModifiers = false, bool allowOverwrite = false)
 		{
-			if (allowOverwrite && palette.Contains(name))
+            if (RunSettings.Headless) return;
+
+            if (allowOverwrite && palette.Contains(name))
 				ReplacePalette(name, pal);
 			else
 			{
@@ -86,7 +118,9 @@ namespace OpenRA.Graphics
 
 		public void ReplacePalette(string name, IPalette pal)
 		{
-			palette.ReplacePalette(name, pal);
+            if (RunSettings.Headless) return;
+
+            palette.ReplacePalette(name, pal);
 
 			// Update cached PlayerReference if one exists
 			if (palettes.ContainsKey(name))
@@ -95,7 +129,9 @@ namespace OpenRA.Graphics
 
 		List<IFinalizedRenderable> GenerateRenderables()
 		{
-			var actors = World.ScreenMap.ActorsInBox(Viewport.TopLeft, Viewport.BottomRight).Append(World.WorldActor);
+            if (RunSettings.Headless) return new List<IFinalizedRenderable>();
+
+            var actors = World.ScreenMap.ActorsInBox(Viewport.TopLeft, Viewport.BottomRight).Append(World.WorldActor);
 			if (World.RenderPlayer != null)
 				actors = actors.Append(World.RenderPlayer.PlayerActor);
 
@@ -118,7 +154,9 @@ namespace OpenRA.Graphics
 
 		public void Draw()
 		{
-			if (World.WorldActor.Disposed)
+            if (RunSettings.Headless) return;
+
+            if (World.WorldActor.Disposed)
 				return;
 
 			if (devTrait.Value != null)
@@ -199,7 +237,9 @@ namespace OpenRA.Graphics
 
 		public void RefreshPalette()
 		{
-			palette.ApplyModifiers(World.WorldActor.TraitsImplementing<IPaletteModifier>());
+            if (RunSettings.Headless) return;
+
+            palette.ApplyModifiers(World.WorldActor.TraitsImplementing<IPaletteModifier>());
 			Game.Renderer.SetPalette(palette);
 		}
 
@@ -267,9 +307,12 @@ namespace OpenRA.Graphics
 			// is so horrible that doing it properly would be a giant mess.
 			World.Dispose();
 
-			palette.Dispose();
-			Theater.Dispose();
-			terrainRenderer.Dispose();
+		    if (!RunSettings.Headless)
+		    {
+                palette.Dispose();
+                Theater.Dispose();
+                terrainRenderer.Dispose();
+            }
 		}
 	}
 }
