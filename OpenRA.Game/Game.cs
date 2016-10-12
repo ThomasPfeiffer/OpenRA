@@ -909,14 +909,15 @@ namespace OpenRA
             foreach (var mod in ModMetadata.AllMods)
                 Console.WriteLine("\t{0}: {1} ({2})", mod.Key, mod.Value.Title, mod.Value.Version);
 
-            Settings.Game.Mod = RED_ALERT;
+            if (!String.IsNullOrEmpty(RunSettings.Default_Mod))
+            {
+                Settings.Game.Mod = RunSettings.Default_Mod;
+            }
             InitializeModNoGraphics(Settings.Game.Mod, args);
 
             if (Settings.Server.DiscoverNatDevices)
                 RunAfterDelay(Settings.Server.NatDiscoveryTimeout, UPnP.StoppingNatDiscovery);
         }
-
-        public static readonly string RED_ALERT = "ra";
 
         public static void InitializeModNoGraphics(string mod, Arguments args)
         {
