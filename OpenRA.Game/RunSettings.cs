@@ -8,9 +8,10 @@ namespace OpenRA
 {
     public sealed class RunSettings
     {
-        public static bool Headless = false;
-        public static bool Autostart = false;
-        public static int Max_Ticks = 200000;
-        public static string Default_Mod = "";
+        public const bool Headless = false;
+        public const bool Autostart = true;
+        public const int Max_Ticks = 200000;
+        public const int Timestep = 40; // Default 40
+        public const string Default_Mod = "";
     }
 }
