@@ -194,6 +194,7 @@ namespace OpenRA
 
 		public void PlayMusicThen(MusicInfo m, Action then)
 		{
+		    if (RunSettings.Headless) return;
 			if (m == null || !m.Exists)
 				return;
 
@@ -219,7 +220,7 @@ namespace OpenRA
 
 		public void PlayMusic()
 		{
-			if (music == null)
+			if (RunSettings.Headless || music == null)
 				return;
 
 			MusicPlaying = true;
@@ -228,13 +229,13 @@ namespace OpenRA
 
 		public void StopSound(ISound sound)
 		{
-			if (sound != null)
+			if (!RunSettings.Headless && sound != null)
 				soundEngine.StopSound(sound);
 		}
 
 		public void StopMusic()
 		{
-			if (music != null)
+			if (!RunSettings.Headless && music != null)
 				soundEngine.StopSound(music);
 
 			MusicPlaying = false;
@@ -243,7 +244,7 @@ namespace OpenRA
 
 		public void PauseMusic()
 		{
-			if (music == null)
+			if (RunSettings.Headless || music == null)
 				return;
 
 			MusicPlaying = false;
@@ -330,6 +331,7 @@ namespace OpenRA
 		public bool PlayPredefined(Ruleset ruleset, Player p, Actor voicedActor, string type, string definition, string variant,
 			bool relative, WPos pos, float volumeModifier, bool attenuateVolume)
 		{
+		    if (RunSettings.Headless) return true;
 			if (ruleset == null)
 				throw new ArgumentNullException("ruleset");
 
@@ -387,6 +389,7 @@ namespace OpenRA
 
 		public bool PlayNotification(Ruleset rules, Player player, string type, string notification, string variant)
 		{
+            if(RunSettings.Headless) return true;
 			if (rules == null)
 				throw new ArgumentNullException("rules");
 
@@ -398,7 +401,8 @@ namespace OpenRA
 
 		public void Dispose()
 		{
-			soundEngine.Dispose();
+            if(soundEngine!=null)
+			    soundEngine.Dispose();
 		}
 	}
 }

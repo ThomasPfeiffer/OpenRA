@@ -136,7 +136,7 @@ namespace OpenRA.Mods.Common.Traits
 
 		void Play()
 		{
-			if (!SongExists(currentSong))
+			if (RunSettings.Headless || !SongExists(currentSong))
 				return;
 
 			Game.Sound.PlayMusicThen(currentSong, () =>
@@ -161,7 +161,7 @@ namespace OpenRA.Mods.Common.Traits
 
 		public void Play(MusicInfo music, Action onComplete)
 		{
-			if (music == null)
+			if (RunSettings.Headless || music == null)
 				return;
 
 			currentSong = music;
