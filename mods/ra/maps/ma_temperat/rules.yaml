@@ -1,0 +1,10 @@
+World:
+	MPStartUnits@mcvonly:
+		BaseActor: e1
+	SpawnMPUnits:
+		Locked: True
+	MapOptions:
+		TechLevelLocked: True
+		TechLevel: Unrestricted
+		ShortGameLocked: True
+		ShortGameEnabled: False

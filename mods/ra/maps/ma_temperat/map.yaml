@@ -14,7 +14,7 @@ Bounds: 1,1,48,48
 
 Visibility: Lobby
 
-Categories: Conquest
+Categories: Minigame
 
 Players:
 	PlayerReference@Neutral:
@@ -30,30 +30,61 @@ Players:
 	PlayerReference@Multi0:
 		Name: Multi0
 		Playable: True
-		Faction: Random
+		LockFaction: True
+		LockSpawn: True
+		Faction: allies
 		Enemies: Creeps
 	PlayerReference@Multi1:
 		Name: Multi1
 		Playable: True
-		Faction: Random
+		LockFaction: True
+		LockSpawn: True
+		Faction: soviet
 		Enemies: Creeps
 
 Actors:
 	Actor0: mpspawn
 		Owner: Neutral
-		Location: 7,7
+		Location: 38,41
 	Actor1: mpspawn
 		Owner: Neutral
-		Location: 39,41
+		Location: 7,7
 	Actor2: e1
 		Owner: Multi0
-		Location: 10,7
-		SubCell: 3
-		Facing: 92
-		TurretFacing: 92
+		Location: 8,7
 	Actor3: e1
 		Owner: Multi1
-		Location: 35,40
-		SubCell: 3
-		Facing: 92
-		TurretFacing: 92
+		Location: 38,40
+	Actor4: e1
+		Owner: Multi0
+		Location: 9,7
+	Actor5: e1
+		Owner: Multi1
+		Location: 37,40
+	Actor6: e1
+		Owner: Multi0
+		Location: 10,7
+	Actor7: e1
+		Owner: Multi1
+		Location: 38,40
+	Actor8: e1
+		Owner: Multi0
+		Location: 11,7
+	Actor9: e1
+		Owner: Multi1
+		Location: 39,40
+	Actor10: e1
+		Owner: Multi0
+		Location: 12,7
+	Actor11: e1
+		Owner: Multi1
+		Location: 40,40
+	Actor12: e1
+		Owner: Multi0
+		Location: 13,7
+	Actor13: e1
+		Owner: Multi1
+		Location: 41,40
+
+
+Rules: rules.yaml
