@@ -842,10 +842,25 @@ namespace OpenRA
 
         private static void AutoStartGame()
         {
-            // Find a random 2 player map we can use.
-            var usableMapList = ModData.MapCache
+            MapPreview myMap;
+            if (!String.IsNullOrEmpty(RunSettings.Default_Map))
+            {
+                var maps = ModData.MapCache.Where(m => m.Title.Equals(RunSettings.Default_Map)).ToList();
+                if (maps.Count != 1)
+                {
+                    throw new ArgumentException("Map cannot be found");
+                }
+                myMap = maps.First();
+            }
+            else
+            {
+                // Find a random 2 player map we can use.
+                var usableMapList = ModData.MapCache
                 .Where(m => m.Status == MapStatus.Available && m.Visibility.HasFlag(MapVisibility.Lobby) && m.PlayerCount == 2);
-            var myMap = usableMapList.Random(CosmeticRandom);
+                myMap = usableMapList.Random(CosmeticRandom);
+            }
+            
+            
             myMap.PreloadRules();
 
             // Create "local server" for game and join it.
@@ -853,13 +868,24 @@ namespace OpenRA
             JoinServer(IPAddress.Loopback.ToString(), localPort, "");
             OrderManager.TickImmediate();
 
+
+            String ai;
+            if (!String.IsNullOrEmpty(RunSettings.AI))
+            {
+                ai = RunSettings.AI;
+            }
+            else
+            {
+                ai = "Rush AI";
+            }
+
             Game.RunAfterDelay(1000, () =>
             {
                 // Set to spectate and create bots.
                 OrderManager.IssueOrder(Order.Command("state NotReady"));
                 OrderManager.IssueOrder(Order.Command("spectate"));
-                OrderManager.IssueOrder(Order.Command("slot_bot Multi0 0 Rush AI"));
-                OrderManager.IssueOrder(Order.Command("slot_bot Multi1 0 Rush AI"));
+                OrderManager.IssueOrder(Order.Command("slot_bot Multi0 0 " + ai));
+                OrderManager.IssueOrder(Order.Command("slot_bot Multi1 0 " + ai));
 
                 OrderManager.IssueOrder(Order.Command("startgame"));
 
