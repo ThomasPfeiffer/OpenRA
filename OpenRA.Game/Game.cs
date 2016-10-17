@@ -848,8 +848,12 @@ namespace OpenRA
                 var maps = ModData.MapCache.Where(m => m.Title.Equals(RunSettings.Default_Map)).ToList();
                 if (maps.Count != 1)
                 {
+                    if (maps.Count > 1)
+                    {
+                        throw new ArgumentException("Multiple maps found");
+                    }
                     throw new ArgumentException("Map cannot be found");
-                }
+                } 
                 myMap = maps.First();
             }
             else
