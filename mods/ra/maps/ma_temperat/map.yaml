@@ -1,0 +1,59 @@
+MapFormat: 11
+
+RequiresMod: ra
+
+Title: ma_temperat
+
+Author: Thomas
+
+Tileset: TEMPERAT
+
+MapSize: 50,50
+
+Bounds: 1,1,48,48
+
+Visibility: Lobby
+
+Categories: Conquest
+
+Players:
+	PlayerReference@Neutral:
+		Name: Neutral
+		OwnsWorld: True
+		NonCombatant: True
+		Faction: england
+	PlayerReference@Creeps:
+		Name: Creeps
+		NonCombatant: True
+		Faction: england
+		Enemies: Multi0, Multi1
+	PlayerReference@Multi0:
+		Name: Multi0
+		Playable: True
+		Faction: Random
+		Enemies: Creeps
+	PlayerReference@Multi1:
+		Name: Multi1
+		Playable: True
+		Faction: Random
+		Enemies: Creeps
+
+Actors:
+	Actor0: mpspawn
+		Owner: Neutral
+		Location: 7,7
+	Actor1: mpspawn
+		Owner: Neutral
+		Location: 39,41
+	Actor2: e1
+		Owner: Multi0
+		Location: 10,7
+		SubCell: 3
+		Facing: 92
+		TurretFacing: 92
+	Actor3: e1
+		Owner: Multi1
+		Location: 35,40
+		SubCell: 3
+		Facing: 92
+		TurretFacing: 92
