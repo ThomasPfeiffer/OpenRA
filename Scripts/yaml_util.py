@@ -58,13 +58,14 @@ def parse_yaml_file(file):
 
 
 def dump_yaml(yaml_dict, dump_file_name):
-    def write_entry(file, dict, indent):
-        if isinstance(dict, str):
-            file.write(dict + '\n')
-        for key, value in dict.items():
+    def write_entry(file, entry, indent):
+        if isinstance(entry, str):
+            file.write(entry + '\n')
+            return
+        for key, value in entry.items():
             if key == 'self':
                 continue
-            line = '\t' * indent + str(key) + ': '
+            line = '    ' * indent + str(key) + ': '
             if 'self' in value:
                 line += value['self'] + '\n'
             file.write(line)
