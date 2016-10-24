@@ -2,7 +2,7 @@ import yaml_util
 import csv_util
 from collections import OrderedDict
 
-map_path = "C:/dev/OpenRA/Game/mods/ra/maps/"
+map_path = "../Game/mods/ra/maps/"
 map_name = "ma_temperat/"
 map_file = map_path + map_name + 'map.yaml'
 actors_file = map_path + map_name + 'actors.csv'
