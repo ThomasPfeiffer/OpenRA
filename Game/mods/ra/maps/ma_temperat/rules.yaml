@@ -1,6 +1,6 @@
 World:
-	MPStartUnits@mcvonly:
-		BaseActor: e1
+	#MPStartUnits@mcvonly:
+		#BaseActor: e1
 	SpawnMPUnits:
 		Locked: True
 	MapOptions:

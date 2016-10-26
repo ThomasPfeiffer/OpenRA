@@ -1,239 +1,42 @@
 MapFormat: 11
-
 RequiresMod: ra
-
 Title: ma_temperat
-
 Author: Thomas
-
 Tileset: TEMPERAT
-
 MapSize: 50,50
-
 Bounds: 1,1,48,48
-
 Visibility: Lobby
-
 Categories: Minigame
-
-Players:
-	PlayerReference@Neutral:
-		Name: Neutral
-		OwnsWorld: True
-		NonCombatant: True
-		Faction: england
-	PlayerReference@Creeps:
-		Name: Creeps
-		NonCombatant: True
-		Faction: england
-		Enemies: Multi0, Multi1
-	PlayerReference@Multi0:
-		Name: Multi0
-		Playable: True
-		LockFaction: True
-		Faction: allies
-		LockSpawn: True
-		Enemies: Creeps
-	PlayerReference@Multi1:
-		Name: Multi1
-		Playable: True
-		LockFaction: True
-		Faction: soviet
-		LockSpawn: True
-		Enemies: Creeps
-
-Actors:
-	Actor0: mpspawn
-		Owner: Neutral
-		Location: 38,41
-	Actor1: mpspawn
-		Owner: Neutral
-		Location: 7,7
-	Actor2: e1
-		Owner: Multi0
-		Location: 10,11
-	Actor3: e1
-		Owner: Multi0
-		Location: 11,10
-	Actor4: e1
-		Owner: Multi0
-		Location: 11,11
-	Actor5: e1
-		Owner: Multi0
-		Location: 12,10
-	Actor6: e1
-		Owner: Multi0
-		Location: 10,12
-	Actor7: e1
-		Owner: Multi0
-		Location: 12,12
-	Actor8: e1
-		Owner: Multi0
-		Location: 13,10
-	Actor9: e1
-		Owner: Multi0
-		Location: 10,13
-	Actor10: e1
-		Owner: Multi0
-		Location: 13,13
-	Actor11: e1
-		Owner: Multi0
-		Location: 14,10
-	Actor12: e1
-		Owner: Multi0
-		Location: 10,14
-	Actor13: e1
-		Owner: Multi0
-		Location: 14,14
-	Actor14: 4tnk
-		Owner: Multi0
-		Location: 15,10
-	Actor15: 4tnk
-		Owner: Multi0
-		Location: 10,15
-	Actor16: 4tnk
-		Owner: Multi0
-		Location: 15,15
-	Actor17: 2tnk
-		Owner: Multi0
-		Location: 16,10
-	Actor18: 2tnk
-		Owner: Multi0
-		Location: 10,16
-	Actor19: 2tnk
-		Owner: Multi0
-		Location: 16,16
-	Actor20: 2tnk
-		Owner: Multi0
-		Location: 17,10
-	Actor21: 2tnk
-		Owner: Multi0
-		Location: 10,17
-	Actor22: 1tnk
-		Owner: Multi0
-		Location: 17,17
-	Actor23: 1tnk
-		Owner: Multi0
-		Location: 18,10
-	Actor24: 1tnk
-		Owner: Multi0
-		Location: 10,18
-	Actor25: 1tnk
-		Owner: Multi0
-		Location: 18,18
-	Actor26: 1tnk
-		Owner: Multi0
-		Location: 19,10
-	Actor27: e3
-		Owner: Multi0
-		Location: 10,19
-	Actor28: e3
-		Owner: Multi0
-		Location: 19,19
-	Actor29: e3
-		Owner: Multi0
-		Location: 12,10
-	Actor30: e3
-		Owner: Multi0
-		Location: 10,12
-	Actor31: e3
-		Owner: Multi0
-		Location: 13,10
-	Actor32: e3
-		Owner: Multi0
-		Location: 10,13
-	Actor33: e1
-		Owner: Multi1
-		Location: 30,30
-	Actor34: e1
-		Owner: Multi1
-		Location: 31,30
-	Actor35: e1
-		Owner: Multi1
-		Location: 30,31
-	Actor36: e1
-		Owner: Multi1
-		Location: 31,31
-	Actor37: e1
-		Owner: Multi1
-		Location: 32,32
-	Actor38: e1
-		Owner: Multi1
-		Location: 32,30
-	Actor39: e1
-		Owner: Multi1
-		Location: 30,32
-	Actor40: e1
-		Owner: Multi1
-		Location: 33,30
-	Actor41: e1
-		Owner: Multi1
-		Location: 30,33
-	Actor42: e1
-		Owner: Multi1
-		Location: 33,33
-	Actor43: e1
-		Owner: Multi1
-		Location: 34,30
-	Actor44: e1
-		Owner: Multi1
-		Location: 30,34
-	Actor45: e1
-		Owner: Multi1
-		Location: 34,34
-	Actor46: e1
-		Owner: Multi1
-		Location: 35,30
-	Actor47: e1
-		Owner: Multi1
-		Location: 30,35
-	Actor48: e1
-		Owner: Multi1
-		Location: 35,31
-	Actor49: e1
-		Owner: Multi1
-		Location: 31,35
-	Actor50: e1
-		Owner: Multi1
-		Location: 32,35
-	Actor51: e1
-		Owner: Multi1
-		Location: 35,32
-	Actor52: e1
-		Owner: Multi1
-		Location: 33,35
-	Actor53: e1
-		Owner: Multi1
-		Location: 35,33
-	Actor54: e1
-		Owner: Multi1
-		Location: 34,35
-	Actor55: e1
-		Owner: Multi1
-		Location: 35,34
-	Actor56: e1
-		Owner: Multi1
-		Location: 35,35
-	Actor57: e1
-		Owner: Multi1
-		Location: 36,30
-	Actor58: e1
-		Owner: Multi1
-		Location: 30,36
-	Actor59: e1
-		Owner: Multi1
-		Location: 36,31
-	Actor60: e1
-		Owner: Multi1
-		Location: 32,36
-	Actor61: e1
-		Owner: Multi1
-		Location: 33,36
-	Actor62: e1
-		Owner: Multi1
-		Location: 36,33
-	Actor63: e1
-		Owner: Multi1
-		Location: 36,34
-
+Players: 
+    PlayerReference@Neutral: 
+        Name: Neutral
+        OwnsWorld: True
+        NonCombatant: True
+        Faction: england
+    PlayerReference@Creeps: 
+        Name: Creeps
+        NonCombatant: True
+        Faction: england
+        Enemies: Multi0, Multi1
+    PlayerReference@Multi0: 
+        Name: Multi0
+        Playable: True
+        LockFaction: True
+        Faction: allies
+        LockSpawn: True
+        Enemies: Creeps
+    PlayerReference@Multi1: 
+        Name: Multi1
+        Playable: True
+        LockFaction: True
+        Faction: soviet
+        LockSpawn: True
+        Enemies: Creeps
+Actors: 
+    Actor0: mpspawn
+        Owner: Neutral
+        Location: 40,40
+    Actor1: mpspawn
+        Owner: Neutral
+        Location: 7,7
 Rules: rules.yaml
