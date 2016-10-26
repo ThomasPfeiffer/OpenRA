@@ -579,7 +579,10 @@ namespace OpenRA
 			InnerLogicTick(OrderManager);
 			if (worldRenderer != null && OrderManager.World != worldRenderer.World)
 				InnerLogicTick(worldRenderer.World.OrderManager);
-		}
+
+            // Check for max ticks.
+            CheckMaxTicksReached(OrderManager.World);
+        }
 
 		public static bool TakeScreenshot = false;
 
@@ -1117,7 +1120,7 @@ namespace OpenRA
         {
             if (LocalTick >= RunSettings.Max_Ticks)
             {
-                Log.Write("order_manager", "Maximum Ticks Reached: {0}".F(RunSettings.Max_Ticks));
+                Console.WriteLine("Maximum Ticks Reached: {0}".F(RunSettings.Max_Ticks));
                 world.EndGame();
             }
         }
