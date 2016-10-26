@@ -882,6 +882,15 @@ namespace OpenRA
             {
                 ai = "Rush AI";
             }
+            String ai2;
+            if (!String.IsNullOrEmpty(RunSettings.AI2))
+            {
+                ai2 = RunSettings.AI2;
+            }
+            else
+            {
+                ai2 = "Rush AI";
+            }
 
             Game.RunAfterDelay(1000, () =>
             {
@@ -889,7 +898,7 @@ namespace OpenRA
                 OrderManager.IssueOrder(Order.Command("state NotReady"));
                 OrderManager.IssueOrder(Order.Command("spectate"));
                 OrderManager.IssueOrder(Order.Command("slot_bot Multi0 0 " + ai));
-                OrderManager.IssueOrder(Order.Command("slot_bot Multi1 0 " + ai));
+                OrderManager.IssueOrder(Order.Command("slot_bot Multi1 0 " + ai2));
 
                 OrderManager.IssueOrder(Order.Command("startgame"));
 

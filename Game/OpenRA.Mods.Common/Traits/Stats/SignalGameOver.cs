@@ -22,7 +22,7 @@ namespace OpenRA.Mods.Common.Traits.Esu
 
         public void GameOver(World world)
         {
-            if (!RunSettings.Headless) return;
+            if (!RunSettings.Autostart) return;
             Console.WriteLine("Game Complete!");
             PrintPlayerFitnessInformation(world);
 
@@ -33,7 +33,7 @@ namespace OpenRA.Mods.Common.Traits.Esu
         private void PrintPlayerFitnessInformation(World world)
         {
             PrintToConsoleAndLog(String.Format(FORMAT_STRING, "PLAYER NAME", "KILL COST", "UNITS KILLED", "DEATH COST" , "UNITS DIED"));
-
+            Console.WriteLine("Ticks: " + world.WorldTick);
             foreach (var p in world.Players.Where(a => !a.NonCombatant))
             {
                 var stats = p.PlayerActor.TraitOrDefault<PlayerStatistics>();
@@ -41,7 +41,6 @@ namespace OpenRA.Mods.Common.Traits.Esu
                 {
                     continue;
                 }
-                
                 PrintToConsoleAndLog(String.Format(FORMAT_STRING, p.PlayerName, stats.KillsCost, stats.UnitsKilled, stats.DeathsCost, stats.UnitsDead));
             }
         }
@@ -49,7 +48,6 @@ namespace OpenRA.Mods.Common.Traits.Esu
         private void PrintToConsoleAndLog(string message)
         {
             Console.WriteLine(message);
-            Log.Write("end_game_fitness", message);
         }
     }
 }
