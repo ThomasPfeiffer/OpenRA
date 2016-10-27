@@ -875,35 +875,20 @@ namespace OpenRA
             JoinServer(IPAddress.Loopback.ToString(), localPort, "");
             OrderManager.TickImmediate();
 
-
-            String ai;
-            if (!String.IsNullOrEmpty(RunSettings.AI))
-            {
-                ai = RunSettings.AI;
-            }
-            else
-            {
-                ai = "Rush AI";
-            }
-            String ai2;
-            if (!String.IsNullOrEmpty(RunSettings.AI2))
-            {
-                ai2 = RunSettings.AI2;
-            }
-            else
-            {
-                ai2 = "Rush AI";
-            }
-
             Game.RunAfterDelay(1000, () =>
             {
                 // Set to spectate and create bots.
                 OrderManager.IssueOrder(Order.Command("state NotReady"));
                 OrderManager.IssueOrder(Order.Command("spectate"));
-                OrderManager.IssueOrder(Order.Command("slot_bot Multi0 0 " + ai));
-                OrderManager.IssueOrder(Order.Command("slot_bot Multi1 0 " + ai2));
-
+                int i = 0;
+                foreach (Tuple<string, string> ai in RunSettings.AI_LIST)
+                {
+                    OrderManager.IssueOrder(Order.Command($"slot_bot Multi{i++} 0 {ai.Item1}"));
+                    OrderManager.IssueOrder(Order.Command($"faction {i} {ai.Item2}"));
+                }
+                OrderManager.TickImmediate();
                 OrderManager.IssueOrder(Order.Command("startgame"));
+                FitnessLogging.Instance.LogLine($"StartTimestamp:{DateTime.Now:O}");
 
                 // Issue all immediate orders.
                 OrderManager.TickImmediate();
