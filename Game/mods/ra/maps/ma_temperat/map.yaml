@@ -24,14 +24,14 @@ Players:
         LockFaction: True
         Faction: allies
         LockSpawn: True
-        Enemies: Creeps
+        Enemies: Creeps,Multi1
     PlayerReference@Multi1: 
         Name: Multi1
         Playable: True
         LockFaction: True
         Faction: soviet
         LockSpawn: True
-        Enemies: Creeps
+        Enemies: Creeps,Multi0
 Actors: 
     Actor0: mpspawn
         Owner: Neutral

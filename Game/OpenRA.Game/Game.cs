@@ -245,6 +245,10 @@ namespace OpenRA
 
 		internal static void Initialize(Arguments args)
         {
+		    if (args.Contains("--fitness-log"))
+		    {
+		        RunSettings.FitnessLog = args.GetValue("--fitness-log", "");
+		    }
             if (RunSettings.Headless)
             {
                 InitializeNoGraphics(args);

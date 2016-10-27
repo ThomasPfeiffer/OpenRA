@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using OpenRA.Traits;
 
-namespace OpenRA.Mods.Common.Traits.Esu
+namespace OpenRA.Mods.Common.Traits.Stats
 {
     public class SignalGameOverInfo : ITraitInfo
     {
         public object Create(ActorInitializer init)
         {
-            Log.AddChannel("end_game_fitness", "end_game_fitness.log");
             return new SignalGameOver();
         }
     }
@@ -18,7 +18,8 @@ namespace OpenRA.Mods.Common.Traits.Esu
     /** A simple callback to tell us when the game is over. */
     public class SignalGameOver : IGameOver
     {
-        private const string FORMAT_STRING = "{0,-30} | {1,-30} | {2,-30} | {3, -30} | {4, -30}\n";
+        private const string F_PLAYER_NAME = "Player{0}Stats: ";
+        private const string F_STAT = "\t{0}: {1}";
 
         public void GameOver(World world)
         {
@@ -32,8 +33,10 @@ namespace OpenRA.Mods.Common.Traits.Esu
 
         private void PrintPlayerFitnessInformation(World world)
         {
-            PrintToConsoleAndLog(String.Format(FORMAT_STRING, "PLAYER NAME", "KILL COST", "UNITS KILLED", "DEATH COST" , "UNITS DIED"));
-            Console.WriteLine("Ticks: " + world.WorldTick);
+            FitnessLogging logger = FitnessLogging.Instance;
+            logger.LogLine($"Ticks:  + {world.WorldTick}");
+            logger.LogLine("EndTimestamp: " + $"{DateTime.Now:O}");
+            int i = 0;
             foreach (var p in world.Players.Where(a => !a.NonCombatant))
             {
                 var stats = p.PlayerActor.TraitOrDefault<PlayerStatistics>();
@@ -41,13 +44,20 @@ namespace OpenRA.Mods.Common.Traits.Esu
                 {
                     continue;
                 }
-                PrintToConsoleAndLog(String.Format(FORMAT_STRING, p.PlayerName, stats.KillsCost, stats.UnitsKilled, stats.DeathsCost, stats.UnitsDead));
+                logger.LogLine(String.Format(F_PLAYER_NAME, i++));
+                logger.LogLine(String.Format(F_STAT, "PlayerName", p.PlayerName));
+                logger.LogLine(String.Format(F_STAT, "Faction", p.Faction.Name));
+                logger.LogLine(String.Format(F_STAT, "Winner", (p.WinState == WinState.Won)));
+                logger.LogLine(String.Format(F_STAT, "BuildingsDead", stats.BuildingsDead));
+                logger.LogLine(String.Format(F_STAT, "BuildingsKilled", stats.BuildingsKilled));
+                logger.LogLine(String.Format(F_STAT, "DeathsCost", stats.DeathsCost));
+                logger.LogLine(String.Format(F_STAT, "KillsCost", stats.KillsCost));
+                logger.LogLine(String.Format(F_STAT, "OrderCount", stats.OrderCount));
+                logger.LogLine(String.Format(F_STAT, "UnitsDead", stats.UnitsDead));
+                logger.LogLine(String.Format(F_STAT, "UnitsKilled", stats.UnitsKilled));
             }
         }
 
-        private void PrintToConsoleAndLog(string message)
-        {
-            Console.WriteLine(message);
-        }
+        
     }
 }
