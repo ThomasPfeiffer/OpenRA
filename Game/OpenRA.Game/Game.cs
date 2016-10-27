@@ -1113,7 +1113,7 @@ namespace OpenRA
         {
             if (LocalTick >= RunSettings.Max_Ticks)
             {
-                world.EndGame();
+                world.EndGame(true);
             }
         }
 
