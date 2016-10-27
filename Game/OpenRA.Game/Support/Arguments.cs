@@ -16,7 +16,7 @@ namespace OpenRA
 {
 	public class Arguments
 	{
-		Dictionary<string, string> args = new Dictionary<string, string>();
+	    private Dictionary<string, string> args = new Dictionary<string, string>();
 
 		public static Arguments Empty { get { return new Arguments(); } }
 
@@ -33,6 +33,10 @@ namespace OpenRA
 			}
 		}
 
+        public Dictionary<string,string> getArgs()
+        {
+            return args;
+        }
 		public bool Contains(string key) { return args.ContainsKey(key); }
 		public string GetValue(string key, string defaultValue) { return Contains(key) ? args[key] : defaultValue; }
 	}

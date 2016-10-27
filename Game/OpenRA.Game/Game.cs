@@ -245,10 +245,14 @@ namespace OpenRA
 
 		internal static void Initialize(Arguments args)
         {
-		    if (args.Contains("--fitness-log"))
-		    {
-		        RunSettings.FitnessLog = args.GetValue("--fitness-log", "");
-		    }
+            if (args.Contains("--fitness-log"))
+            {
+                RunSettings.FitnessLog = args.GetValue("--fitness-log", "");
+            }
+            if (args.Contains("--game-id"))
+            {
+                RunSettings.Game_ID = args.GetValue("--game-id", "");
+            }
             if (RunSettings.Headless)
             {
                 InitializeNoGraphics(args);
@@ -892,7 +896,7 @@ namespace OpenRA
                 }
                 OrderManager.TickImmediate();
                 OrderManager.IssueOrder(Order.Command("startgame"));
-                FitnessLogging.Instance.LogLine($"StartTimestamp:{DateTime.Now:O}");
+                FitnessLogging.Instance.AddEntry("StartTimestamp", $"{DateTime.Now:O}");
 
                 // Issue all immediate orders.
                 OrderManager.TickImmediate();
@@ -1109,7 +1113,6 @@ namespace OpenRA
         {
             if (LocalTick >= RunSettings.Max_Ticks)
             {
-                Console.WriteLine("Maximum Ticks Reached: {0}".F(RunSettings.Max_Ticks));
                 world.EndGame();
             }
         }

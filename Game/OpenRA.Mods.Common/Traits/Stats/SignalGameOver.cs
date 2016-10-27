@@ -19,7 +19,6 @@ namespace OpenRA.Mods.Common.Traits.Stats
     public class SignalGameOver : IGameOver
     {
         private const string F_PLAYER_NAME = "Player{0}Stats: ";
-        private const string F_STAT = "\t{0}: {1}";
 
         public void GameOver(World world)
         {
@@ -34,8 +33,8 @@ namespace OpenRA.Mods.Common.Traits.Stats
         private void PrintPlayerFitnessInformation(World world)
         {
             FitnessLogging logger = FitnessLogging.Instance;
-            logger.LogLine($"Ticks:  + {world.WorldTick}");
-            logger.LogLine("EndTimestamp: " + $"{DateTime.Now:O}");
+            logger.AddEntry("Ticks",world.WorldTick);
+            logger.AddEntry("EndTimestamp",$"{DateTime.Now:O}");
             int i = 0;
             foreach (var p in world.Players.Where(a => !a.NonCombatant))
             {
@@ -44,17 +43,17 @@ namespace OpenRA.Mods.Common.Traits.Stats
                 {
                     continue;
                 }
-                logger.LogLine(String.Format(F_PLAYER_NAME, i++));
-                logger.LogLine(String.Format(F_STAT, "PlayerName", p.PlayerName));
-                logger.LogLine(String.Format(F_STAT, "Faction", p.Faction.Name));
-                logger.LogLine(String.Format(F_STAT, "Winner", (p.WinState == WinState.Won)));
-                logger.LogLine(String.Format(F_STAT, "BuildingsDead", stats.BuildingsDead));
-                logger.LogLine(String.Format(F_STAT, "BuildingsKilled", stats.BuildingsKilled));
-                logger.LogLine(String.Format(F_STAT, "DeathsCost", stats.DeathsCost));
-                logger.LogLine(String.Format(F_STAT, "KillsCost", stats.KillsCost));
-                logger.LogLine(String.Format(F_STAT, "OrderCount", stats.OrderCount));
-                logger.LogLine(String.Format(F_STAT, "UnitsDead", stats.UnitsDead));
-                logger.LogLine(String.Format(F_STAT, "UnitsKilled", stats.UnitsKilled));
+                logger.AddParent(String.Format(F_PLAYER_NAME, i++));
+                logger.AddEntry("PlayerName", p.PlayerName);
+                logger.AddEntry("Faction", p.Faction.Name);
+                logger.AddEntry("Winner", (p.WinState == WinState.Won));
+                logger.AddEntry("BuildingsDead", stats.BuildingsDead);
+                logger.AddEntry("BuildingsKilled", stats.BuildingsKilled);
+                logger.AddEntry("DeathsCost", stats.DeathsCost);
+                logger.AddEntry("KillsCost", stats.KillsCost);
+                logger.AddEntry("OrderCount", stats.OrderCount);
+                logger.AddEntry("UnitsDead", stats.UnitsDead);
+                logger.AddEntry("UnitsKilled", stats.UnitsKilled);
             }
         }
 

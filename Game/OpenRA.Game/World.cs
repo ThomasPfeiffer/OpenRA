@@ -53,13 +53,13 @@ namespace OpenRA
 
 		public event Action GameOver = () => { };
 		public bool IsGameOver { get; private set; }
-		public void EndGame()
+		public void EndGame(bool maxTicks=false)
 		{
 			if (!IsGameOver)
 			{
 				IsGameOver = true;
-
-				foreach (var t in WorldActor.TraitsImplementing<IGameOver>())
+                FitnessLogging.Instance.AddEntry("MaxTicksReached", maxTicks.ToString());
+                foreach (var t in WorldActor.TraitsImplementing<IGameOver>())
 					t.GameOver(this);
 
 				GameOver();
