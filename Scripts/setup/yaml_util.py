@@ -1,5 +1,7 @@
 from collections import OrderedDict
-
+import re
+import random
+from model import Parameter
 
 def parse_yaml_file(file):
     def get_indent(line):
@@ -16,7 +18,7 @@ def parse_yaml_file(file):
         return int(indent)
 
     def extract_values(line):
-        key, value = line.split(':')
+        key, value = line.split(':',1)
         yield key.strip()
         yield value.strip()
 
@@ -76,3 +78,29 @@ def dump_yaml(yaml_dict, dump_file_name):
         write_entry(file, yaml_dict, 0)
 
 
+def read_param_placeholders(filename):
+    placeholders = []
+    with open(filename, 'r') as param_file:
+        for line in param_file:
+            match = re.search("param_\w+ \d+ \d+",line)
+            if match:
+                s = match.group(0).split()
+                placeholders.append(Parameter(s[0].lstrip("param_"),match.group(0),int(s[1]),int(s[2])))
+    return placeholders
+
+
+def write_params_to_placeholders(read_file, write_file, params):
+    i=0
+    param = params[i]
+    with open(write_file, 'w') as new_file:
+        with open(read_file) as old_file:
+            for line in old_file:
+                if param.file_string in line:
+                    new_file.write(line.replace(param.file_string, str(param.value)))
+                    i += 1
+                    if i < len(params):
+                        param = params[i]
+                else:
+                    new_file.write(line)
+    if i < len(params):
+        raise AssertionError("Only " + str(i+1) + " parameters were replaced.")

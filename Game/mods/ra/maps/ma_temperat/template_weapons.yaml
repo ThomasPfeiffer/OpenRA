@@ -1,9 +1,9 @@
 M1Carbine:
-	ReloadDelay: 13
+	ReloadDelay: param_reload 1 30
 	Range: 50c0
 	Warhead@1Dam: SpreadDamage
-		Spread: 36
-		Damage: 74
+		Spread: param_spread 1 50
+		Damage: param_damage 10 300
 		Versus:
 			Wood: 100
 			Light: 100
