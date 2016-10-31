@@ -1,0 +1,11 @@
+M1Carbine:
+	ReloadDelay: 20
+	Range: 50c0
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 1500
+		Versus:
+			Wood: 250
+			Light: 300
+			Heavy: 100
+			Concrete: 100

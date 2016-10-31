@@ -8,35 +8,36 @@ Bounds: 1,1,48,48
 Visibility: Lobby
 Categories: Minigame
 Players: 
-    PlayerReference@Neutral: 
-        Name: Neutral
-        OwnsWorld: True
-        NonCombatant: True
-        Faction: england
-    PlayerReference@Creeps: 
-        Name: Creeps
-        NonCombatant: True
-        Faction: england
-        Enemies: Multi0, Multi1
-    PlayerReference@Multi0: 
-        Name: Multi0
-        Playable: True
-        LockFaction: True
-        Faction: allies
-        LockSpawn: True
-        Enemies: Creeps,Multi1
-    PlayerReference@Multi1: 
-        Name: Multi1
-        Playable: True
-        LockFaction: True
-        Faction: soviet
-        LockSpawn: True
-        Enemies: Creeps,Multi0
+	PlayerReference@Neutral: 
+		Name: Neutral
+		OwnsWorld: True
+		NonCombatant: True
+		Faction: england
+	PlayerReference@Creeps: 
+		Name: Creeps
+		NonCombatant: True
+		Faction: england
+		Enemies: Multi0, Multi1
+	PlayerReference@Multi0: 
+		Name: Multi0
+		Playable: True
+		LockFaction: True
+		Faction: allies
+		LockSpawn: True
+		Enemies: Creeps,Multi1
+	PlayerReference@Multi1: 
+		Name: Multi1
+		Playable: True
+		LockFaction: True
+		Faction: soviet
+		LockSpawn: True
+		Enemies: Creeps,Multi0
 Actors: 
-    Actor0: mpspawn
-        Owner: Neutral
-        Location: 40,40
-    Actor1: mpspawn
-        Owner: Neutral
-        Location: 7,7
+	Actor0: mpspawn
+		Owner: Neutral
+		Location: 40,40
+	Actor1: mpspawn
+		Owner: Neutral
+		Location: 7,7
 Rules: rules.yaml
+Weapons: weapons.yaml
