@@ -31,7 +31,7 @@ namespace OpenRA
 	public static class Game
 	{
 		public const int NetTickScale = 3; // 120 ms net tick for 40 ms local tick
-		public const int Timestep = RunSettings.Timestep;
+		public static int Timestep = RunSettings.Timestep;
 		public const int TimestepJankThreshold = 250; // Don't catch up for delays larger than 250ms
 
 		public static ModData ModData;
@@ -244,15 +244,8 @@ namespace OpenRA
 		}
 
 		internal static void Initialize(Arguments args)
-        {
-            if (args.Contains("--fitness-log"))
-            {
-                RunSettings.FitnessLog = args.GetValue("--fitness-log", "");
-            }
-            if (args.Contains("--game-id"))
-            {
-                RunSettings.Game_ID = args.GetValue("--game-id", "");
-            }
+		{
+		    RunSettings.ReadArgs(args);
             if (RunSettings.Headless)
             {
                 InitializeNoGraphics(args);
@@ -854,9 +847,17 @@ namespace OpenRA
         private static void AutoStartGame()
         {
             MapPreview myMap;
-            if (!String.IsNullOrEmpty(RunSettings.Default_Map))
+            if (String.IsNullOrEmpty(RunSettings.GameMap) || "random".Equals(RunSettings.GameMap) )
             {
-                var maps = ModData.MapCache.Where(m => m.Title.Equals(RunSettings.Default_Map)).ToList();
+                // Find a random 2 player map we can use.
+                var usableMapList = ModData.MapCache
+                .Where(m => m.Status == MapStatus.Available && m.Visibility.HasFlag(MapVisibility.Lobby) && m.PlayerCount == 2);
+                myMap = usableMapList.Random(CosmeticRandom);
+                
+            }
+            else
+            {
+                var maps = ModData.MapCache.Where(m => m.Title.Equals(RunSettings.GameMap)).ToList();
                 if (maps.Count != 1)
                 {
                     if (maps.Count > 1)
@@ -864,15 +865,8 @@ namespace OpenRA
                         throw new ArgumentException("Multiple maps found");
                     }
                     throw new ArgumentException("Map cannot be found");
-                } 
+                }
                 myMap = maps.First();
-            }
-            else
-            {
-                // Find a random 2 player map we can use.
-                var usableMapList = ModData.MapCache
-                .Where(m => m.Status == MapStatus.Available && m.Visibility.HasFlag(MapVisibility.Lobby) && m.PlayerCount == 2);
-                myMap = usableMapList.Random(CosmeticRandom);
             }
             
             
@@ -1111,7 +1105,7 @@ namespace OpenRA
 
         private static void CheckMaxTicksReached(World world)
         {
-            if (LocalTick >= RunSettings.Max_Ticks)
+            if (LocalTick >= RunSettings.MaxTicks)
             {
                 world.EndGame(true);
             }
