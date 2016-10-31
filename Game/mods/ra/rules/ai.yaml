@@ -477,3 +477,51 @@ Player:
 				Attractiveness: -10
 				TargetMetric: Value
 				CheckRadius: 7c0
+	HackyAI@RifleManAI:
+		Name: Rifle Man AI
+		MinimumExcessPower: 20
+		SquadSize: 1
+		RushInterval: 1
+		BuildingCommonNames:
+			ConstructionYard: fact
+			Refinery: proc
+			Power: powr,apwr
+			Barracks: barr,tent
+			VehiclesFactory: weap
+			Production: barr,tent,weap,afld,hpad
+			Silo: silo
+		UnitsCommonNames:
+			Mcv: mcv
+		BuildingLimits:
+			proc: 1
+			barr: 1
+			tent: 1
+			kenn: 1
+			dome: 1
+			weap: 1
+			hpad: 1
+			afld: 1
+			atek: 1
+			stek: 1
+			fix: 1
+		BuildingFractions:
+			proc: 29%
+			powr: 1%
+			apwr: 24%
+			dome: 1%
+			weap: 1%
+			hpad: 20%
+			afld: 20%
+			atek: 1%
+			stek: 1%
+			spen: 1%
+			syrd: 1%
+			pbox: 12%
+			gun: 12%
+			ftur: 12%
+			tsla: 12%
+			agun: 5%
+			sam: 5%
+			mslo: 1%
+		UnitsToBuild:
+			e1: 100%
