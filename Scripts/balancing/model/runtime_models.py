@@ -1,7 +1,5 @@
 from collections import OrderedDict
 
-from balancing.utility import yaml_util
-
 
 class Actor:
     def __init__(self, name , owner , x, y):
@@ -18,24 +16,20 @@ class Actor:
         ])
 
 
+class TemplateFile:
+    def __init__(self, template_file, write_file, parameters):
+        self.read_file = template_file
+        self.write_file = write_file
+        self.parameters = []
+        self.parameters = parameters
+
+
 class Parameter:
     def __init__(self, name, file_string, min_value, max_value):
         self.name = name
         self.file_string = file_string
         self.min_value = min_value
         self.max_value = max_value
-
-
-class TemplateFile:
-    def __init__(self, template_file, write_file):
-        self.read_file = template_file
-        self.write_file = write_file
-        self.parameters = []
-        self.parameters = yaml_util.read_param_placeholders(self.read_file)
-
-    def write_to_file(self):
-        yaml_util.write_params_to_placeholders(self.read_file, self.write_file, self.parameters)
-
 
 
 class ParameterList:

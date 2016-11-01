@@ -2,3 +2,5 @@ Scripts/.idea/
 .idea/
 *.pyc
 Scripts/optimization/logs/
+Scripts/balancing/fitness.db
+Scripts/balancing/logs/

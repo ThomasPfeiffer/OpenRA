@@ -1,6 +1,6 @@
 import re
 from collections import OrderedDict
-
+import dateutil.parser
 from balancing.model.runtime_models import Parameter
 
 
@@ -79,22 +79,29 @@ def dump_yaml(yaml_dict, dump_file_name):
         write_entry(file, yaml_dict, 0)
 
 
-def read_param_placeholders(filename):
-    placeholders = []
+def read_params_from_template(filename):
+    parameters = []
     with open(filename, 'r') as param_file:
         for line in param_file:
             match = re.search("param_\w+ \d+ \d+",line)
             if match:
                 s = match.group(0).split()
-                placeholders.append(Parameter(s[0].lstrip("param_"),match.group(0),int(s[1]),int(s[2])))
-    return placeholders
+                p = Parameter(
+                    name=s[0].lstrip("param_"),
+                    file_string = match.group(0),
+                    min_value = float(s[1]),
+                    max_value = float(s[2])
+                )
+                parameters.append(p)
+    return parameters
 
 
-def write_params_to_placeholders(read_file, write_file, params):
+def write_to_file(template):
+    params = template.parameters
     i=0
     param = params[i]
-    with open(write_file, 'w') as new_file:
-        with open(read_file) as old_file:
+    with open(template.write_file, 'w') as new_file:
+        with open(template.read_file) as old_file:
             for line in old_file:
                 if param.file_string in line:
                     new_file.write(line.replace(param.file_string, str(param.value)))
@@ -105,3 +112,47 @@ def write_params_to_placeholders(read_file, write_file, params):
                     new_file.write(line)
     if i < len(params):
         raise AssertionError("Only " + str(i+1) + " parameters were replaced.")
+
+
+def populate_ra_game(game, yaml_dict):
+    def get(key):
+        return yaml_dict[key]["self"]
+
+    def get_int(key):
+        return int(get(key))
+
+    def get_bool(key):
+        return get(key) in ["True", "true"]
+
+    def get_timestamp(key):
+        return dateutil.parser.parse(get(key))
+
+    game.start_timestamp = get_timestamp("StartTimestamp")
+    game.end_timestamp = get_timestamp("EndTimestamp")
+    game.max_ticks_reached = get_bool("MaxTicksReached")
+    game.ticks = get_int("Ticks")
+    game.fitness = get_int("Fitness")
+    return game
+
+
+def populate_ra_player(player, yaml_dict):
+    def get(key):
+        return yaml_dict[key]["self"]
+
+    def get_int(key):
+        return int(get(key))
+
+    def get_bool(key):
+        return get(key) in ["True", "true"]
+
+    player.player_name = get("PlayerName")
+    player.faction = get("Faction")
+    player.winner = get_bool("Winner")
+    player.buildings_dead = get_int("BuildingsDead")
+    player.buildings_killed = get_int("BuildingsKilled")
+    player.deaths_cost = get_int("DeathsCost")
+    player.kills_cost = get_int("KillsCost")
+    player.order_count = get_int("OrderCount")
+    player.units_dead = get_int("UnitsDead")
+    player.units_killed = get_int("UnitsKilled")
+    return player

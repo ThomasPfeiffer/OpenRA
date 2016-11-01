@@ -2,6 +2,10 @@ import threading
 import subprocess
 
 
+class TimedoutException(Exception):
+    pass
+
+
 class TimerClass(threading.Thread):
     def __init__(self, proc, timeout):
         threading.Thread.__init__(self)
@@ -14,8 +18,8 @@ class TimerClass(threading.Thread):
             self.event.wait(1)
             self.count -= 1
         if not self.event.is_set():
-            print "Killing due to timeout"
             self.proc.kill()
+            raise TimedoutException("Process stopped due to timeout")
 
     def stop(self):
         self.event.set()
@@ -31,3 +35,4 @@ def execute_with_timout(timeout, executable, **kwargs):
     proc.wait()
     tmr.stop()
     return proc.returncode
+
