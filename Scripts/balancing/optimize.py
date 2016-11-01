@@ -19,12 +19,13 @@ from pyevolve import Mutators
 from pyevolve import GSimpleGA
 
 LOG = log_util.get_logger(__name__)
+BASE_PATH = "C:/uni/dev/OpenRA"
 
 def execute_ra(game_id, log_file):
     LOG.debug("Running openRA with game_id {0}".format(game_id))
-    game_executable = "C:\\dev\\OpenRA\\Game\\OpenRA.exe"
+    game_executable = BASE_PATH + "/Game/OpenRA.exe"
     args = {
-        "headless" : True,
+        "headless" : False,
         "autostart" : True,
         "max-ticks" : 100000,
         "map" : "ma_temperat",
@@ -81,7 +82,7 @@ class Optimization:
         i=0
         for p in self.parameters.param_list():
             p.value = chromosome[i]
-            LOG.debug("set parameter" + p.name + " to " + str(chromosome[i]))
+            LOG.debug("set parameter " + p.name + " to " + str(chromosome[i]))
             i += 1
 
     def eval_func(self, chromosome):
@@ -129,7 +130,7 @@ class Optimization:
 
 
 def main():
-    directory = "C:/dev/OpenRA/Game/mods/ra/maps/ma_temperat/"
+    directory = BASE_PATH + "/Game/mods/ra/maps/ma_temperat/"
     LOG.info("Starting algorithm in " + directory)
     o = Optimization(directory)
     o.do_optimization()
