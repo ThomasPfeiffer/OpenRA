@@ -20,7 +20,6 @@ class TemplateFile:
     def __init__(self, template_file, write_file, parameters):
         self.read_file = template_file
         self.write_file = write_file
-        self.parameters = []
         self.parameters = parameters
 
 
@@ -35,27 +34,9 @@ class Parameter:
 class ParameterList:
     def __init__(self):
         self.templates = []
-        self.curr_template = 0
-        self.curr_param = 0
 
-    def __iter__(self):
-        return self
-
-    def last_template(self):
-        return len(self.templates) == self.curr_template + 1
-
-    def last_param(self, template):
-        return len(self.templates[template]) == self.curr_param + 1
-
-    def next(self):
-        if (not self.templates) or (self.last_template() and self.last_param(self.curr_template)):
-            raise StopIteration
-        elif self.last_param(self.curr_template):
-            self.curr_template +=1
-            self.curr_param = 0
-        else:
-            self.curr_param +=1
-        return self.templates[self.curr_template][self.curr_param]
+    def param_list(self):
+        return [item for sublist in self.templates for item in sublist.parameters]
 
     def add_file(self, template_file):
         self.templates.append(template_file)
@@ -63,10 +44,5 @@ class ParameterList:
     def length(self):
         result = 0
         for t in self.templates:
-            result += len(t)
+            result += len(t.parameters)
         return result
-
-    def write_files(self):
-        for t in self.templates:
-            t.write_to_file()
-
