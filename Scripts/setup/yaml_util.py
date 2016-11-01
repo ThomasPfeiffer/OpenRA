@@ -1,7 +1,7 @@
 from collections import OrderedDict
 import re
 import random
-from model import Parameter
+from runtime_models import Parameter
 
 def parse_yaml_file(file):
     def get_indent(line):

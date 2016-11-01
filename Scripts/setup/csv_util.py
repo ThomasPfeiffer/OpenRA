@@ -1,5 +1,5 @@
 import csv
-from model import Actor
+from runtime_models import Actor
 
 
 def read_actors(file_name):
