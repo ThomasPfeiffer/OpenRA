@@ -1,5 +1,7 @@
 from collections import OrderedDict
-import yaml_util
+
+from balancing.utility import yaml_util
+
 
 class Actor:
     def __init__(self, name , owner , x, y):

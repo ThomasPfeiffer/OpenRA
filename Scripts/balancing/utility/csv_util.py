@@ -1,5 +1,6 @@
 import csv
-from runtime_models import Actor
+
+from balancing.model.runtime_models import Actor
 
 
 def read_actors(file_name):

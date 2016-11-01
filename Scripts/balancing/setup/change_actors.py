@@ -1,7 +1,8 @@
-from yaml_util import parse_yaml_file
-from yaml_util import dump_yaml
-from csv_util import read_actors
 from collections import OrderedDict
+
+from balancing.utility import dump_yaml
+from balancing.utility import parse_yaml_file
+from balancing.utility import read_actors
 
 map_path = "../Game/mods/ra/maps/"
 map_name = "ma_temperat/"

@@ -1,13 +1,15 @@
-from runtime_models import TemplateFile
-from runtime_models import ParameterList
 import os
+
+from pyevolve import G1DList
 from pyevolve import GAllele
 from pyevolve import GSimpleGA
-from pyevolve import G1DList
-from pyevolve import Mutators
 from pyevolve import Initializators
-from yaml_util import parse_yaml_file
-import thread_util
+from pyevolve import Mutators
+
+from balancing.model.runtime_models import ParameterList
+from balancing.model.runtime_models import TemplateFile
+from utility import thread_util
+from utility.yaml_util import parse_yaml_file
 
 
 def execute_ra(game_id, log_file):
@@ -20,7 +22,7 @@ def execute_ra(game_id, log_file):
         "fitness-log" : log_file,
         "game-id" : game_id
     }
-    if thread_util.execute_with_timout(600,game_executable, **args) != 0:
+    if thread_util.execute_with_timout(600, game_executable, **args) != 0:
         raise RuntimeError("Game failed")
 
 
