@@ -1,12 +1,3 @@
-import os
-import re
-
-from pyevolve import G1DList
-from pyevolve import GAllele
-from pyevolve import GSimpleGA
-from pyevolve import Initializators
-from pyevolve import Mutators
-
 from balancing.model.runtime_models import ParameterList
 from balancing.model.runtime_models import TemplateFile
 from balancing.model.db_models import RAPlayer
@@ -15,9 +6,22 @@ from balancing.model.db_models import initialize_database
 from balancing.model import db_models
 from utility import thread_util
 from utility import yaml_util
+from utility import log_util
 
+import os
+import re
+
+from pyevolve import G1DList
+from pyevolve import GAllele
+from pyevolve import Initializators
+from pyevolve import Mutators
+
+from pyevolve import GSimpleGA
+
+LOG = log_util.get_logger(__name__)
 
 def execute_ra(game_id, log_file):
+    LOG.debug("Running openRA with game_id {0}".format(game_id))
     game_executable = "C:\\dev\\OpenRA\\Game\\OpenRA.exe"
     args = {
         "headless" : True,
@@ -42,7 +46,7 @@ def store_results_in_db(params, result_yaml, game_id):
             player = yaml_util.populate_ra_player(player, result_yaml[key])
             player.save()
 
-    for p in params:
+    for p in params.param_list():
         db_models.save_as_ra_param(game, p)
 
     return game
@@ -52,11 +56,19 @@ class Optimization:
     def __init__(self, directory):
         initialize_database()
         self.parameters = ParameterList()
-        for read_file in os.listdir(directory):
-            if os.path.isfile(read_file) and read_file.startswith('template_'):
-                write_file = ''.join(read_file.rsplit('_template'))
-                template = TemplateFile(read_file, write_file, yaml_util.read_params_from_template(read_file))
-                self.parameters.add_file(template)
+        for dirpath, _, filenames in os.walk(directory):
+            for f in filenames:
+                read_file = os.path.abspath(os.path.join(dirpath, f))
+                if os.path.isfile(read_file) and f.startswith('template_'):
+                    LOG.info("Reading template file {0}".format(read_file))
+                    write_file = ''.join(read_file.rsplit('template_'))
+                    template = TemplateFile(read_file, write_file, yaml_util.read_params_from_template(read_file))
+                    self.parameters.add_file(template)
+        if self.parameters.length() < 2:
+            raise RuntimeError("Could not find at least 2 parameters")
+        LOG.info("Initialized {0} parameters: ".format(self.parameters.length()))
+        for p in self.parameters.param_list():
+            "\tName: {0} Min: {1} Max: {2}".format(p.name, p.min_value, p.max_value)
 
         self.game_id_count = db_models.new_game_id()
 
@@ -64,16 +76,18 @@ class Optimization:
         return "Game{0}".format(self.game_id_count)
 
     def set_parameters(self, chromosome):
+        if len(chromosome) != self.parameters.length():
+            raise RuntimeError("Length of chromosome ({0}) and parameter list ({1}) differ.".format(len(chromosome),self.parameters.length()))
         i=0
-        for p in self.parameters:
+        for p in self.parameters.param_list():
             p.value = chromosome[i]
-            print "set parameter" + p.name + " to " + str(chromosome[i])
+            LOG.debug("set parameter" + p.name + " to " + str(chromosome[i]))
             i += 1
 
     def eval_func(self, chromosome):
         # Update parameters with chromosome values
         self.set_parameters(chromosome)
-        self.parameters.write_files()
+        yaml_util.write_all_to_file(self.parameters)
 
         # Execute the game writing results to a yaml file
         log_file = os.getcwd() + "/logs/openra.yaml"
@@ -95,7 +109,7 @@ class Optimization:
     def do_optimization(self):
         # Number of parameters
         set_of_alleles = GAllele.GAlleles()
-        for p in self.parameters:
+        for p in self.parameters.param_list():
             a = GAllele.GAlleleRange(p.min_value, p.max_value)
             set_of_alleles.add(a)
         genome = G1DList.G1DList(len(set_of_alleles))
@@ -111,9 +125,16 @@ class Optimization:
         ga.evolve(freq_stats=20)
 
         # Best individual
-        print ga.bestIndividual()
+        LOG.info(ga.bestIndividual())
 
 
-o = Optimization("C:/dev/OpenRA/Game/mods/ra/maps/ma_temperat/")
-o.do_optimization()
-print "finished"
+def main():
+    directory = "C:/dev/OpenRA/Game/mods/ra/maps/ma_temperat/"
+    LOG.info("Starting algorithm in " + directory)
+    o = Optimization(directory)
+    o.do_optimization()
+    LOG.info("finished")
+
+
+if __name__ == "__main__":
+    main()

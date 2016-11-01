@@ -2,7 +2,10 @@ import re
 from collections import OrderedDict
 import dateutil.parser
 from balancing.model.runtime_models import Parameter
+import log_util
 
+#LOG = log_util.get_logger(__name__)
+LOG = None
 
 def parse_yaml_file(file):
     def get_indent(line):
@@ -55,7 +58,7 @@ def parse_yaml_file(file):
                 last_indent = line_indent
                 last_key = key
             except:
-                print('Error in line ' + str(line_number) + ' - ' + line)
+                LOG.error('Error in line ' + str(line_number) + ' - ' + line)
                 raise
     return result
 
@@ -94,6 +97,11 @@ def read_params_from_template(filename):
                 )
                 parameters.append(p)
     return parameters
+
+
+def write_all_to_file(parameter_list):
+    for t in parameter_list.templates:
+        write_to_file(t)
 
 
 def write_to_file(template):
