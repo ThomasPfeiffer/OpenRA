@@ -20,7 +20,7 @@ namespace OpenRA
             {
                 indent = 0;
                 logFile = RunSettings.FitnessLog;
-                AddParent($"Game{RunSettings.Game_ID}");
+                AddParent($"{RunSettings.Game_ID}");
             }
         }
 
