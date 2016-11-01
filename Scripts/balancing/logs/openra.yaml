@@ -558,3 +558,2443 @@ Game20:
 		UnitsDead: 12
 		UnitsKilled: 2
 	Fitness: 14
+Game21:
+	StartTimestamp: 2016-11-01T16:07:18.0987261+01:00
+	MaxTicksReached: False
+	Ticks: 27961
+	EndTimestamp: 2016-11-01T16:07:46.5589175+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 0
+		BuildingsKilled: 24
+		DeathsCost: 15050
+		KillsCost: 36570
+		OrderCount: 206
+		UnitsDead: 67
+		UnitsKilled: 55
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 24
+		BuildingsKilled: 0
+		DeathsCost: 36370
+		KillsCost: 14850
+		OrderCount: 138
+		UnitsDead: 55
+		UnitsKilled: 67
+	Fitness: 122
+Game22:
+	StartTimestamp: 2016-11-01T16:11:23.6088829+01:00
+	MaxTicksReached: False
+	Ticks: 32249
+	EndTimestamp: 2016-11-01T16:11:56.3657330+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 0
+		BuildingsKilled: 26
+		DeathsCost: 18100
+		KillsCost: 48380
+		OrderCount: 211
+		UnitsDead: 64
+		UnitsKilled: 95
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 26
+		BuildingsKilled: 0
+		DeathsCost: 47740
+		KillsCost: 17460
+		OrderCount: 177
+		UnitsDead: 95
+		UnitsKilled: 64
+	Fitness: 159
+Game23:
+	StartTimestamp: 2016-11-01T16:11:59.8110119+01:00
+	MaxTicksReached: False
+	Ticks: 44952
+	EndTimestamp: 2016-11-01T16:12:45.2757440+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 1
+		BuildingsKilled: 39
+		DeathsCost: 30600
+		KillsCost: 72960
+		OrderCount: 222
+		UnitsDead: 112
+		UnitsKilled: 121
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 39
+		BuildingsKilled: 1
+		DeathsCost: 71360
+		KillsCost: 29000
+		OrderCount: 255
+		UnitsDead: 115
+		UnitsKilled: 106
+	Fitness: 227
+Game24:
+	StartTimestamp: 2016-11-01T16:12:48.6791584+01:00
+	MaxTicksReached: False
+	Ticks: 53036
+	EndTimestamp: 2016-11-01T16:13:42.2157940+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 0
+		BuildingsKilled: 44
+		DeathsCost: 54200
+		KillsCost: 80650
+		OrderCount: 383
+		UnitsDead: 179
+		UnitsKilled: 139
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 44
+		BuildingsKilled: 0
+		DeathsCost: 80000
+		KillsCost: 53550
+		OrderCount: 297
+		UnitsDead: 129
+		UnitsKilled: 169
+	Fitness: 308
+Game25:
+	StartTimestamp: 2016-11-01T16:13:45.6394402+01:00
+Game25:
+	StartTimestamp: 2016-11-01T16:13:56.0126113+01:00
+	MaxTicksReached: False
+	Ticks: 26448
+	EndTimestamp: 2016-11-01T16:14:22.9365378+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 0
+		BuildingsKilled: 25
+		DeathsCost: 13800
+		KillsCost: 40130
+		OrderCount: 179
+		UnitsDead: 59
+		UnitsKilled: 59
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 25
+		BuildingsKilled: 0
+		DeathsCost: 38130
+		KillsCost: 11800
+		OrderCount: 134
+		UnitsDead: 49
+		UnitsKilled: 49
+	Fitness: 108
+Game26:
+	StartTimestamp: 2016-11-01T16:14:26.4720293+01:00
+	MaxTicksReached: False
+	Ticks: 45170
+	EndTimestamp: 2016-11-01T16:14:31.5586748+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 8
+		BuildingsKilled: 36
+		DeathsCost: 31000
+		KillsCost: 72310
+		OrderCount: 225
+		UnitsDead: 95
+		UnitsKilled: 148
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 36
+		BuildingsKilled: 8
+		DeathsCost: 70320
+		KillsCost: 29010
+		OrderCount: 272
+		UnitsDead: 142
+		UnitsKilled: 89
+	Fitness: 237
+Game26:
+	StartTimestamp: 2016-11-01T16:14:35.0570437+01:00
+	MaxTicksReached: False
+	Ticks: 29206
+	EndTimestamp: 2016-11-01T16:14:56.1514446+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 1
+		BuildingsKilled: 25
+		DeathsCost: 15550
+		KillsCost: 47410
+		OrderCount: 154
+		UnitsDead: 54
+		UnitsKilled: 92
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 25
+		BuildingsKilled: 1
+		DeathsCost: 46810
+		KillsCost: 14950
+		OrderCount: 174
+		UnitsDead: 88
+		UnitsKilled: 50
+	Fitness: 142
+Game27:
+	StartTimestamp: 2016-11-01T16:14:59.7359138+01:00
+	MaxTicksReached: False
+	Ticks: 37392
+	EndTimestamp: 2016-11-01T16:15:12.9079938+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 1
+		BuildingsKilled: 31
+		DeathsCost: 25500
+		KillsCost: 51660
+		OrderCount: 200
+		UnitsDead: 83
+		UnitsKilled: 96
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 32
+		BuildingsKilled: 2
+		DeathsCost: 52060
+		KillsCost: 25900
+		OrderCount: 210
+		UnitsDead: 95
+		UnitsKilled: 82
+	Fitness: 178
+Game27:
+	StartTimestamp: 2016-11-01T16:15:16.4518827+01:00
+	MaxTicksReached: False
+	MaxTicksReached: False
+	Ticks: 31121
+	EndTimestamp: 2016-11-01T16:15:31.3496090+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+	Ticks: 14286
+	EndTimestamp: 2016-11-01T16:15:31.3511411+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 0
+		BuildingsKilled: 12
+		DeathsCost: 2200
+		KillsCost: 18100
+		OrderCount: 79
+		UnitsDead: 6
+		UnitsKilled: 24
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 12
+		BuildingsKilled: 0
+		DeathsCost: 18100
+		KillsCost: 2200
+		OrderCount: 69
+		UnitsDead: 24
+		UnitsKilled: 6
+	Fitness: 30
+Game28:
+	StartTimestamp: 2016-11-01T16:15:34.8014255+01:00
+	MaxTicksReached: False
+	Ticks: 22193
+	EndTimestamp: 2016-11-01T16:15:57.5069683+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 0
+		BuildingsKilled: 26
+		DeathsCost: 4300
+		KillsCost: 36280
+		OrderCount: 120
+		UnitsDead: 19
+		UnitsKilled: 46
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 26
+		BuildingsKilled: 0
+		DeathsCost: 35480
+		KillsCost: 3500
+		OrderCount: 132
+		UnitsDead: 45
+		UnitsKilled: 18
+	Fitness: 64
+Game29:
+	StartTimestamp: 2016-11-01T16:16:00.9084962+01:00
+	MaxTicksReached: False
+	Ticks: 31979
+	EndTimestamp: 2016-11-01T16:16:33.3660766+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 0
+		BuildingsKilled: 21
+		DeathsCost: 15000
+		KillsCost: 41290
+		OrderCount: 159
+		UnitsDead: 58
+		UnitsKilled: 73
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 21
+		BuildingsKilled: 0
+		DeathsCost: 42140
+		KillsCost: 15850
+		OrderCount: 157
+		UnitsDead: 74
+		UnitsKilled: 59
+	Fitness: 132
+Game30:
+	StartTimestamp: 2016-11-01T16:16:36.8377450+01:00
+Game32:
+	StartTimestamp: 2016-11-01T16:16:44.3692430+01:00
+	MaxTicksReached: False
+	Ticks: 25460
+	EndTimestamp: 2016-11-01T16:17:10.3117597+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 0
+		BuildingsKilled: 23
+		DeathsCost: 6900
+		KillsCost: 37980
+		OrderCount: 137
+		UnitsDead: 33
+		UnitsKilled: 52
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 23
+		BuildingsKilled: 0
+		DeathsCost: 37280
+		KillsCost: 6200
+		OrderCount: 131
+		UnitsDead: 51
+		UnitsKilled: 32
+	Fitness: 84
+Game33:
+	StartTimestamp: 2016-11-01T16:17:13.8678954+01:00
+	MaxTicksReached: False
+	Ticks: 49286
+	EndTimestamp: 2016-11-01T16:17:26.8671966+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 0
+		BuildingsKilled: 45
+		DeathsCost: 40750
+		KillsCost: 78850
+		OrderCount: 234
+		UnitsDead: 145
+		UnitsKilled: 138
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 45
+		BuildingsKilled: 0
+		DeathsCost: 77150
+		KillsCost: 39050
+		OrderCount: 291
+		UnitsDead: 133
+		UnitsKilled: 140
+	Fitness: 278
+	MaxTicksReached: False
+	Ticks: 39430
+	EndTimestamp: 2016-11-01T16:17:53.8117724+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 1
+		BuildingsKilled: 26
+		DeathsCost: 29900
+		KillsCost: 62580
+		OrderCount: 203
+		UnitsDead: 95
+		UnitsKilled: 121
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 26
+		BuildingsKilled: 1
+		DeathsCost: 62480
+		KillsCost: 29800
+		OrderCount: 222
+		UnitsDead: 119
+		UnitsKilled: 93
+	Fitness: 214	MaxTicksReached: False
+	Ticks: 37143
+	EndTimestamp: 2016-11-01T16:18:34.8610070+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 0
+		BuildingsKilled: 30
+		DeathsCost: 25200
+		KillsCost: 62780
+		OrderCount: 222
+		UnitsDead: 85
+		UnitsKilled: 113
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 30
+		BuildingsKilled: 0
+		DeathsCost: 61680
+		KillsCost: 24100
+		OrderCount: 221
+		UnitsDead: 111
+		UnitsKilled: 83
+	Fitness: 196
+Game34:
+	StartTimestamp: 2016-11-01T16:22:20.2893369+01:00
+	MaxTicksReached: False
+	Ticks: 87853
+	EndTimestamp: 2016-11-01T16:23:48.6354765+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: False
+		BuildingsDead: 48
+		BuildingsKilled: 15
+		DeathsCost: 139350
+		KillsCost: 106600
+		OrderCount: 591
+		UnitsDead: 334
+		UnitsKilled: 313
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: True
+		BuildingsDead: 15
+		BuildingsKilled: 48
+		DeathsCost: 105340
+		KillsCost: 138090
+		OrderCount: 468
+		UnitsDead: 311
+		UnitsKilled: 332
+	Fitness: 645
+Game35:
+	StartTimestamp: 2016-11-01T16:23:52.1225502+01:00
+	MaxTicksReached: False
+	Ticks: 15649
+	EndTimestamp: 2016-11-01T16:24:08.2623247+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 0
+		BuildingsKilled: 15
+		DeathsCost: 3100
+		KillsCost: 21910
+		OrderCount: 72
+		UnitsDead: 9
+		UnitsKilled: 38
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 15
+		BuildingsKilled: 0
+		DeathsCost: 21910
+		KillsCost: 3100
+		OrderCount: 89
+		UnitsDead: 38
+		UnitsKilled: 9
+	Fitness: 47
+Game36:
+	StartTimestamp: 2016-11-01T16:24:11.7511661+01:00
+	MaxTicksReached: False
+	Ticks: 83420
+	EndTimestamp: 2016-11-01T16:25:35.6915823+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: False
+		BuildingsDead: 51
+		BuildingsKilled: 19
+		DeathsCost: 127300
+		KillsCost: 87340
+		OrderCount: 536
+		UnitsDead: 284
+		UnitsKilled: 241
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: True
+		BuildingsDead: 19
+		BuildingsKilled: 51
+		DeathsCost: 93410
+		KillsCost: 133370
+		OrderCount: 452
+		UnitsDead: 264
+		UnitsKilled: 307
+	Fitness: 548
+Game37:
+	StartTimestamp: 2016-11-01T16:25:39.1619452+01:00
+	MaxTicksReached: False
+	Ticks: 21267
+	EndTimestamp: 2016-11-01T16:26:00.9256831+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 0
+		BuildingsKilled: 17
+		DeathsCost: 4000
+		KillsCost: 24960
+		OrderCount: 103
+		UnitsDead: 16
+		UnitsKilled: 31
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 17
+		BuildingsKilled: 0
+		DeathsCost: 24960
+		KillsCost: 4000
+		OrderCount: 88
+		UnitsDead: 31
+		UnitsKilled: 16
+	Fitness: 47
+Game38:
+	StartTimestamp: 2016-11-01T16:26:04.3251806+01:00
+	MaxTicksReached: False
+	Ticks: 31517
+	EndTimestamp: 2016-11-01T16:26:36.3425721+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 0
+		BuildingsKilled: 24
+		DeathsCost: 18450
+		KillsCost: 51500
+		OrderCount: 202
+		UnitsDead: 65
+		UnitsKilled: 99
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 24
+		BuildingsKilled: 0
+		DeathsCost: 51100
+		KillsCost: 18050
+		OrderCount: 187
+		UnitsDead: 98
+		UnitsKilled: 64
+	Fitness: 163
+Game39:
+	StartTimestamp: 2016-11-01T16:26:39.7812013+01:00
+	MaxTicksReached: True
+	Ticks: 100000
+	EndTimestamp: 2016-11-01T16:28:20.2996723+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: False
+		BuildingsDead: 10
+		BuildingsKilled: 32
+		DeathsCost: 148150
+		KillsCost: 109900
+		OrderCount: 549
+		UnitsDead: 446
+		UnitsKilled: 272
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 32
+		BuildingsKilled: 10
+		DeathsCost: 110740
+		KillsCost: 148990
+		OrderCount: 484
+		UnitsDead: 277
+		UnitsKilled: 451
+	Fitness: 723
+Game40:
+	StartTimestamp: 2016-11-01T16:28:23.6824271+01:00
+	MaxTicksReached: False
+	Ticks: 31232
+	EndTimestamp: 2016-11-01T16:28:55.3996118+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 0
+		BuildingsKilled: 29
+		DeathsCost: 14000
+		KillsCost: 44520
+		OrderCount: 156
+		UnitsDead: 55
+		UnitsKilled: 69
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 29
+		BuildingsKilled: 0
+		DeathsCost: 44620
+		KillsCost: 14100
+		OrderCount: 170
+		UnitsDead: 70
+		UnitsKilled: 56
+	Fitness: 125
+Game41:
+	StartTimestamp: 2016-11-01T16:28:58.8450474+01:00
+	MaxTicksReached: False
+	Ticks: 33002
+	EndTimestamp: 2016-11-01T16:29:32.3425414+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 1
+		BuildingsKilled: 24
+		DeathsCost: 25600
+		KillsCost: 52770
+		OrderCount: 236
+		UnitsDead: 84
+		UnitsKilled: 109
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 24
+		BuildingsKilled: 1
+		DeathsCost: 52170
+		KillsCost: 25000
+		OrderCount: 196
+		UnitsDead: 107
+		UnitsKilled: 82
+	Fitness: 191
+Game42:
+	StartTimestamp: 2016-11-01T16:29:35.7177782+01:00
+	MaxTicksReached: False
+	Ticks: 54995
+	EndTimestamp: 2016-11-01T16:30:31.4708027+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: False
+		BuildingsDead: 34
+		BuildingsKilled: 24
+		DeathsCost: 92050
+		KillsCost: 63630
+		OrderCount: 304
+		UnitsDead: 199
+		UnitsKilled: 162
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: True
+		BuildingsDead: 24
+		BuildingsKilled: 34
+		DeathsCost: 63590
+		KillsCost: 92010
+		OrderCount: 379
+		UnitsDead: 162
+		UnitsKilled: 199
+	Fitness: 361
+Game43:
+	StartTimestamp: 2016-11-01T16:30:34.9683811+01:00
+	MaxTicksReached: False
+	Ticks: 92484
+	EndTimestamp: 2016-11-01T16:32:07.9777998+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: False
+		BuildingsDead: 63
+		BuildingsKilled: 21
+		DeathsCost: 152450
+		KillsCost: 119420
+		OrderCount: 570
+		UnitsDead: 340
+		UnitsKilled: 340
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: True
+		BuildingsDead: 21
+		BuildingsKilled: 63
+		DeathsCost: 117980
+		KillsCost: 151010
+		OrderCount: 525
+		UnitsDead: 338
+		UnitsKilled: 338
+	Fitness: 678
+Game44:
+	StartTimestamp: 2016-11-01T16:32:11.5631289+01:00
+	MaxTicksReached: False
+	Ticks: 24932
+	EndTimestamp: 2016-11-01T16:32:37.0011957+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 0
+		BuildingsKilled: 20
+		DeathsCost: 9300
+		KillsCost: 36890
+		OrderCount: 155
+		UnitsDead: 41
+		UnitsKilled: 55
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 20
+		BuildingsKilled: 0
+		DeathsCost: 35090
+		KillsCost: 7500
+		OrderCount: 113
+		UnitsDead: 49
+		UnitsKilled: 35
+	Fitness: 90
+Game45:
+	StartTimestamp: 2016-11-01T16:58:40.4336597+01:00
+	MaxTicksReached: False
+	Ticks: 59098
+	EndTimestamp: 2016-11-01T16:59:40.0480785+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 0
+		BuildingsKilled: 46
+		DeathsCost: 60650
+		KillsCost: 94680
+		OrderCount: 333
+		UnitsDead: 214
+		UnitsKilled: 178
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 46
+		BuildingsKilled: 0
+		DeathsCost: 95670
+		KillsCost: 61640
+		OrderCount: 329
+		UnitsDead: 175
+		UnitsKilled: 211
+	Fitness: 389
+Game46:
+	StartTimestamp: 2016-11-01T17:38:40.5099536+01:00
+	MaxTicksReached: False
+	Ticks: 46789
+	EndTimestamp: 2016-11-01T17:39:28.0280495+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 4
+		BuildingsKilled: 44
+		DeathsCost: 37000
+		KillsCost: 82590
+		OrderCount: 235
+		UnitsDead: 113
+		UnitsKilled: 152
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 44
+		BuildingsKilled: 4
+		DeathsCost: 79850
+		KillsCost: 34260
+		OrderCount: 289
+		UnitsDead: 147
+		UnitsKilled: 108
+	Fitness: 260
+Game47:
+	StartTimestamp: 2016-11-01T17:39:31.5332533+01:00
+	MaxTicksReached: False
+	Ticks: 29027
+	EndTimestamp: 2016-11-01T17:40:01.0608420+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 1
+		BuildingsKilled: 24
+		DeathsCost: 16500
+		KillsCost: 47860
+		OrderCount: 225
+		UnitsDead: 63
+		UnitsKilled: 87
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 24
+		BuildingsKilled: 1
+		DeathsCost: 46640
+		KillsCost: 15280
+		OrderCount: 166
+		UnitsDead: 88
+		UnitsKilled: 64
+	Fitness: 151
+Game48:
+	StartTimestamp: 2016-11-01T17:40:04.3873753+01:00
+	MaxTicksReached: False
+	Ticks: 35371
+	EndTimestamp: 2016-11-01T17:40:40.2632450+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 4
+		BuildingsKilled: 31
+		DeathsCost: 23950
+		KillsCost: 58230
+		OrderCount: 244
+		UnitsDead: 84
+		UnitsKilled: 112
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 31
+		BuildingsKilled: 4
+		DeathsCost: 57230
+		KillsCost: 22950
+		OrderCount: 217
+		UnitsDead: 109
+		UnitsKilled: 81
+	Fitness: 193
+Game49:
+	StartTimestamp: 2016-11-01T17:40:43.6229079+01:00
+	MaxTicksReached: False
+	Ticks: 55465
+	EndTimestamp: 2016-11-01T17:41:39.5716121+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 11
+		BuildingsKilled: 40
+		DeathsCost: 53800
+		KillsCost: 91140
+		OrderCount: 308
+		UnitsDead: 148
+		UnitsKilled: 179
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 40
+		BuildingsKilled: 11
+		DeathsCost: 90560
+		KillsCost: 53220
+		OrderCount: 330
+		UnitsDead: 180
+		UnitsKilled: 149
+	Fitness: 328
+Game50:
+	StartTimestamp: 2016-11-01T17:41:42.9359069+01:00
+	MaxTicksReached: False
+	Ticks: 43725
+	EndTimestamp: 2016-11-01T17:42:27.1622043+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 0
+		BuildingsKilled: 32
+		DeathsCost: 36950
+		KillsCost: 62950
+		OrderCount: 236
+		UnitsDead: 135
+		UnitsKilled: 116
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 32
+		BuildingsKilled: 0
+		DeathsCost: 60850
+		KillsCost: 34850
+		OrderCount: 224
+		UnitsDead: 111
+		UnitsKilled: 130
+	Fitness: 246
+Game51:
+	StartTimestamp: 2016-11-01T17:42:30.5012484+01:00
+	MaxTicksReached: False
+	Ticks: 36731
+	EndTimestamp: 2016-11-01T17:43:07.7415759+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 0
+		BuildingsKilled: 33
+		DeathsCost: 28100
+		KillsCost: 58320
+		OrderCount: 268
+		UnitsDead: 100
+		UnitsKilled: 82
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 33
+		BuildingsKilled: 0
+		DeathsCost: 57720
+		KillsCost: 27500
+		OrderCount: 197
+		UnitsDead: 79
+		UnitsKilled: 97
+	Fitness: 179
+Game52:
+	StartTimestamp: 2016-11-01T17:43:11.1496774+01:00
+	MaxTicksReached: True
+	Ticks: 100000
+	EndTimestamp: 2016-11-01T17:44:51.6628398+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: False
+		BuildingsDead: 14
+		BuildingsKilled: 40
+		DeathsCost: 98000
+		KillsCost: 144020
+		OrderCount: 460
+		UnitsDead: 307
+		UnitsKilled: 335
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 40
+		BuildingsKilled: 14
+		DeathsCost: 145080
+		KillsCost: 99060
+		OrderCount: 553
+		UnitsDead: 340
+		UnitsKilled: 312
+	Fitness: 647
+Game53:
+	StartTimestamp: 2016-11-01T17:44:55.0375903+01:00
+	MaxTicksReached: False
+	Ticks: 42780
+	EndTimestamp: 2016-11-01T17:45:38.3356433+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 6
+		BuildingsKilled: 41
+		DeathsCost: 35800
+		KillsCost: 66090
+		OrderCount: 239
+		UnitsDead: 121
+		UnitsKilled: 108
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 41
+		BuildingsKilled: 6
+		DeathsCost: 65890
+		KillsCost: 35600
+		OrderCount: 243
+		UnitsDead: 108
+		UnitsKilled: 121
+	Fitness: 229
+Game54:
+	StartTimestamp: 2016-11-01T17:45:41.7370357+01:00
+	MaxTicksReached: False
+	Ticks: 24691
+	EndTimestamp: 2016-11-01T17:46:06.9280695+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 0
+		BuildingsKilled: 27
+		DeathsCost: 8100
+		KillsCost: 39610
+		OrderCount: 157
+		UnitsDead: 37
+		UnitsKilled: 72
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 27
+		BuildingsKilled: 0
+		DeathsCost: 39510
+		KillsCost: 8000
+		OrderCount: 157
+		UnitsDead: 71
+		UnitsKilled: 36
+	Fitness: 108
+Game55:
+	StartTimestamp: 2016-11-01T17:46:10.3008251+01:00
+	MaxTicksReached: False
+	Ticks: 27688
+	EndTimestamp: 2016-11-01T17:46:38.4880237+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 0
+		BuildingsKilled: 25
+		DeathsCost: 13400
+		KillsCost: 41210
+		OrderCount: 192
+		UnitsDead: 56
+		UnitsKilled: 72
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 25
+		BuildingsKilled: 0
+		DeathsCost: 40210
+		KillsCost: 12400
+		OrderCount: 149
+		UnitsDead: 70
+		UnitsKilled: 54
+	Fitness: 126
+Game56:
+	StartTimestamp: 2016-11-01T17:46:41.7924314+01:00
+	MaxTicksReached: False
+	Ticks: 40583
+	EndTimestamp: 2016-11-01T17:47:22.8773033+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 1
+		BuildingsKilled: 37
+		DeathsCost: 29200
+		KillsCost: 70460
+		OrderCount: 226
+		UnitsDead: 100
+		UnitsKilled: 129
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 37
+		BuildingsKilled: 1
+		DeathsCost: 67910
+		KillsCost: 26650
+		OrderCount: 247
+		UnitsDead: 121
+		UnitsKilled: 92
+	Fitness: 221
+Game57:
+	StartTimestamp: 2016-11-01T17:47:26.2602610+01:00
+	MaxTicksReached: False
+	Ticks: 35862
+	EndTimestamp: 2016-11-01T17:48:02.6165943+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 0
+		BuildingsKilled: 30
+		DeathsCost: 25600
+		KillsCost: 54080
+		OrderCount: 280
+		UnitsDead: 103
+		UnitsKilled: 82
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 30
+		BuildingsKilled: 0
+		DeathsCost: 54280
+		KillsCost: 25800
+		OrderCount: 191
+		UnitsDead: 83
+		UnitsKilled: 104
+	Fitness: 186
+Game58:
+	StartTimestamp: 2016-11-01T17:48:05.9397987+01:00
+	MaxTicksReached: False
+	Ticks: 66070
+	EndTimestamp: 2016-11-01T17:49:12.5047074+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 12
+		BuildingsKilled: 34
+		DeathsCost: 68850
+		KillsCost: 111010
+		OrderCount: 340
+		UnitsDead: 201
+		UnitsKilled: 264
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 34
+		BuildingsKilled: 12
+		DeathsCost: 108590
+		KillsCost: 66430
+		OrderCount: 392
+		UnitsDead: 247
+		UnitsKilled: 184
+	Fitness: 448
+Game59:
+	StartTimestamp: 2016-11-01T17:49:15.8692825+01:00
+	MaxTicksReached: False
+	Ticks: 42951
+	EndTimestamp: 2016-11-01T17:49:59.3353961+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 0
+		BuildingsKilled: 37
+		DeathsCost: 46600
+		KillsCost: 64790
+		OrderCount: 255
+		UnitsDead: 155
+		UnitsKilled: 116
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 37
+		BuildingsKilled: 0
+		DeathsCost: 64690
+		KillsCost: 46500
+		OrderCount: 263
+		UnitsDead: 116
+		UnitsKilled: 155
+	Fitness: 271
+Game60:
+	StartTimestamp: 2016-11-01T17:50:02.7280055+01:00
+	MaxTicksReached: False
+	Ticks: 25557
+	EndTimestamp: 2016-11-01T17:50:28.7962974+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 1
+		BuildingsKilled: 26
+		DeathsCost: 12950
+		KillsCost: 42180
+		OrderCount: 172
+		UnitsDead: 46
+		UnitsKilled: 61
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 26
+		BuildingsKilled: 1
+		DeathsCost: 41780
+		KillsCost: 12550
+		OrderCount: 156
+		UnitsDead: 61
+		UnitsKilled: 46
+	Fitness: 107
+Game61:
+	StartTimestamp: 2016-11-01T17:50:32.1291339+01:00
+	MaxTicksReached: False
+	Ticks: 35223
+	EndTimestamp: 2016-11-01T17:51:07.8575764+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 0
+		BuildingsKilled: 31
+		DeathsCost: 18650
+		KillsCost: 59060
+		OrderCount: 181
+		UnitsDead: 68
+		UnitsKilled: 99
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 31
+		BuildingsKilled: 0
+		DeathsCost: 57970
+		KillsCost: 17560
+		OrderCount: 201
+		UnitsDead: 98
+		UnitsKilled: 67
+	Fitness: 166
+Game62:
+	StartTimestamp: 2016-11-01T17:51:11.2573658+01:00
+	MaxTicksReached: False
+	Ticks: 23234
+	EndTimestamp: 2016-11-01T17:51:34.9951762+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 0
+		BuildingsKilled: 18
+		DeathsCost: 9100
+		KillsCost: 35770
+		OrderCount: 130
+		UnitsDead: 39
+		UnitsKilled: 61
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 18
+		BuildingsKilled: 0
+		DeathsCost: 34770
+		KillsCost: 8100
+		OrderCount: 125
+		UnitsDead: 57
+		UnitsKilled: 35
+	Fitness: 96
+Game63:
+	StartTimestamp: 2016-11-01T17:51:38.3868762+01:00
+	MaxTicksReached: False
+	Ticks: 32354
+	EndTimestamp: 2016-11-01T17:52:11.2350761+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 0
+		BuildingsKilled: 36
+		DeathsCost: 18000
+		KillsCost: 54610
+		OrderCount: 165
+		UnitsDead: 75
+		UnitsKilled: 105
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 36
+		BuildingsKilled: 0
+		DeathsCost: 51710
+		KillsCost: 15100
+		OrderCount: 210
+		UnitsDead: 93
+		UnitsKilled: 63
+	Fitness: 168
+Game64:
+	StartTimestamp: 2016-11-01T17:52:14.6189489+01:00
+	MaxTicksReached: True
+	Ticks: 100000
+	EndTimestamp: 2016-11-01T17:53:55.1283964+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: False
+		BuildingsDead: 24
+		BuildingsKilled: 13
+		DeathsCost: 142350
+		KillsCost: 126020
+		OrderCount: 572
+		UnitsDead: 387
+		UnitsKilled: 357
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 13
+		BuildingsKilled: 24
+		DeathsCost: 127390
+		KillsCost: 143720
+		OrderCount: 514
+		UnitsDead: 361
+		UnitsKilled: 391
+	Fitness: 748
+Game65:
+	StartTimestamp: 2016-11-01T17:53:58.5673050+01:00
+	MaxTicksReached: False
+	Ticks: 86981
+	EndTimestamp: 2016-11-01T17:55:26.0552893+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 15
+		BuildingsKilled: 58
+		DeathsCost: 88250
+		KillsCost: 139200
+		OrderCount: 447
+		UnitsDead: 260
+		UnitsKilled: 297
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 58
+		BuildingsKilled: 15
+		DeathsCost: 139500
+		KillsCost: 88550
+		OrderCount: 511
+		UnitsDead: 296
+		UnitsKilled: 259
+	Fitness: 556
+Game66:
+	StartTimestamp: 2016-11-01T17:55:29.4178289+01:00
+	MaxTicksReached: False
+	Ticks: 34622
+	EndTimestamp: 2016-11-01T17:56:04.5533574+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 0
+		BuildingsKilled: 34
+		DeathsCost: 21700
+		KillsCost: 54260
+		OrderCount: 184
+		UnitsDead: 76
+		UnitsKilled: 91
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 34
+		BuildingsKilled: 0
+		DeathsCost: 53460
+		KillsCost: 20900
+		OrderCount: 198
+		UnitsDead: 88
+		UnitsKilled: 73
+	Fitness: 164
+Game67:
+	StartTimestamp: 2016-11-01T17:56:07.8478435+01:00
+	MaxTicksReached: False
+	Ticks: 52796
+	EndTimestamp: 2016-11-01T17:57:01.1708251+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 2
+		BuildingsKilled: 46
+		DeathsCost: 52350
+		KillsCost: 89400
+		OrderCount: 326
+		UnitsDead: 174
+		UnitsKilled: 167
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 46
+		BuildingsKilled: 2
+		DeathsCost: 87050
+		KillsCost: 50000
+		OrderCount: 309
+		UnitsDead: 146
+		UnitsKilled: 153
+	Fitness: 320
+Game68:
+	StartTimestamp: 2016-11-01T17:57:04.5161616+01:00
+	MaxTicksReached: False
+	Ticks: 20346
+	EndTimestamp: 2016-11-01T17:57:25.3617285+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 0
+		BuildingsKilled: 20
+		DeathsCost: 4300
+		KillsCost: 28860
+		OrderCount: 100
+		UnitsDead: 19
+		UnitsKilled: 43
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 20
+		BuildingsKilled: 0
+		DeathsCost: 28860
+		KillsCost: 4300
+		OrderCount: 117
+		UnitsDead: 43
+		UnitsKilled: 19
+	Fitness: 62
+Game69:
+	StartTimestamp: 2016-11-01T17:57:28.6989301+01:00
+	MaxTicksReached: False
+	Ticks: 69998
+	EndTimestamp: 2016-11-01T17:58:39.2080052+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 9
+		BuildingsKilled: 52
+		DeathsCost: 74500
+		KillsCost: 90140
+		OrderCount: 416
+		UnitsDead: 238
+		UnitsKilled: 145
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 53
+		BuildingsKilled: 10
+		DeathsCost: 91860
+		KillsCost: 76220
+		OrderCount: 333
+		UnitsDead: 147
+		UnitsKilled: 240
+	Fitness: 385
+Game70:
+	StartTimestamp: 2016-11-01T17:58:42.5354847+01:00
+	MaxTicksReached: False
+	Ticks: 30383
+	EndTimestamp: 2016-11-01T17:59:13.3991606+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 0
+		BuildingsKilled: 32
+		DeathsCost: 19550
+		KillsCost: 46810
+		OrderCount: 240
+		UnitsDead: 75
+		UnitsKilled: 64
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 32
+		BuildingsKilled: 0
+		DeathsCost: 46510
+		KillsCost: 19250
+		OrderCount: 178
+		UnitsDead: 65
+		UnitsKilled: 76
+	Fitness: 140
+Game71:
+	StartTimestamp: 2016-11-01T17:59:16.7726338+01:00
+	MaxTicksReached: False
+	Ticks: 22711
+	EndTimestamp: 2016-11-01T17:59:39.9834752+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 0
+		BuildingsKilled: 18
+		DeathsCost: 9500
+		KillsCost: 31170
+		OrderCount: 179
+		UnitsDead: 43
+		UnitsKilled: 51
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 18
+		BuildingsKilled: 0
+		DeathsCost: 31670
+		KillsCost: 10000
+		OrderCount: 120
+		UnitsDead: 54
+		UnitsKilled: 46
+	Fitness: 97
+Game72:
+	StartTimestamp: 2016-11-01T17:59:43.4991580+01:00
+	MaxTicksReached: False
+	Ticks: 26944
+	EndTimestamp: 2016-11-01T18:00:10.9242668+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 0
+		BuildingsKilled: 25
+		DeathsCost: 10700
+		KillsCost: 43300
+		OrderCount: 127
+		UnitsDead: 39
+		UnitsKilled: 83
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 25
+		BuildingsKilled: 0
+		DeathsCost: 42400
+		KillsCost: 9800
+		OrderCount: 160
+		UnitsDead: 78
+		UnitsKilled: 34
+	Fitness: 117
+Game73:
+	StartTimestamp: 2016-11-01T18:00:14.2588495+01:00
+	MaxTicksReached: False
+	Ticks: 42294
+	EndTimestamp: 2016-11-01T18:00:57.0518920+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: False
+		BuildingsDead: 32
+		BuildingsKilled: 3
+		DeathsCost: 61100
+		KillsCost: 24840
+		OrderCount: 223
+		UnitsDead: 109
+		UnitsKilled: 98
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: True
+		BuildingsDead: 3
+		BuildingsKilled: 32
+		DeathsCost: 24500
+		KillsCost: 60760
+		OrderCount: 218
+		UnitsDead: 99
+		UnitsKilled: 110
+	Fitness: 208
+Game74:
+	StartTimestamp: 2016-11-01T18:01:00.4417355+01:00
+	MaxTicksReached: True
+	Ticks: 100000
+	EndTimestamp: 2016-11-01T18:02:40.9640010+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: False
+		BuildingsDead: 37
+		BuildingsKilled: 22
+		DeathsCost: 140850
+		KillsCost: 134090
+		OrderCount: 632
+		UnitsDead: 387
+		UnitsKilled: 365
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 22
+		BuildingsKilled: 37
+		DeathsCost: 134440
+		KillsCost: 141200
+		OrderCount: 526
+		UnitsDead: 373
+		UnitsKilled: 395
+	Fitness: 760
+Game75:
+	StartTimestamp: 2016-11-01T18:02:44.3085499+01:00
+	MaxTicksReached: False
+	Ticks: 16935
+	EndTimestamp: 2016-11-01T18:03:01.7562712+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 1
+		BuildingsKilled: 14
+		DeathsCost: 2800
+		KillsCost: 26200
+		OrderCount: 73
+		UnitsDead: 4
+		UnitsKilled: 44
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 14
+		BuildingsKilled: 1
+		DeathsCost: 26200
+		KillsCost: 2800
+		OrderCount: 90
+		UnitsDead: 44
+		UnitsKilled: 4
+	Fitness: 48
+Game76:
+	StartTimestamp: 2016-11-01T18:03:05.1611155+01:00
+	MaxTicksReached: False
+	Ticks: 52955
+	EndTimestamp: 2016-11-01T18:03:58.5802044+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: False
+		BuildingsDead: 37
+		BuildingsKilled: 7
+		DeathsCost: 88950
+		KillsCost: 36970
+		OrderCount: 349
+		UnitsDead: 181
+		UnitsKilled: 121
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: True
+		BuildingsDead: 7
+		BuildingsKilled: 37
+		DeathsCost: 40040
+		KillsCost: 92020
+		OrderCount: 289
+		UnitsDead: 135
+		UnitsKilled: 195
+	Fitness: 316
+Game77:
+	StartTimestamp: 2016-11-01T18:04:01.9841817+01:00
+	MaxTicksReached: False
+	Ticks: 42346
+	EndTimestamp: 2016-11-01T18:04:44.7900394+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 0
+		BuildingsKilled: 40
+		DeathsCost: 31700
+		KillsCost: 65890
+		OrderCount: 328
+		UnitsDead: 113
+		UnitsKilled: 97
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 40
+		BuildingsKilled: 0
+		DeathsCost: 65770
+		KillsCost: 31580
+		OrderCount: 217
+		UnitsDead: 93
+		UnitsKilled: 109
+	Fitness: 206
+Game78:
+	StartTimestamp: 2016-11-01T18:04:48.1394306+01:00
+	MaxTicksReached: False
+	Ticks: 76153
+	EndTimestamp: 2016-11-01T18:06:04.8013592+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: False
+		BuildingsDead: 46
+		BuildingsKilled: 20
+		DeathsCost: 131200
+		KillsCost: 86810
+		OrderCount: 512
+		UnitsDead: 278
+		UnitsKilled: 248
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: True
+		BuildingsDead: 20
+		BuildingsKilled: 46
+		DeathsCost: 86040
+		KillsCost: 130430
+		OrderCount: 437
+		UnitsDead: 251
+		UnitsKilled: 281
+	Fitness: 529
+Game79:
+	StartTimestamp: 2016-11-01T18:06:08.1766436+01:00
+	MaxTicksReached: False
+	Ticks: 72633
+	EndTimestamp: 2016-11-01T18:07:21.5745977+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: False
+		BuildingsDead: 41
+		BuildingsKilled: 13
+		DeathsCost: 119200
+		KillsCost: 60630
+		OrderCount: 417
+		UnitsDead: 249
+		UnitsKilled: 158
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: True
+		BuildingsDead: 13
+		BuildingsKilled: 41
+		DeathsCost: 64900
+		KillsCost: 123470
+		OrderCount: 333
+		UnitsDead: 176
+		UnitsKilled: 267
+	Fitness: 425
+Game80:
+	StartTimestamp: 2016-11-01T18:07:25.0569961+01:00
+	MaxTicksReached: False
+	Ticks: 69414
+	EndTimestamp: 2016-11-01T18:08:35.1547582+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: False
+		BuildingsDead: 50
+		BuildingsKilled: 4
+		DeathsCost: 117800
+		KillsCost: 78310
+		OrderCount: 394
+		UnitsDead: 231
+		UnitsKilled: 244
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: True
+		BuildingsDead: 4
+		BuildingsKilled: 50
+		DeathsCost: 79330
+		KillsCost: 118820
+		OrderCount: 379
+		UnitsDead: 252
+		UnitsKilled: 239
+	Fitness: 483
+Game81:
+	StartTimestamp: 2016-11-01T18:08:38.4826182+01:00
+	MaxTicksReached: False
+	Ticks: 55956
+	EndTimestamp: 2016-11-01T18:09:34.9306489+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: False
+		BuildingsDead: 38
+		BuildingsKilled: 14
+		DeathsCost: 91950
+		KillsCost: 56250
+		OrderCount: 333
+		UnitsDead: 174
+		UnitsKilled: 155
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: True
+		BuildingsDead: 14
+		BuildingsKilled: 38
+		DeathsCost: 56010
+		KillsCost: 91710
+		OrderCount: 319
+		UnitsDead: 158
+		UnitsKilled: 177
+	Fitness: 332
+Game82:
+	StartTimestamp: 2016-11-01T18:09:38.2008922+01:00
+	MaxTicksReached: False
+	Ticks: 31097
+	EndTimestamp: 2016-11-01T18:10:09.7956987+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 0
+		BuildingsKilled: 29
+		DeathsCost: 17500
+		KillsCost: 46820
+		OrderCount: 207
+		UnitsDead: 63
+		UnitsKilled: 81
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 29
+		BuildingsKilled: 0
+		DeathsCost: 46900
+		KillsCost: 17580
+		OrderCount: 182
+		UnitsDead: 86
+		UnitsKilled: 68
+	Fitness: 149
+Game83:
+	StartTimestamp: 2016-11-01T18:10:13.1182538+01:00
+	MaxTicksReached: False
+	Ticks: 83041
+	EndTimestamp: 2016-11-01T18:11:36.6456150+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: False
+		BuildingsDead: 62
+		BuildingsKilled: 7
+		DeathsCost: 117900
+		KillsCost: 93160
+		OrderCount: 444
+		UnitsDead: 214
+		UnitsKilled: 278
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: True
+		BuildingsDead: 7
+		BuildingsKilled: 62
+		DeathsCost: 93170
+		KillsCost: 117910
+		OrderCount: 470
+		UnitsDead: 280
+		UnitsKilled: 216
+	Fitness: 494
+Game84:
+	StartTimestamp: 2016-11-01T18:11:39.9461534+01:00
+	MaxTicksReached: False
+	Ticks: 40645
+	EndTimestamp: 2016-11-01T18:12:21.0841578+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 2
+		BuildingsKilled: 32
+		DeathsCost: 32650
+		KillsCost: 71590
+		OrderCount: 212
+		UnitsDead: 112
+		UnitsKilled: 135
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 32
+		BuildingsKilled: 2
+		DeathsCost: 67440
+		KillsCost: 28500
+		OrderCount: 232
+		UnitsDead: 116
+		UnitsKilled: 93
+	Fitness: 228
+Game85:
+	StartTimestamp: 2016-11-01T18:12:24.4458839+01:00
+	MaxTicksReached: True
+	Ticks: 100000
+	EndTimestamp: 2016-11-01T18:14:04.9497246+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: False
+		BuildingsDead: 16
+		BuildingsKilled: 22
+		DeathsCost: 146750
+		KillsCost: 136150
+		OrderCount: 615
+		UnitsDead: 419
+		UnitsKilled: 364
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 21
+		BuildingsKilled: 15
+		DeathsCost: 136250
+		KillsCost: 146850
+		OrderCount: 555
+		UnitsDead: 373
+		UnitsKilled: 428
+	Fitness: 792
+Game86:
+	StartTimestamp: 2016-11-01T18:14:08.6368367+01:00
+	MaxTicksReached: False
+	Ticks: 71072
+	EndTimestamp: 2016-11-01T18:15:20.2003276+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 20
+		BuildingsKilled: 41
+		DeathsCost: 80000
+		KillsCost: 118950
+		OrderCount: 404
+		UnitsDead: 217
+		UnitsKilled: 254
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 41
+		BuildingsKilled: 20
+		DeathsCost: 118050
+		KillsCost: 79100
+		OrderCount: 419
+		UnitsDead: 254
+		UnitsKilled: 217
+	Fitness: 471
+Game87:
+	StartTimestamp: 2016-11-01T18:15:23.4752592+01:00
+	MaxTicksReached: False
+	Ticks: 19748
+	EndTimestamp: 2016-11-01T18:15:43.6944181+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 0
+		BuildingsKilled: 17
+		DeathsCost: 4100
+		KillsCost: 29830
+		OrderCount: 100
+		UnitsDead: 11
+		UnitsKilled: 57
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 17
+		BuildingsKilled: 0
+		DeathsCost: 29330
+		KillsCost: 3600
+		OrderCount: 109
+		UnitsDead: 56
+		UnitsKilled: 10
+	Fitness: 67
+Game88:
+	StartTimestamp: 2016-11-01T18:15:47.1085788+01:00
+	MaxTicksReached: False
+	Ticks: 25168
+	EndTimestamp: 2016-11-01T18:16:12.7860331+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 1
+		BuildingsKilled: 18
+		DeathsCost: 6400
+		KillsCost: 23660
+		OrderCount: 190
+		UnitsDead: 26
+		UnitsKilled: 31
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 18
+		BuildingsKilled: 1
+		DeathsCost: 23460
+		KillsCost: 6200
+		OrderCount: 90
+		UnitsDead: 29
+		UnitsKilled: 24
+	Fitness: 55
+Game89:
+	StartTimestamp: 2016-11-01T18:16:16.1632248+01:00
+	MaxTicksReached: False
+	Ticks: 29359
+	EndTimestamp: 2016-11-01T18:16:46.0044942+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 1
+		BuildingsKilled: 28
+		DeathsCost: 14900
+		KillsCost: 45550
+		OrderCount: 153
+		UnitsDead: 53
+		UnitsKilled: 75
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 28
+		BuildingsKilled: 1
+		DeathsCost: 43750
+		KillsCost: 13100
+		OrderCount: 176
+		UnitsDead: 72
+		UnitsKilled: 50
+	Fitness: 125
+Game90:
+	StartTimestamp: 2016-11-01T18:16:49.3779062+01:00
+	MaxTicksReached: False
+	Ticks: 41110
+	EndTimestamp: 2016-11-01T18:17:30.9848198+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 0
+		BuildingsKilled: 32
+		DeathsCost: 30700
+		KillsCost: 70660
+		OrderCount: 205
+		UnitsDead: 108
+		UnitsKilled: 140
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 32
+		BuildingsKilled: 0
+		DeathsCost: 64960
+		KillsCost: 25000
+		OrderCount: 241
+		UnitsDead: 123
+		UnitsKilled: 91
+	Fitness: 231
+Game91:
+	StartTimestamp: 2016-11-01T18:17:34.2880296+01:00
+	MaxTicksReached: False
+	Ticks: 30171
+	EndTimestamp: 2016-11-01T18:18:04.9561029+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 0
+		BuildingsKilled: 30
+		DeathsCost: 21300
+		KillsCost: 47230
+		OrderCount: 226
+		UnitsDead: 83
+		UnitsKilled: 80
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 30
+		BuildingsKilled: 0
+		DeathsCost: 47730
+		KillsCost: 21800
+		OrderCount: 183
+		UnitsDead: 81
+		UnitsKilled: 84
+	Fitness: 164
+Game92:
+	StartTimestamp: 2016-11-01T18:18:08.3939103+01:00
+	MaxTicksReached: False
+	Ticks: 54878
+	EndTimestamp: 2016-11-01T18:19:03.7453543+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 1
+		BuildingsKilled: 40
+		DeathsCost: 56850
+		KillsCost: 85550
+		OrderCount: 275
+		UnitsDead: 185
+		UnitsKilled: 164
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 40
+		BuildingsKilled: 1
+		DeathsCost: 81660
+		KillsCost: 52960
+		OrderCount: 286
+		UnitsDead: 148
+		UnitsKilled: 169
+	Fitness: 333
+Game93:
+	StartTimestamp: 2016-11-01T18:19:07.0924621+01:00
+	MaxTicksReached: False
+	Ticks: 29044
+	EndTimestamp: 2016-11-01T18:19:36.6398702+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 1
+		BuildingsKilled: 23
+		DeathsCost: 12300
+		KillsCost: 37190
+		OrderCount: 161
+		UnitsDead: 41
+		UnitsKilled: 67
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 23
+		BuildingsKilled: 1
+		DeathsCost: 36590
+		KillsCost: 11700
+		OrderCount: 140
+		UnitsDead: 65
+		UnitsKilled: 39
+	Fitness: 106
+Game94:
+	StartTimestamp: 2016-11-01T18:19:40.0485712+01:00
+	MaxTicksReached: False
+	Ticks: 42441
+	EndTimestamp: 2016-11-01T18:20:23.0033552+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 0
+		BuildingsKilled: 37
+		DeathsCost: 30650
+		KillsCost: 72700
+		OrderCount: 239
+		UnitsDead: 97
+		UnitsKilled: 125
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 37
+		BuildingsKilled: 0
+		DeathsCost: 68750
+		KillsCost: 26700
+		OrderCount: 242
+		UnitsDead: 112
+		UnitsKilled: 84
+	Fitness: 209
+Game95:
+	StartTimestamp: 2016-11-01T18:20:26.3615997+01:00
+	MaxTicksReached: False
+	Ticks: 18829
+	EndTimestamp: 2016-11-01T18:20:45.7012908+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 1
+		BuildingsKilled: 16
+		DeathsCost: 6000
+		KillsCost: 27090
+		OrderCount: 86
+		UnitsDead: 20
+		UnitsKilled: 45
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 16
+		BuildingsKilled: 1
+		DeathsCost: 26390
+		KillsCost: 5300
+		OrderCount: 98
+		UnitsDead: 44
+		UnitsKilled: 19
+	Fitness: 64
+Game96:
+	StartTimestamp: 2016-11-01T18:20:49.1062137+01:00
+	MaxTicksReached: False
+	Ticks: 31572
+	EndTimestamp: 2016-11-01T18:21:21.1690466+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 0
+		BuildingsKilled: 32
+		DeathsCost: 15200
+		KillsCost: 50000
+		OrderCount: 211
+		UnitsDead: 76
+		UnitsKilled: 84
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 32
+		BuildingsKilled: 0
+		DeathsCost: 50000
+		KillsCost: 15200
+		OrderCount: 188
+		UnitsDead: 84
+		UnitsKilled: 76
+	Fitness: 160
+Game97:
+	StartTimestamp: 2016-11-01T18:21:24.5533848+01:00
+	MaxTicksReached: False
+	Ticks: 49960
+	EndTimestamp: 2016-11-01T18:22:15.0249341+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: False
+		BuildingsDead: 36
+		BuildingsKilled: 2
+		DeathsCost: 78700
+		KillsCost: 47890
+		OrderCount: 277
+		UnitsDead: 162
+		UnitsKilled: 167
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: True
+		BuildingsDead: 2
+		BuildingsKilled: 36
+		DeathsCost: 48550
+		KillsCost: 79360
+		OrderCount: 257
+		UnitsDead: 169
+		UnitsKilled: 164
+	Fitness: 331
+Game98:
+	StartTimestamp: 2016-11-01T18:22:18.3512653+01:00
+	MaxTicksReached: False
+	Ticks: 51655
+	EndTimestamp: 2016-11-01T18:23:10.5097905+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: False
+		BuildingsDead: 41
+		BuildingsKilled: 10
+		DeathsCost: 85650
+		KillsCost: 44480
+		OrderCount: 301
+		UnitsDead: 153
+		UnitsKilled: 155
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: True
+		BuildingsDead: 10
+		BuildingsKilled: 41
+		DeathsCost: 46510
+		KillsCost: 87680
+		OrderCount: 304
+		UnitsDead: 162
+		UnitsKilled: 160
+	Fitness: 315
+Game99:
+	StartTimestamp: 2016-11-01T18:23:13.9620528+01:00
+	MaxTicksReached: False
+	Ticks: 15808
+	EndTimestamp: 2016-11-01T18:23:30.2764067+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 1
+		BuildingsKilled: 14
+		DeathsCost: 4500
+		KillsCost: 22470
+		OrderCount: 71
+		UnitsDead: 11
+		UnitsKilled: 48
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 14
+		BuildingsKilled: 1
+		DeathsCost: 22470
+		KillsCost: 4500
+		OrderCount: 99
+		UnitsDead: 48
+		UnitsKilled: 11
+	Fitness: 59
+Game100:
+	StartTimestamp: 2016-11-01T18:23:33.6249513+01:00
+	MaxTicksReached: False
+	Ticks: 43125
+	EndTimestamp: 2016-11-01T18:24:17.2582805+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 1
+		BuildingsKilled: 38
+		DeathsCost: 29900
+		KillsCost: 66820
+		OrderCount: 282
+		UnitsDead: 111
+		UnitsKilled: 108
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 38
+		BuildingsKilled: 1
+		DeathsCost: 67720
+		KillsCost: 30800
+		OrderCount: 238
+		UnitsDead: 112
+		UnitsKilled: 115
+	Fitness: 223
+Game101:
+	StartTimestamp: 2016-11-01T18:24:20.6814640+01:00
+	MaxTicksReached: False
+	Ticks: 82424
+	EndTimestamp: 2016-11-01T18:25:43.6153158+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 10
+		BuildingsKilled: 67
+		DeathsCost: 111150
+		KillsCost: 135220
+		OrderCount: 468
+		UnitsDead: 333
+		UnitsKilled: 256
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 67
+		BuildingsKilled: 10
+		DeathsCost: 133520
+		KillsCost: 109450
+		OrderCount: 494
+		UnitsDead: 251
+		UnitsKilled: 328
+	Fitness: 584
+Game102:
+	StartTimestamp: 2016-11-01T18:25:47.0170262+01:00
+	MaxTicksReached: False
+	Ticks: 16729
+	EndTimestamp: 2016-11-01T18:26:04.2395540+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 0
+		BuildingsKilled: 13
+		DeathsCost: 2800
+		KillsCost: 23870
+		OrderCount: 73
+		UnitsDead: 6
+		UnitsKilled: 46
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 13
+		BuildingsKilled: 0
+		DeathsCost: 23870
+		KillsCost: 2800
+		OrderCount: 91
+		UnitsDead: 46
+		UnitsKilled: 6
+	Fitness: 52
+Game103:
+	StartTimestamp: 2016-11-01T18:26:07.5948547+01:00
+	MaxTicksReached: False
+	Ticks: 57480
+	EndTimestamp: 2016-11-01T18:27:05.5869481+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 1
+		BuildingsKilled: 49
+		DeathsCost: 59750
+		KillsCost: 96940
+		OrderCount: 295
+		UnitsDead: 199
+		UnitsKilled: 169
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 49
+		BuildingsKilled: 1
+		DeathsCost: 93890
+		KillsCost: 56700
+		OrderCount: 330
+		UnitsDead: 160
+		UnitsKilled: 190
+	Fitness: 359
+Game104:
+	StartTimestamp: 2016-11-01T18:27:08.9935181+01:00
+	MaxTicksReached: False
+	Ticks: 33256
+	EndTimestamp: 2016-11-01T18:27:42.7364319+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 0
+		BuildingsKilled: 31
+		DeathsCost: 21200
+		KillsCost: 50060
+		OrderCount: 174
+		UnitsDead: 75
+		UnitsKilled: 86
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 31
+		BuildingsKilled: 0
+		DeathsCost: 49780
+		KillsCost: 20920
+		OrderCount: 204
+		UnitsDead: 88
+		UnitsKilled: 77
+	Fitness: 163
+Game105:
+	StartTimestamp: 2016-11-01T18:27:46.1401551+01:00
+	MaxTicksReached: False
+	Ticks: 33728
+	EndTimestamp: 2016-11-01T18:28:20.3747849+01:00
+	Player0Stats: :
+		PlayerName: Rush AI
+		Faction: Allies
+		Winner: True
+		BuildingsDead: 1
+		BuildingsKilled: 23
+		DeathsCost: 21450
+		KillsCost: 51520
+		OrderCount: 206
+		UnitsDead: 76
+		UnitsKilled: 101
+	Player1Stats: :
+		PlayerName: Rush AI
+		Faction: Soviet
+		Winner: False
+		BuildingsDead: 23
+		BuildingsKilled: 1
+		DeathsCost: 52180
+		KillsCost: 22110
+		OrderCount: 186
+		UnitsDead: 102
+		UnitsKilled: 77
+	Fitness: 178
