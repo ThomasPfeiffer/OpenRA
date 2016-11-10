@@ -1,12 +1,11 @@
 from balancing.model.runtime_models import ParameterList
 from balancing.model.runtime_models import TemplateFile
-from balancing.model.db_models import RAPlayer
-from balancing.model.db_models import RAGame
+
 from balancing.model.db_models import initialize_database
 from balancing.model import db_models
-from utility import thread_util
-from utility import yaml_util
-from utility import log_util
+
+from balancing.utility import yaml_util
+from balancing.utility import log_util
 
 import os
 import re
@@ -18,38 +17,9 @@ from pyevolve import Mutators
 
 from pyevolve import GSimpleGA
 
+from balancing import openRA
+
 LOG = log_util.get_logger(__name__)
-
-def execute_ra(game_id, log_file):
-    LOG.debug("Running openRA with game_id {0}".format(game_id))
-    game_executable = "C:\\dev\\OpenRA\\Game\\OpenRA.exe"
-    args = {
-        "headless" : True,
-        "autostart" : True,
-        "max-ticks" : 100000,
-        "map" : "ma_temperat",
-        "fitness-log" : log_file,
-        "game-id" : game_id
-    }
-    if thread_util.execute_with_timout(600, game_executable, **args) != 0:
-        raise RuntimeError("Game failed")
-
-
-def store_results_in_db(params, result_yaml, game_id):
-    game = RAGame(game_id = game_id)
-    game = yaml_util.populate_ra_game(game, result_yaml)
-    game.save()
-
-    for key in result_yaml:
-        if re.match("Player\d+Stats", key) is not None:
-            player = RAPlayer(game=game)
-            player = yaml_util.populate_ra_player(player, result_yaml[key])
-            player.save()
-
-    for p in params.param_list():
-        db_models.save_as_ra_param(game, p)
-
-    return game
 
 
 class Optimization:
@@ -91,7 +61,7 @@ class Optimization:
 
         # Execute the game writing results to a yaml file
         log_file = os.getcwd() + "/logs/openra.yaml"
-        execute_ra(self.game_id(), log_file)
+        openRA.executor.execute_ra(self.game_id(), log_file)
 
 
         # Read the results and store them in the database
@@ -101,7 +71,7 @@ class Optimization:
             raise RuntimeError("Results for game {0} not found in logfile {1}".format(self.game_id(),log_file))
 
         result_yaml = game_log_yaml[self.game_id()]
-        game = store_results_in_db(self.parameters, result_yaml, self.game_id())
+        game = openRA.executor.store_results_in_db(self.parameters, result_yaml, self.game_id())
 
         self.game_id_count += 1
         return game.fitness
