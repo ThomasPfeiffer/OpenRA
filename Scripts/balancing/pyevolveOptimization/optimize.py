@@ -1,11 +1,13 @@
 from balancing.model.runtime_models import ParameterList
 from balancing.model.runtime_models import TemplateFile
-
+from balancing.model.db_models import RAPlayer
+from balancing.model.db_models import RAGame
 from balancing.model.db_models import initialize_database
 from balancing.model import db_models
-
+from balancing.utility import thread_util
 from balancing.utility import yaml_util
 from balancing.utility import log_util
+from balancing import openRA
 
 import os
 import re
@@ -17,9 +19,25 @@ from pyevolve import Mutators
 
 from pyevolve import GSimpleGA
 
-from balancing import openRA
-
 LOG = log_util.get_logger(__name__)
+BASE_PATH = "C:/uni/dev/OpenRA"
+
+
+def store_results_in_db(params, result_yaml, game_id):
+    game = RAGame(game_id = game_id)
+    game = yaml_util.populate_ra_game(game, result_yaml)
+    game.save()
+
+    for key in result_yaml:
+        if re.match("Player\d+Stats", key) is not None:
+            player = RAPlayer(game=game)
+            player = yaml_util.populate_ra_player(player, result_yaml[key])
+            player.save()
+
+    for p in params.param_list():
+        db_models.save_as_ra_param(game, p)
+
+    return game
 
 
 class Optimization:
@@ -51,7 +69,7 @@ class Optimization:
         i=0
         for p in self.parameters.param_list():
             p.value = chromosome[i]
-            LOG.debug("set parameter" + p.name + " to " + str(chromosome[i]))
+            LOG.debug("set parameter " + p.name + " to " + str(chromosome[i]))
             i += 1
 
     def eval_func(self, chromosome):
@@ -71,7 +89,7 @@ class Optimization:
             raise RuntimeError("Results for game {0} not found in logfile {1}".format(self.game_id(),log_file))
 
         result_yaml = game_log_yaml[self.game_id()]
-        game = openRA.executor.store_results_in_db(self.parameters, result_yaml, self.game_id())
+        game = store_results_in_db(self.parameters, result_yaml, self.game_id())
 
         self.game_id_count += 1
         return game.fitness
@@ -99,7 +117,7 @@ class Optimization:
 
 
 def main():
-    directory = "C:/dev/OpenRA/Game/mods/ra/maps/ma_temperat/"
+    directory = BASE_PATH + "/Game/mods/ra/maps/ma_temperat/"
     LOG.info("Starting algorithm in " + directory)
     o = Optimization(directory)
     o.do_optimization()

@@ -86,11 +86,11 @@ def read_params_from_template(filename):
     parameters = []
     with open(filename, 'r') as param_file:
         for line in param_file:
-            match = re.search("param_\w+ \d+ \d+",line)
+            match = re.search("param_\w+ \d+ \d+", line)
             if match:
                 s = match.group(0).split()
                 p = Parameter(
-                    name=s[0].lstrip("param_"),
+                    name=s[0].replace("param_", "", 1),
                     file_string = match.group(0),
                     min_value = float(s[1]),
                     max_value = float(s[2])
