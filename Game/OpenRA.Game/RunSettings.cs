@@ -12,8 +12,8 @@ namespace OpenRA
         public const int Timestep = 1; // Default 40
         public const string Default_Mod = "ra";
 
-        public static bool Headless;
-        public static bool Autostart = true;
+        public static bool Headless = false;
+        public static bool Autostart = false;
         public static int MaxTicks = 100000;
         public static string GameMap; // ma_temperat
         public static string FitnessLog;

@@ -26,6 +26,7 @@ namespace OpenRA.Mods.Common.Traits.Stats
             Console.WriteLine("Game Complete!");
             PrintPlayerFitnessInformation(world);
 
+            FitnessLogging.Instance.Flush();
             // Kill process.
             System.Environment.Exit(0);
         }
@@ -36,15 +37,29 @@ namespace OpenRA.Mods.Common.Traits.Stats
             logger.AddEntry("Ticks",world.WorldTick);
             logger.AddEntry("EndTimestamp",$"{DateTime.Now:O}");
             int i = 0;
-            int fitness = 0;
-            foreach (var p in world.Players.Where(a => !a.NonCombatant))
+            var players = world.Players.Where(a => !a.NonCombatant);
+
+            int unitsKilledOverall = players.Where(p => p.PlayerActor.TraitOrDefault<PlayerStatistics>() != null)
+                .Sum(p => p.PlayerActor.TraitOrDefault<PlayerStatistics>().UnitsKilled);
+
+            int buildingsKilledOverall = players.Where(p => p.PlayerActor.TraitOrDefault<PlayerStatistics>() != null)
+                .Sum(p => p.PlayerActor.TraitOrDefault<PlayerStatistics>().BuildingsKilled);
+
+            double overallKillDeviation = 0;
+            double averageKills = Convert.ToDouble(unitsKilledOverall)/players.Count();
+
+            double overallBuildingsDeviation = 0;
+            double averageBuildings = Convert.ToDouble(buildingsKilledOverall) / players.Count();
+
+            foreach (var p in players)
             {
                 var stats = p.PlayerActor.TraitOrDefault<PlayerStatistics>();
                 if (stats == null)
                 {
                     continue;
                 }
-                fitness += stats.UnitsKilled;
+                overallKillDeviation += Math.Abs(averageKills - Convert.ToDouble(stats.UnitsKilled));
+                overallBuildingsDeviation += Math.Abs(averageBuildings - Convert.ToDouble(stats.BuildingsKilled));
                 logger.AddParent(String.Format(F_PLAYER_NAME, i++));
                 logger.AddEntry("PlayerName", p.PlayerName);
                 logger.AddEntry("Faction", p.Faction.Name);
@@ -58,7 +73,8 @@ namespace OpenRA.Mods.Common.Traits.Stats
                 logger.AddEntry("UnitsKilled", stats.UnitsKilled);
                 logger.EndParent();
             }
-            logger.AddEntry("Fitness",fitness);
+            double fitness = overallKillDeviation + overallBuildingsDeviation*5;
+            logger.AddEntry("Fitness", overallKillDeviation);
         }
 
         

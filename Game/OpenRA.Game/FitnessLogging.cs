@@ -11,6 +11,7 @@ namespace OpenRA
     {
         private string logFile;
         private int indent;
+        private StreamWriter log;
 
         private static readonly FitnessLogging instance = new FitnessLogging();
 
@@ -20,6 +21,8 @@ namespace OpenRA
             {
                 indent = 0;
                 logFile = RunSettings.FitnessLog;
+                log = File.AppendText(logFile);
+                log.AutoFlush = false;
                 AddParent($"{RunSettings.Game_ID}");
             }
         }
@@ -65,14 +68,17 @@ namespace OpenRA
             indent--;
         }
 
+        public void Flush()
+        {
+            log.Flush();
+        }
+
         private void Write(string line)
         {
-            if (!string.IsNullOrEmpty(logFile))
+            if (log != null)
             {
-                using (StreamWriter log = File.AppendText(logFile))
-                {
-                    log.WriteLine(line);
-                }
+                log.AutoFlush = false;
+                log.WriteLine(line);   
             }
         }
     }
