@@ -1,6 +1,7 @@
 from peewee import *
+from balancing import settings
 
-db = SqliteDatabase('fitness.db')
+db = SqliteDatabase(settings.database)
 
 
 def initialize_database():

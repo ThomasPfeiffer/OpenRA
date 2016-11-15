@@ -1,4 +1,3 @@
-from balancing.model.runtime_models import ParameterList
 from balancing.model.runtime_models import TemplateFile
 from balancing.model.db_models import RAPlayer
 from balancing.model.db_models import RAGame
@@ -8,6 +7,7 @@ from balancing.utility import thread_util
 from balancing.utility import yaml_util
 from balancing.utility import log_util
 from balancing import openRA
+from balancing.openRA import results
 
 import os
 import re
@@ -21,23 +21,6 @@ from pyevolve import GSimpleGA
 
 LOG = log_util.get_logger(__name__)
 BASE_PATH = "C:/uni/dev/OpenRA"
-
-
-def store_results_in_db(params, result_yaml, game_id):
-    game = RAGame(game_id = game_id)
-    game = yaml_util.populate_ra_game(game, result_yaml)
-    game.save()
-
-    for key in result_yaml:
-        if re.match("Player\d+Stats", key) is not None:
-            player = RAPlayer(game=game)
-            player = yaml_util.populate_ra_player(player, result_yaml[key])
-            player.save()
-
-    for p in params.param_list():
-        db_models.save_as_ra_param(game, p)
-
-    return game
 
 
 class Optimization:
@@ -89,7 +72,7 @@ class Optimization:
             raise RuntimeError("Results for game {0} not found in logfile {1}".format(self.game_id(),log_file))
 
         result_yaml = game_log_yaml[self.game_id()]
-        game = store_results_in_db(self.parameters, result_yaml, self.game_id())
+        game = results.store_results_in_db(self.parameters, result_yaml, self.game_id())
 
         self.game_id_count += 1
         return game.fitness

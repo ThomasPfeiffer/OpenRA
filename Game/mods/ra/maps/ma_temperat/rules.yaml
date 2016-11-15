@@ -6,10 +6,10 @@ World:
 
 E1:
 	Valued:
-		Cost: 429
+		Cost: -700
 POWR:
   Valued:
-    Cost: 51
+    Cost: -72
 DOG:
 	Buildable:
 		Prerequisites: ~disabled

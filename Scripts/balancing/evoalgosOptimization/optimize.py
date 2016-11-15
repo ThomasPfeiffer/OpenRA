@@ -1,79 +1,45 @@
-import random
+from balancing.model.db_models import initialize_database
 from optproblems import Problem
 from evoalgos.algo import EvolutionaryAlgorithm
-from evoalgos.individual import SBXIndividual
-from evoalgos.reproduction import Reproduction
-from evoalgos.individual import Individual
-from evoalgos.selection import Selection
-from evoalgos.selection import TruncationSelection
-from random import randint
+from individual import FixedMutationIndividual
+from reproduction import CloneMutationReproduction
+from selection import SingleObjectiveSelection
+from balancing.openRA.executor import play_game
+from balancing.openRA.executor import read_params
+from balancing.utility import log_util
+from balancing import settings
 
 
-class MyIndividual(Individual):
+LOG = log_util.get_logger(__name__)
 
-    def _mutate(self):
-        new_genome = []
-        for v in self.genome:
-            fac = float(randint(-5, 5))/100.0 + 1.0
-            new_genome.append(v * fac)
-        self.genome = new_genome
-
-    def recombine(self, others):
-        return others
-
-
-class MyReproduction(Reproduction):
-    def create(self, population, number):
-        offspring = []
-        i = 0
-        while i < number:
-            individual = population[(i % len(population))-1]
-            clone = individual.clone()
-            clone.mutate()
-            offspring.append(clone)
-            i+=1
-        return offspring
 
 
 def obj_function(phenome):
-    return sum(phenome)
+    return play_game(phenome)
 
 
-class MySelection(Selection):
-    def reduce_to(self, population, number, already_chosen=None):
-        sorted_pop = sorted(population, key=lambda individual: individual.objective_values, reverse=True)
-        rejected = []
-        i = 0
-        while i < number:
-            rejected.append(sorted_pop[i])
-            population.remove(sorted_pop[i])
-            i += 1
-        s = ''
-        for p in population:
-            s += str(p)
-        return rejected
-
-    def select(self, population, number, already_chosen=None):
-        sorted_pop = population.sort()
-        selected = []
-        for i in number:
-            selected.append(sorted_pop[i])
-        return selected
-
-
-def do():
-    problem = Problem(obj_function, num_objectives=1, max_evaluations=1000, name="Example")
+def do(directory):
+    problem = Problem(obj_function, num_objectives=1, max_evaluations=10, name="Example")
     popsize = 1
     population = []
+    parameters = read_params(directory)
     for _ in range(popsize):
-        population.append(MyIndividual(genome=[1.0 for _ in range(10)], num_parents=1))
+        population.append(FixedMutationIndividual(genome=[p.clone() for p in parameters], num_parents=1))
 
     ea = EvolutionaryAlgorithm(problem=problem, start_population=population, population_size=1, max_age=5000,
-                               num_offspring=1, reproduction=MyReproduction(),selection=MySelection(),
+                               num_offspring=1, reproduction=CloneMutationReproduction(),selection=SingleObjectiveSelection(),
                                max_generations=2000, verbosity=1)
     ea.run()
     for individual in population:
         print(individual)
 
 
-do()
+def main():
+    directory = settings.map_directory
+    LOG.info("Starting algorithm in " + directory)
+    initialize_database()
+    do(directory)
+    LOG.info("finished")
+
+if __name__ == "__main__":
+    main()

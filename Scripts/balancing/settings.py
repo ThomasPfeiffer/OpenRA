@@ -1,0 +1,6 @@
+base_path = "C:/dev/OpenRA"
+workspace_path = base_path + "/workspace"
+database = workspace_path + "/fitness.db"
+map_directory = base_path + "/Game/mods/ra/maps/ma_temperat/"
+game_log = workspace_path + "/logs/openra.yaml"
+ra_game_executable = "C:/dev/OpenRA/Game/OpenRA.exe"

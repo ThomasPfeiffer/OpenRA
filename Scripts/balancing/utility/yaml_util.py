@@ -2,6 +2,7 @@ import re
 from collections import OrderedDict
 import dateutil.parser
 from balancing.model.runtime_models import Parameter
+from balancing.model import runtime_models
 import log_util
 
 #LOG = log_util.get_logger(__name__)
@@ -82,16 +83,17 @@ def dump_yaml(yaml_dict, dump_file_name):
         write_entry(file, yaml_dict, 0)
 
 
-def read_params_from_template(filename):
+def read_params_from_template(template_file):
     parameters = []
-    with open(filename, 'r') as param_file:
+    with open(template_file.read_file, 'r') as param_file:
         for line in param_file:
             match = re.search("param_\w+ \d+ \d+", line)
             if match:
                 s = match.group(0).split()
                 p = Parameter(
                     name=s[0].replace("param_", "", 1),
-                    file_string = match.group(0),
+                    template_file= template_file,
+                    file_string= match.group(0),
                     min_value = float(s[1]),
                     max_value = float(s[2])
                 )
@@ -100,26 +102,16 @@ def read_params_from_template(filename):
 
 
 def write_all_to_file(parameter_list):
-    for t in parameter_list.templates:
-        write_to_file(t)
-
-
-def write_to_file(template):
-    params = template.parameters
-    i=0
-    param = params[i]
-    with open(template.write_file, 'w') as new_file:
-        with open(template.read_file) as old_file:
-            for line in old_file:
-                if param.file_string in line:
-                    new_file.write(line.replace(param.file_string, str(param.value)))
-                    i += 1
-                    if i < len(params):
-                        param = params[i]
-                else:
-                    new_file.write(line)
-    if i < len(params):
-        raise AssertionError("Only " + str(i+1) + " parameters were replaced.")
+    templates = runtime_models.get_template_files(parameter_list)
+    for template in templates:
+        with open(template.write_file, 'w') as new_file:
+            with open(template.read_file) as old_file:
+                for line in old_file:
+                    new_line = line
+                    for param in parameter_list:
+                        if param.template_file == template and param.file_string in line:
+                            new_line = line.replace(param.file_string, str(param.value))
+                    new_file.write(new_line)
 
 
 def populate_ra_game(game, yaml_dict):
