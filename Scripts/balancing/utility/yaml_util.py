@@ -5,8 +5,7 @@ from balancing.model.runtime_models import Parameter
 from balancing.model import runtime_models
 import log_util
 
-#LOG = log_util.get_logger(__name__)
-LOG = None
+LOG = log_util.get_logger(__name__)
 
 def parse_yaml_file(file):
     def get_indent(line):

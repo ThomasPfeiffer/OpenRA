@@ -1,0 +1,1 @@
+select avg(buildings_killed) from raplayer;

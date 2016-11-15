@@ -13,13 +13,12 @@ from balancing import settings
 LOG = log_util.get_logger(__name__)
 
 
-
 def obj_function(phenome):
     return play_game(phenome)
 
 
 def do(directory):
-    problem = Problem(obj_function, num_objectives=1, max_evaluations=10, name="Example")
+    problem = Problem(obj_function, num_objectives=1, max_evaluations=100, name="Example")
     popsize = 1
     population = []
     parameters = read_params(directory)

@@ -30,34 +30,46 @@ def read_params(directory):
     return parameters
 
 
-def execute_ra(game_id, log_file):
+def execute_ra(game_id):
     LOG.debug("Running openRA with game_id {0}".format(game_id))
     game_executable = settings.ra_game_executable
     args = {
-        "headless" : True,
+        "headless" : settings.headless,
         "autostart" : True,
-        "max-ticks" : 100000,
-        "map" : "ma_temperat",
-        "fitness-log" : log_file,
+        "max-ticks" : settings.max_ticks,
+        "map" : settings.map_name,
+        "fitness-log" : settings.game_log,
         "game-id" : game_id
     }
     if thread_util.execute_with_timout(600, game_executable, **args) != 0:
         raise RuntimeError("Game failed")
 
 
-def store_results_in_db(params, result_yaml, game_id):
+
+def store_params_in_db(game, params):
+    for p in params:
+        db_models.save_as_ra_param(game, p)
+
+
+def store_game_in_db(game_id, result_yaml):
     game = RAGame(game_id = game_id)
     game = yaml_util.populate_ra_game(game, result_yaml)
     game.save()
+    return game
 
+
+def store_players_in_db(game, result_yaml):
     for key in result_yaml:
         if re.match("Player\d+Stats", key) is not None:
             player = RAPlayer(game=game)
             player = yaml_util.populate_ra_player(player, result_yaml[key])
             player.save()
 
-    for p in params:
-        db_models.save_as_ra_param(game, p)
+
+def store_results_in_db(params, result_yaml, game_id):
+    game = store_game_in_db(game_id, result_yaml)
+    store_players_in_db(game, result_yaml)
+    store_params_in_db(game, params)
     return game
 
 
@@ -67,17 +79,31 @@ def create_game_id():
 
 def play_game(parameter_list):
     yaml_util.write_all_to_file(parameter_list)
-    log_file = settings.game_log
     game_id = create_game_id()
-    execute_ra(game_id, log_file)
+    execute_ra(game_id)
 
     # Read the results and store them in the database
-    game_log_yaml = yaml_util.parse_yaml_file(log_file)
+    game_log_yaml = yaml_util.parse_yaml_file(settings.game_log)
 
     if not game_id in game_log_yaml:
-        raise RuntimeError("Results for game {0} not found in logfile {1}".format(game_id, log_file))
+        raise RuntimeError("Results for game {0} not found in logfile {1}".format(game_id, settings.game_log))
 
     result_yaml = game_log_yaml[game_id]
     game = store_results_in_db(parameter_list, result_yaml, game_id)
 
     return game.fitness
+
+
+def main():
+    db_models.initialize_database()
+    for i in range(100):
+        game_id = "parameterless_{0}".format(i)
+        execute_ra(game_id)
+        game_log_yaml = yaml_util.parse_yaml_file(settings.game_log)
+        result_yaml = game_log_yaml[game_id]
+        game = store_game_in_db(game_id, result_yaml)
+        store_players_in_db(game, result_yaml)
+    LOG.info("finished")
+
+if __name__ == "__main__":
+    main()
