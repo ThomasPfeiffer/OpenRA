@@ -74,7 +74,7 @@ namespace OpenRA.Mods.Common.Traits.Stats
                 logger.EndParent();
             }
             double fitness = overallKillDeviation + overallBuildingsDeviation*5;
-            logger.AddEntry("Fitness", overallKillDeviation);
+            logger.AddEntry("Fitness", fitness);
         }
 
         

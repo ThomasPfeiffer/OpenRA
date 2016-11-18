@@ -1,0 +1,24 @@
+BADR:
+	Buildable:
+		Prerequisites: ~disabled
+BADR.Bomber:
+	Buildable:
+		Prerequisites: ~disabled
+MIG:
+	Buildable:
+		Prerequisites: ~disabled
+YAK:
+	Buildable:
+		Prerequisites: ~disabled
+TRAN:
+	Buildable:
+		Prerequisites: ~disabled
+HELI:
+	Buildable:
+		Prerequisites: ~disabled
+HIND:
+	Buildable:
+		Prerequisites: ~disabled
+U2:
+	Buildable:
+		Prerequisites: ~disabled

@@ -70,7 +70,10 @@ namespace OpenRA
 
         public void Flush()
         {
-            log.Flush();
+            if (log != null)
+            {
+                log.Flush();
+            }
         }
 
         private void Write(string line)

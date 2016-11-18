@@ -1,0 +1,111 @@
+MSLO:
+	Buildable:
+		Prerequisites: ~disabled
+GAP:
+	Buildable:
+		Prerequisites: ~disabled
+SPEN:
+	Buildable:
+		Prerequisites: ~disabled
+SYRD:
+	Buildable:
+		Prerequisites: ~disabled
+IRON:
+	Buildable:
+		Prerequisites: ~disabled
+PDOX:
+	Buildable:
+		Prerequisites: ~disabled
+TSLA:
+	Buildable:
+		Prerequisites: ~disabled
+AGUN:
+	Buildable:
+		Prerequisites: ~disabled
+DOME:
+	Buildable:
+		Prerequisites: ~disabled
+PBOX:
+	Buildable:
+		Prerequisites: ~disabled
+HBOX:
+	Buildable:
+		Prerequisites: ~disabled
+GUN:
+	Buildable:
+		Prerequisites: ~disabled
+FTUR:
+	Buildable:
+		Prerequisites: ~disabled
+SAM:
+	Buildable:
+		Prerequisites: ~disabled
+ATEK:
+	Buildable:
+		Prerequisites: ~disabled
+WEAP:
+	Buildable:
+		Prerequisites: ~disabled
+FACT:
+	Buildable:
+		Prerequisites: ~disabled
+PROC:
+	Buildable:
+		Prerequisites: ~disabled
+SILO:
+	Buildable:
+		Prerequisites: ~disabled
+HPAD:
+	Buildable:
+		Prerequisites: ~disabled
+AFLD:
+	Buildable:
+		Prerequisites: ~disabled
+POWR:
+	Buildable:
+		Prerequisites: ~disabled
+APWR:
+	Buildable:
+		Prerequisites: ~disabled
+STEK:
+	Buildable:
+		Prerequisites: ~disabled
+BARR:
+	Buildable:
+		Prerequisites: ~disabled
+KENN:
+	Buildable:
+		Prerequisites: ~disabled
+TENT:
+	Buildable:
+		Prerequisites: ~disabled
+FIX:
+	Buildable:
+		Prerequisites: ~disabled
+SBAG:
+	Buildable:
+		Prerequisites: ~disabled
+FENC:
+	Buildable:
+		Prerequisites: ~disabled
+BRIK:
+	Buildable:
+		Prerequisites: ~disabled
+CYCL:
+	Buildable:
+		Prerequisites: ~disabled
+BARB:
+	Buildable:
+		Prerequisites: ~disabled
+WOOD:
+	Buildable:
+		Prerequisites: ~disabled
+BARRACKS:
+	Buildable:
+		Prerequisites: ~disabled
+TECHCENTER:
+	Buildable:
+		Prerequisites: ~disabled
+ANYPOWER:
+	Buildable:
+		Prerequisites: ~disabled

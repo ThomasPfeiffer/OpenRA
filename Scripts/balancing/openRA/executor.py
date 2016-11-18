@@ -96,7 +96,9 @@ def play_game(parameter_list):
 
 def main():
     db_models.initialize_database()
-    for i in range(100):
+    gm = db_models.RAGame.select().where(db_models.RAGame.game_id.startswith('parameterless_')).order_by(db_models.RAGame.id.desc()).get()
+    new_id = int(gm.game_id.lstrip('parameterless_')) +1
+    for i in range(new_id, new_id+100):
         game_id = "parameterless_{0}".format(i)
         execute_ra(game_id)
         game_log_yaml = yaml_util.parse_yaml_file(settings.game_log)

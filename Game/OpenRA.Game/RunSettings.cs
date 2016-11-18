@@ -30,7 +30,7 @@ namespace OpenRA
             Autostart = bool.Parse(args.GetValue("--autostart", "false"));
             MaxTicks = int.Parse(args.GetValue("--max-ticks", "100000"));
             GameMap = args.GetValue("--map", "ma_temperat");
-            FitnessLog = args.GetValue("--fitness-log", "C:\\temp\\openRALogs");
+            FitnessLog = args.GetValue("--fitness-log", "");
             Game_ID = args.GetValue("--game-id", "no_id_set");
         }
     }
