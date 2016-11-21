@@ -155,3 +155,4 @@ def populate_ra_player(player, yaml_dict):
     player.units_dead = get_int("UnitsDead")
     player.units_killed = get_int("UnitsKilled")
     return player
+
