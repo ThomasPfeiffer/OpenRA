@@ -1,6 +1,7 @@
 from collections import OrderedDict
 from random import randint
 
+
 class Actor:
     def __init__(self, name , owner , x, y):
         self.name = name
@@ -29,7 +30,7 @@ class Parameter:
         self.template_file = template_file
         self.min_value = min_value
         self.max_value = max_value
-        self.value = randint(min_value,max_value)
+        self.value = randint(min_value, max_value)
 
     def clone(self):
         return Parameter(self.name, self.file_string, self.template_file, self.min_value, self.max_value)
