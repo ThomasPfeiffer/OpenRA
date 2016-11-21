@@ -7,6 +7,7 @@ from selection import SingleObjectiveSelection
 from balancing.openRA.executor import play_game
 from balancing.openRA.executor import read_params
 from balancing.utility import log_util
+from balancing.utility import thread_util
 from balancing import settings
 
 
@@ -38,6 +39,7 @@ def main():
     LOG.info("Starting algorithm in " + directory)
     initialize_database()
     do(directory)
+    thread_util.show_messagebox("Evoalgos Balancing Optimization", "Execution finished")
     LOG.info("finished")
 
 if __name__ == "__main__":
