@@ -34,12 +34,15 @@ def execute_ra(game_id):
     LOG.debug("Running openRA with game_id {0}".format(game_id))
     game_executable = settings.ra_game_executable
     args = {
-        "headless" : settings.headless,
-        "autostart" : True,
-        "max-ticks" : settings.max_ticks,
-        "map" : settings.map_name,
-        "fitness-log" : settings.game_log,
-        "game-id" : game_id
+        "headless": settings.headless,
+        "autostart": True,
+        "max-ticks": settings.max_ticks,
+        "map": settings.map_name,
+        "fitness-log": settings.game_log,
+        "game-id": game_id,
+        "timestep": settings.timestep,
+        "ai1": settings.ai1,
+        "ai2": settings.ai2
     }
     if thread_util.execute_with_timout(600, game_executable, **args) != 0:
         raise RuntimeError("Game failed")
@@ -98,7 +101,7 @@ def main():
     db_models.initialize_database()
     gm = db_models.RAGame.select().where(db_models.RAGame.game_id.startswith('parameterless_')).order_by(db_models.RAGame.id.desc()).get()
     new_id = int(gm.game_id.lstrip('parameterless_')) +1
-    for i in range(new_id, new_id+100):
+    for i in range(new_id, new_id+settings.paramless_games):
         game_id = "parameterless_{0}".format(i)
         execute_ra(game_id)
         game_log_yaml = yaml_util.parse_yaml_file(settings.game_log)
