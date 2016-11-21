@@ -1,6 +1,6 @@
 import threading
 import subprocess
-
+import ctypes
 
 class TimedoutException(Exception):
     pass
@@ -36,3 +36,6 @@ def execute_with_timout(timeout, executable, **kwargs):
     tmr.stop()
     return proc.returncode
 
+
+def show_messagebox(title, text):
+    ctypes.windll.user32.MessageBoxW(0, text, title, 0)
