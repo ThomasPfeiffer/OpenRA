@@ -1,6 +1,210 @@
-E1:
-	Valued:
-		Cost: 383
-1TNK:
-	Valued:
-		Cost: 299
+3TNK:
+	Buildable:
+		Prerequisites: ~vehicles.soviet
+MSLO:
+	Buildable:
+		Prerequisites: ~disabled
+GAP:
+	Buildable:
+		Prerequisites: ~disabled
+SPEN:
+	Buildable:
+		Prerequisites: ~disabled
+SYRD:
+	Buildable:
+		Prerequisites: ~disabled
+IRON:
+	Buildable:
+		Prerequisites: ~disabled
+PDOX:
+	Buildable:
+		Prerequisites: ~disabled
+TSLA:
+	Buildable:
+		Prerequisites: ~disabled
+AGUN:
+	Buildable:
+		Prerequisites: ~disabled
+DOME:
+	Buildable:
+		Prerequisites: ~disabled
+PBOX:
+	Buildable:
+		Prerequisites: ~disabled
+KENN:
+	Buildable:
+		Prerequisites: ~disabled
+HBOX:
+	Buildable:
+		Prerequisites: ~disabled
+GUN:
+	Buildable:
+		Prerequisites: ~disabled
+FTUR:
+	Buildable:
+		Prerequisites: ~disabled
+SAM:
+	Buildable:
+		Prerequisites: ~disabled
+ATEK:
+	Buildable:
+		Prerequisites: ~disabled
+FACT:
+	Buildable:
+		Prerequisites: ~disabled
+SILO:
+	Buildable:
+		Prerequisites: ~disabled
+HPAD:
+	Buildable:
+		Prerequisites: ~disabled
+AFLD:
+	Buildable:
+		Prerequisites: ~disabled
+APWR:
+	Buildable:
+		Prerequisites: ~disabled
+STEK:
+	Buildable:
+		Prerequisites: ~disabled
+FIX:
+	Buildable:
+		Prerequisites: ~disabled
+SBAG:
+	Buildable:
+		Prerequisites: ~disabled
+FENC:
+	Buildable:
+		Prerequisites: ~disabled
+BRIK:
+	Buildable:
+		Prerequisites: ~disabled
+CYCL:
+	Buildable:
+		Prerequisites: ~disabled
+BARB:
+	Buildable:
+		Prerequisites: ~disabled
+WOOD:
+	Buildable:
+		Prerequisites: ~disabled
+BARRACKS:
+	Buildable:
+		Prerequisites: ~disabled
+TECHCENTER:
+	Buildable:
+		Prerequisites: ~disabled
+ANYPOWER:
+	Buildable:
+		Prerequisites: ~disabled
+DOG:
+	Buildable:
+		Prerequisites: ~disabled
+E3:
+	Buildable:
+		Prerequisites: ~disabled
+E4:
+	Buildable:
+		Prerequisites: ~disabled
+E6:
+	Buildable:
+		Prerequisites: ~disabled
+SPY:
+	Buildable:
+		Prerequisites: ~disabled
+SPY.England:
+	Buildable:
+		Prerequisites: ~disabled
+E7:
+	Buildable:
+		Prerequisites: ~disabled
+MECH:
+	Buildable:
+		Prerequisites: ~disabled
+EINSTEIN:
+	Buildable:
+		Prerequisites: ~disabled
+DELPHI:
+	Buildable:
+		Prerequisites: ~disabled
+CHAN:
+	Buildable:
+		Prerequisites: ~disabled
+GNRL:
+	Buildable:
+		Prerequisites: ~disabled
+THF:
+	Buildable:
+		Prerequisites: ~disabled
+HIJACKER:
+	Buildable:
+		Prerequisites: ~disabled
+SHOK:
+	Buildable:
+		Prerequisites: ~disabled
+SNIPER:
+	Buildable:
+		Prerequisites: ~disabled
+Zombie:
+	Buildable:
+		Prerequisites: ~disabled
+Ant:
+	Buildable:
+		Prerequisites: ~disabled
+V2RL:
+	Buildable:
+		Prerequisites: ~disabled
+2TNK:
+	Buildable:
+		Prerequisites: ~disabled
+4TNK:
+	Buildable:
+		Prerequisites: ~disabled
+ARTY:
+	Buildable:
+		Prerequisites: ~disabled
+HARV:
+	Buildable:
+		Prerequisites: ~disabled
+MCV:
+	Buildable:
+		Prerequisites: ~disabled
+JEEP:
+	Buildable:
+		Prerequisites: ~disabled
+APC:
+	Buildable:
+		Prerequisites: ~disabled
+MNLY.AP:
+	Buildable:
+		Prerequisites: ~disabled
+MNLY.AT:
+	Buildable:
+		Prerequisites: ~disabled
+TRUK:
+	Buildable:
+		Prerequisites: ~disabled
+MGG:
+	Buildable:
+		Prerequisites: ~disabled
+MRJ:
+	Buildable:
+		Prerequisites: ~disabled
+TTNK:
+	Buildable:
+		Prerequisites: ~disabled
+FTRK:
+	Buildable:
+		Prerequisites: ~disabled
+DTRK:
+	Buildable:
+		Prerequisites: ~disabled
+CTNK:
+	Buildable:
+		Prerequisites: ~disabled
+QTNK:
+	Buildable:
+		Prerequisites: ~disabled
+STNK:
+	Buildable:
+		Prerequisites: ~disabled

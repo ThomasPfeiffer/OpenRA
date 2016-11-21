@@ -1,9 +1,0 @@
-M1Carbine:
-	ReloadDelay: 22
-	Warhead@1Dam: SpreadDamage
-		Spread: 128
-		Damage: 10
-25mm:
-	ReloadDelay: 12
-	Warhead@1Dam: SpreadDamage
-		Damage: 87
