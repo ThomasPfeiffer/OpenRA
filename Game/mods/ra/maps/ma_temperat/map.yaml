@@ -30,14 +30,12 @@ Players:
 	PlayerReference@Multi0:
 		Name: Multi0
 		Playable: True
-		LockFaction: True
 		Faction: allies
 		LockSpawn: True
 		Enemies: Creeps, Multi1
 	PlayerReference@Multi1:
 		Name: Multi1
 		Playable: True
-		LockFaction: True
 		Faction: soviet
 		LockSpawn: True
 		Enemies: Creeps, Multi0
