@@ -53,9 +53,12 @@ def main():
     directory = settings.map_directory
     LOG.info("Starting algorithm in " + directory)
     initialize_database()
-    do(directory)
-    run.end()
-    thread_util.show_messagebox("Evoalgos Balancing Optimization", "Execution finished")
+    try:
+        do(directory)
+    except:
+        run.end()
+        thread_util.show_messagebox("Evoalgos Balancing Optimization", "Execution finished")
+        raise
     LOG.info("finished")
 
 if __name__ == "__main__":
