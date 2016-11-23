@@ -12,6 +12,9 @@ max_ticks = 100000
 timestep = 1
 map_name = "ma_temperat"
 ai1 = "Basic Unit AI"
-ai2 = "Basic Unit AI"
+ai1_faction = "england"
+ai2 = "Rush AI"
+ai2_faction = "england"
+run_description = "Only basic units england vs. england. Test variance."
 
 paramless_games = 100

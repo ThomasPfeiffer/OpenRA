@@ -42,7 +42,9 @@ def execute_ra(game_id):
         "game-id": game_id,
         "timestep": settings.timestep,
         "ai1": settings.ai1,
-        "ai2": settings.ai2
+        "ai2": settings.ai2,
+        "ai1-faction": settings.ai1_faction,
+        "ai2-faction": settings.ai2_faction
     }
     if thread_util.execute_with_timout(600, game_executable, **args) != 0:
         raise RuntimeError("Game failed")
@@ -54,8 +56,8 @@ def store_params_in_db(game, params):
         db_models.save_as_ra_param(game, p)
 
 
-def store_game_in_db(game_id, result_yaml):
-    game = RAGame(game_id = game_id)
+def store_game_in_db(run_id, game_id, result_yaml):
+    game = RAGame(game_id = game_id, run_id = run_id)
     game = yaml_util.populate_ra_game(game, result_yaml)
     game.save()
     return game
@@ -69,8 +71,8 @@ def store_players_in_db(game, result_yaml):
             player.save()
 
 
-def store_results_in_db(params, result_yaml, game_id):
-    game = store_game_in_db(game_id, result_yaml)
+def store_results_in_db(run_id, params, result_yaml, game_id):
+    game = store_game_in_db(run_id, game_id, result_yaml)
     store_players_in_db(game, result_yaml)
     store_params_in_db(game, params)
     return game
@@ -80,7 +82,7 @@ def create_game_id():
     return "Game{0}".format( db_models.new_game_id())
 
 
-def play_game(parameter_list):
+def play_game(run_id, parameter_list):
     yaml_util.write_all_to_file(parameter_list)
     game_id = create_game_id()
     execute_ra(game_id)
@@ -92,7 +94,7 @@ def play_game(parameter_list):
         raise RuntimeError("Results for game {0} not found in logfile {1}".format(game_id, settings.game_log))
 
     result_yaml = game_log_yaml[game_id]
-    game = store_results_in_db(parameter_list, result_yaml, game_id)
+    game = store_results_in_db(run_id, parameter_list, result_yaml, game_id)
 
     return game.fitness
 

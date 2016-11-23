@@ -6,6 +6,8 @@ db = SqliteDatabase(settings.database)
 
 def initialize_database():
     db.connect()
+    FitnessFunction.create_table(True)
+    Run.create_table(True)
     RAGame.create_table(True)
     RAPlayer.create_table(True)
     RAParameter.create_table(True)
@@ -16,8 +18,21 @@ class DBModel(Model):
         database = db
 
 
+class FitnessFunction(DBModel):
+    function = CharField()
+    description = CharField(null=True)
+
+
+class Run(DBModel):
+    start_timestamp = DateTimeField()
+    end_timestamp = DateTimeField(null=True)
+    description = CharField(null=True)
+    fitness_function = ForeignKeyField(FitnessFunction)
+
+
 class RAGame(DBModel):
     game_id = CharField()
+    run = ForeignKeyField(Run, null=True)
     start_timestamp = DateTimeField()
     end_timestamp = DateTimeField()
     max_ticks_reached = BooleanField()
@@ -58,6 +73,7 @@ def save_as_ra_param(game, param):
         value=param.value
     )
 
+
 def new_game_id():
     curr_max_id = RAGame.select(fn.MAX(RAGame.id).alias('max')).get().max
     if curr_max_id is None:
@@ -65,4 +81,10 @@ def new_game_id():
     else:
         return curr_max_id+1
 
+
+def main():
+    initialize_database()
+
+if __name__ == "__main__":
+    main()
 
