@@ -1,5 +1,6 @@
 from peewee import *
 from balancing import settings
+import datetime
 
 db = SqliteDatabase(settings.database)
 
@@ -24,10 +25,14 @@ class FitnessFunction(DBModel):
 
 
 class Run(DBModel):
-    start_timestamp = DateTimeField()
+    start_timestamp = DateTimeField(default=datetime.datetime.now)
     end_timestamp = DateTimeField(null=True)
     description = CharField(null=True)
     fitness_function = ForeignKeyField(FitnessFunction)
+
+    def end(self):
+        self.end_timestamp = datetime.datetime.now()
+        self.save()
 
 
 class RAGame(DBModel):
@@ -61,6 +66,10 @@ class RAParameter(DBModel):
     min_value = DoubleField()
     max_value = DoubleField()
     value = DoubleField()
+
+
+def get_fitness_function():
+    return FitnessFunction.select().where(FitnessFunction.id == settings.fitness_function).get()
 
 
 def save_as_ra_param(game, param):

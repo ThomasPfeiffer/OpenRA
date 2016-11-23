@@ -6,6 +6,7 @@ from balancing.utility import thread_util
 from balancing.utility import yaml_util
 from balancing.utility import log_util
 from balancing import settings
+from datetime import datetime
 import os
 import re
 
@@ -56,8 +57,8 @@ def store_params_in_db(game, params):
         db_models.save_as_ra_param(game, p)
 
 
-def store_game_in_db(run_id, game_id, result_yaml):
-    game = RAGame(game_id = game_id, run_id = run_id)
+def store_game_in_db(run, game_id, result_yaml):
+    game = RAGame(game_id=game_id,run=run)
     game = yaml_util.populate_ra_game(game, result_yaml)
     game.save()
     return game
@@ -71,8 +72,8 @@ def store_players_in_db(game, result_yaml):
             player.save()
 
 
-def store_results_in_db(run_id, params, result_yaml, game_id):
-    game = store_game_in_db(run_id, game_id, result_yaml)
+def store_results_in_db(run, params, result_yaml, game_id):
+    game = store_game_in_db(run, game_id, result_yaml)
     store_players_in_db(game, result_yaml)
     store_params_in_db(game, params)
     return game
@@ -82,7 +83,7 @@ def create_game_id():
     return "Game{0}".format( db_models.new_game_id())
 
 
-def play_game(run_id, parameter_list):
+def play_game(run, parameter_list):
     yaml_util.write_all_to_file(parameter_list)
     game_id = create_game_id()
     execute_ra(game_id)
@@ -94,7 +95,7 @@ def play_game(run_id, parameter_list):
         raise RuntimeError("Results for game {0} not found in logfile {1}".format(game_id, settings.game_log))
 
     result_yaml = game_log_yaml[game_id]
-    game = store_results_in_db(run_id, parameter_list, result_yaml, game_id)
+    game = store_results_in_db(run, parameter_list, result_yaml, game_id)
 
     return game.fitness
 
@@ -103,13 +104,17 @@ def main():
     db_models.initialize_database()
     gm = db_models.RAGame.select().where(db_models.RAGame.game_id.startswith('parameterless_')).order_by(db_models.RAGame.id.desc()).get()
     new_id = int(gm.game_id.lstrip('parameterless_')) +1
+
+    fitness_function = db_models.get_fitness_function()
+    run = db_models.Run.create(fitness_function=fitness_function, description=settings.run_description)
     for i in range(new_id, new_id+settings.paramless_games):
         game_id = "parameterless_{0}".format(i)
         execute_ra(game_id)
         game_log_yaml = yaml_util.parse_yaml_file(settings.game_log)
         result_yaml = game_log_yaml[game_id]
-        game = store_game_in_db(game_id, result_yaml)
+        game = store_game_in_db(run.id, game_id, result_yaml)
         store_players_in_db(game, result_yaml)
+    run.end()
     LOG.info("finished")
 
 if __name__ == "__main__":

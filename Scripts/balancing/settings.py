@@ -14,7 +14,8 @@ map_name = "ma_temperat"
 ai1 = "Basic Unit AI"
 ai1_faction = "england"
 ai2 = "Rush AI"
-ai2_faction = "england"
-run_description = "Only basic units england vs. england. Test variance."
+ai2_faction = "ukraine"
+fitness_function = 1
+run_description = "Only basic units with very large parameter bounds. ESReproduction, popsize 5. Only asexual reproduction."
 
-paramless_games = 100
+paramless_games = 20
