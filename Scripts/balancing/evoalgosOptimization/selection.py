@@ -6,10 +6,11 @@ class SingleObjectiveSelection(Selection):
         sorted_pop = sorted(population, key=lambda individual: individual.objective_values, reverse=True)
         rejected = []
         i = 0
-        while i < number:
+        while len(population)>number:
             rejected.append(sorted_pop[i])
             population.remove(sorted_pop[i])
             i += 1
+
         return rejected
 
     def select(self, population, number, already_chosen=None):
