@@ -5,3 +5,5 @@ Scripts/optimization/logs/
 Scripts/balancing/fitness.db
 Scripts/balancing/logs/
 workspace/
+Game/mods/ra/maps/ma_temperat/template_rules.yaml
+Game/mods/ra/maps/ma_temperat/template_weapons.yaml
