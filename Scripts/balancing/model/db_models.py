@@ -3,12 +3,18 @@ from balancing import settings
 import datetime
 
 db = SqliteDatabase(settings.database)
+fitness_function = None
+run = None
+ra_map = None
 
 
 def initialize_database():
     db.connect()
     FitnessFunction.create_table(True)
     Run.create_table(True)
+    TemplateFile.create_table(True)
+    RunHasTemplateFile.create_table(True)
+    RAMap.create_table(True)
     RAGame.create_table(True)
     RAPlayer.create_table(True)
     RAParameter.create_table(True)
@@ -35,6 +41,21 @@ class Run(DBModel):
         self.save()
 
 
+class TemplateFile(DBModel):
+    read_file = CharField()
+    write_file = CharField()
+    file_content = CharField()
+
+
+class RunHasTemplateFile(DBModel):
+    run = ForeignKeyField(Run)
+    template_file = ForeignKeyField(TemplateFile)
+
+
+class RAMap(DBModel):
+    name = CharField()
+
+
 class RAGame(DBModel):
     game_id = CharField()
     run = ForeignKeyField(Run, null=True)
@@ -43,6 +64,7 @@ class RAGame(DBModel):
     max_ticks_reached = BooleanField()
     ticks = IntegerField()
     fitness = IntegerField()
+    map = ForeignKeyField(RAMap, null=True)
 
 
 class RAPlayer(DBModel):
@@ -63,13 +85,9 @@ class RAParameter(DBModel):
     name = CharField()
     game = ForeignKeyField(RAGame)
     file_string = CharField()
-    min_value = DoubleField()
-    max_value = DoubleField()
-    value = DoubleField()
-
-
-def get_fitness_function():
-    return FitnessFunction.select().where(FitnessFunction.id == settings.fitness_function).get()
+    min_value = IntegerField()
+    max_value = IntegerField()
+    value = IntegerField()
 
 
 def save_as_ra_param(game, param):
@@ -81,6 +99,27 @@ def save_as_ra_param(game, param):
         max_value=param.max_value,
         value=param.value
     )
+
+
+def get_fitness_function():
+    global fitness_function
+    if not fitness_function:
+        fitness_function = FitnessFunction.get(FitnessFunction.id == settings.fitness_function_id)
+    return fitness_function
+
+
+def get_run():
+    global run
+    if not run:
+        run = Run.create(fitness_function=get_fitness_function(), description=settings.run_description)
+    return run
+
+
+def get_map():
+    global ra_map
+    if not ra_map:
+        ra_map = RAMap.create(name=settings.map_name)
+    return ra_map
 
 
 def new_game_id():
@@ -96,4 +135,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 

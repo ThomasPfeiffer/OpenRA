@@ -100,17 +100,21 @@ def read_params_from_template(template_file):
     return parameters
 
 
-def write_all_to_file(parameter_list):
+def write_to_templates(parameter_list):
     templates = runtime_models.get_template_files(parameter_list)
     for template in templates:
         with open(template.write_file, 'w') as new_file:
             with open(template.read_file) as old_file:
-                for line in old_file:
-                    new_line = line
-                    for param in parameter_list:
-                        if param.template_file == template and param.file_string in line:
-                            new_line = line.replace(param.file_string, str(param.value))
-                    new_file.write(new_line)
+                write_to_file(old_file, new_file, parameter_list)
+
+
+def write_to_file(old_file, new_file, parameter_list):
+    for line in old_file:
+        new_line = line
+        for param in parameter_list:
+            if param.file_string in line:
+                new_line = line.replace(param.file_string, str(param.value))
+        new_file.write(new_line)
 
 
 def populate_ra_game(game, yaml_dict):

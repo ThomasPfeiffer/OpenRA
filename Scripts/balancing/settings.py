@@ -15,7 +15,11 @@ ai1 = "Basic Unit AI"
 ai1_faction = "england"
 ai2 = "Rush AI"
 ai2_faction = "ukraine"
-fitness_function = 1
-run_description = "Only basic units with very large parameter bounds. ESReproduction, popsize 5. Only asexual reproduction."
+fitness_function_id = 1
+run_description = "Replay game 1854, best of run 17 to check variance."
 
-paramless_games = 20
+
+# Setting for parameterless games -  no optimization just playthroughs
+games_to_play = 100
+# If id is given reconstructs parameters from database to replay with same settings
+game_for_replay = 1854

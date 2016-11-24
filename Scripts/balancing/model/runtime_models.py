@@ -17,12 +17,6 @@ class Actor:
         ])
 
 
-class TemplateFile:
-    def __init__(self, template_file, write_file):
-        self.read_file = template_file
-        self.write_file = write_file
-
-
 class Parameter:
     def __init__(self, name, file_string, template_file, min_value, max_value):
         self.name = name

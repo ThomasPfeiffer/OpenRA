@@ -7,7 +7,7 @@ import re
 
 
 def store_results_in_db(params, result_yaml, game_id):
-    game = RAGame(game_id = game_id)
+    game = RAGame(game_id = game_id, map=db_models.get_map())
     game = yaml_util.populate_ra_game(game, result_yaml)
     game.save()
 

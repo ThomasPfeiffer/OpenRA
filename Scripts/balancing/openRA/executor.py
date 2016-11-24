@@ -1,12 +1,13 @@
-from balancing.model.runtime_models import TemplateFile
+from balancing.model.db_models import TemplateFile
+from balancing.model.db_models import RunHasTemplateFile
 from balancing.model.db_models import RAPlayer
 from balancing.model.db_models import RAGame
+from balancing.model.db_models import RAParameter
 from balancing.model import db_models
 from balancing.utility import thread_util
 from balancing.utility import yaml_util
 from balancing.utility import log_util
 from balancing import settings
-from datetime import datetime
 import os
 import re
 
@@ -21,7 +22,10 @@ def read_params(directory):
             if os.path.isfile(read_file) and f.startswith('template_'):
                 LOG.info("Reading template file {0}".format(read_file))
                 write_file = ''.join(read_file.rsplit('template_'))
-                template = TemplateFile(read_file, write_file)
+                with open(read_file, 'r') as rfile:
+                    file_content = rfile.read()
+                    template, _ = TemplateFile.get_or_create(read_file=read_file, write_file=write_file, file_content=file_content)
+                    RunHasTemplateFile.insert(template_file=template, run=db_models.get_run()).execute()
                 parameters.extend(yaml_util.read_params_from_template(template))
     if len(parameters) < 2:
         raise RuntimeError("Could not find at least 2 parameters")
@@ -57,8 +61,8 @@ def store_params_in_db(game, params):
         db_models.save_as_ra_param(game, p)
 
 
-def store_game_in_db(run, game_id, result_yaml):
-    game = RAGame(game_id=game_id,run=run)
+def store_game_in_db(game_id, result_yaml):
+    game = RAGame(game_id=game_id,run=db_models.get_run(),map=db_models.get_map())
     game = yaml_util.populate_ra_game(game, result_yaml)
     game.save()
     return game
@@ -72,48 +76,63 @@ def store_players_in_db(game, result_yaml):
             player.save()
 
 
-def store_results_in_db(run, params, result_yaml, game_id):
-    game = store_game_in_db(run, game_id, result_yaml)
-    store_players_in_db(game, result_yaml)
-    store_params_in_db(game, params)
-    return game
+def play_game(game_id, parameter_list=None):
+    if parameter_list:
+        yaml_util.write_to_templates(parameter_list)
 
-
-def create_game_id():
-    return "Game{0}".format( db_models.new_game_id())
-
-
-def play_game(run, parameter_list):
-    yaml_util.write_all_to_file(parameter_list)
-    game_id = create_game_id()
     execute_ra(game_id)
 
-    # Read the results and store them in the database
+    # Read the results
     game_log_yaml = yaml_util.parse_yaml_file(settings.game_log)
 
     if not game_id in game_log_yaml:
         raise RuntimeError("Results for game {0} not found in logfile {1}".format(game_id, settings.game_log))
 
+    # ..and store them in the database
     result_yaml = game_log_yaml[game_id]
-    game = store_results_in_db(run, parameter_list, result_yaml, game_id)
-
+    game = store_game_in_db(game_id, result_yaml)
+    store_players_in_db(game, result_yaml)
+    if parameter_list:
+        store_params_in_db(game, parameter_list)
     return game.fitness
+
+
+def replay_params(game_id):
+    # Get Templates for game from database and write contents to file system
+    game = RAGame.get(RAGame.id == game_id)
+    template_files = TemplateFile.select().join(RunHasTemplateFile).where(RunHasTemplateFile.run == game.run)
+    for template in template_files:
+        write_file = settings.map_directory + template.read_file
+        with open(write_file, 'w') as write_template:
+            write_template.write(template.file_content)
+
+    # Write parameters to templates
+    params = RAParameter.select().where(RAParameter.game == game)
+    print("Found {0} parameters".format(len(params)))
+    for template in template_files:
+        with open(settings.map_directory + template.write_file, 'w') as new_file:
+            with open(settings.map_directory + template.read_file) as old_file:
+                yaml_util.write_to_file(old_file, new_file, params)
+
+
 
 
 def main():
     db_models.initialize_database()
-    gm = db_models.RAGame.select().where(db_models.RAGame.game_id.startswith('parameterless_')).order_by(db_models.RAGame.id.desc()).get()
-    new_id = int(gm.game_id.lstrip('parameterless_')) +1
-
-    fitness_function = db_models.get_fitness_function()
-    run = db_models.Run.create(fitness_function=fitness_function, description=settings.run_description)
-    for i in range(new_id, new_id+settings.paramless_games):
-        game_id = "parameterless_{0}".format(i)
-        execute_ra(game_id)
-        game_log_yaml = yaml_util.parse_yaml_file(settings.game_log)
-        result_yaml = game_log_yaml[game_id]
-        game = store_game_in_db(run.id, game_id, result_yaml)
-        store_players_in_db(game, result_yaml)
+    run = db_models.get_run()
+    if settings.game_for_replay:
+        prepend = 'replay_'
+        replay_params(settings.game_for_replay)
+    else:
+        prepend = 'parameterless_'
+    gm = RAGame.select().where(RAGame.game_id.startswith(prepend)).order_by(RAGame.id.desc())
+    if gm.exists():
+        new_id = int(gm.get().game_id.lstrip(prepend)) + 1
+    else:
+        new_id = 1
+    for i in range(new_id, new_id+settings.games_to_play):
+        game_id = "{0}{1}".format(prepend,i)
+        play_game(game_id)
     run.end()
     LOG.info("finished")
 

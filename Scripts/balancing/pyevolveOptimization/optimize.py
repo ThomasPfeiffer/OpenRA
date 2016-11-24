@@ -1,5 +1,5 @@
 from balancing.model.runtime_models import TemplateFile
-from balancing.model.db_models import RAPlayer
+from balancing.model.db_models import RAPlayer, TemplateFile
 from balancing.model.db_models import RAGame
 from balancing.model.db_models import initialize_database
 from balancing.model import db_models
@@ -58,7 +58,7 @@ class Optimization:
     def eval_func(self, chromosome):
         # Update parameters with chromosome values
         self.set_parameters(chromosome)
-        yaml_util.write_all_to_file(self.parameters)
+        yaml_util.write_to_templates(self.parameters)
 
         # Execute the game writing results to a yaml file
         log_file = os.getcwd() + "/logs/openra.yaml"
