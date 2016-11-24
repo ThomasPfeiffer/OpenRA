@@ -12,6 +12,9 @@ select name, value, run_id,max_ticks_reached, fitness, raparameter.game_id  from
 -- fitness list for a run
 select fitness from ragame join run where ragame.run_id == run.id and run.id ==16;
 
+-- best game of a run
+select ragame.id, min(fitness) from ragame join run where ragame.run_id == run.id and run.id ==17;
+
 -- Game count for a run
 select count(*) from ragame where ragame.run_id == 16;
 
