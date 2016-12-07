@@ -13,8 +13,9 @@ from balancing import settings
 
 LOG = log_util.get_logger(__name__)
 
+
 def create_game_id():
-    return "Game{0}".format( db_models.new_game_id())
+    return "Game{0}".format(db_models.new_game_id())
 
 
 def obj_function(phenome):
@@ -25,8 +26,8 @@ def obj_function(phenome):
 
 
 def do(directory):
-    problem = Problem(obj_function, num_objectives=1, max_evaluations=500, name="Example")
-    popsize = 5
+    problem = Problem(obj_function, num_objectives=1, max_evaluations=5000000, name="Example")
+    popsize = settings.popsize
     population = []
     parameters = executor.read_params(directory)
     for _ in range(popsize):
@@ -36,8 +37,8 @@ def do(directory):
                                start_population=population,
                                population_size=popsize,
                                max_age=5000,
-                               num_offspring=5,
-                               max_generations=100,
+                               num_offspring=settings.popsize,
+                               max_generations=settings.max_generations,
                                verbosity=1,
                                reproduction=ESReproduction(
                                     recombination_prob=0, selection=SingleObjectiveSelection()
