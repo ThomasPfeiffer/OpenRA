@@ -115,26 +115,29 @@ def replay_params(game_id):
                 yaml_util.write_to_file(old_file, new_file, params)
 
 
-
-
-def main():
+def run_replay():
     db_models.initialize_database()
     run = db_models.get_run()
-    if settings.game_for_replay:
-        prepend = 'replay_'
-        replay_params(settings.game_for_replay)
-    else:
-        prepend = 'parameterless_'
+    replay_params(settings.game_for_replay)
+    prepend = 'replay_'
+    run_game(prepend, run)
+
+
+def run_paramless():
+    db_models.initialize_database()
+    run = db_models.get_run()
+    prepend = 'parameterless_'
+    run_game(prepend, run)
+
+
+def run_game(prepend, run):
     gm = RAGame.select().where(RAGame.game_id.startswith(prepend)).order_by(RAGame.id.desc())
     if gm.exists():
         new_id = int(gm.get().game_id.lstrip(prepend)) + 1
     else:
         new_id = 1
-    for i in range(new_id, new_id+settings.games_to_play):
-        game_id = "{0}{1}".format(prepend,i)
+    for i in range(new_id, new_id + settings.games_to_play):
+        game_id = "{0}{1}".format(prepend, i)
         play_game(game_id)
     run.end()
     LOG.info("finished")
-
-if __name__ == "__main__":
-    main()
