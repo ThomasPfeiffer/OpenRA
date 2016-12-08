@@ -24,9 +24,9 @@ def read_params(directory):
                 write_file = ''.join(read_file.rsplit('template_'))
                 with open(read_file, 'r') as rfile:
                     file_content = rfile.read()
-                    template, _ = TemplateFile.get_or_create(read_file=read_file, write_file=write_file, file_content=file_content)
+                    template, _ = TemplateFile.get_or_create(read_file=os.path.basename(read_file), write_file=os.path.basename(write_file), file_content=file_content)
                     RunHasTemplateFile.insert(template_file=template, run=db_models.get_run()).execute()
-                parameters.extend(yaml_util.read_params_from_template(template))
+                parameters.extend(yaml_util.read_params_from_template(directory, template))
     if len(parameters) < 2:
         raise RuntimeError("Could not find at least 2 parameters")
     LOG.info("Initialized {0} parameters: ".format(len(parameters)))
@@ -55,7 +55,6 @@ def execute_ra(game_id):
         raise RuntimeError("Game failed")
 
 
-
 def store_params_in_db(game, params):
     for p in params:
         db_models.save_as_ra_param(game, p)
@@ -78,7 +77,7 @@ def store_players_in_db(game, result_yaml):
 
 def play_game(game_id, parameter_list=None):
     if parameter_list:
-        yaml_util.write_to_templates(parameter_list)
+        yaml_util.write_to_templates(settings.map_directory, parameter_list)
 
     execute_ra(game_id)
 
@@ -108,6 +107,7 @@ def replay_params(game_id):
 
     # Write parameters to templates
     params = RAParameter.select().where(RAParameter.game == game)
+    assert len(params) > 0
     print("Found {0} parameters".format(len(params)))
     for template in template_files:
         with open(settings.map_directory + template.write_file, 'w') as new_file:

@@ -82,9 +82,9 @@ def dump_yaml(yaml_dict, dump_file_name):
         write_entry(file, yaml_dict, 0)
 
 
-def read_params_from_template(template_file):
+def read_params_from_template(directory, template_file):
     parameters = []
-    with open(template_file.read_file, 'r') as param_file:
+    with open(directory + template_file.read_file, 'r') as param_file:
         for line in param_file:
             match = re.search("param_\w+ \d+ \d+", line)
             if match:
@@ -100,11 +100,11 @@ def read_params_from_template(template_file):
     return parameters
 
 
-def write_to_templates(parameter_list):
+def write_to_templates(directory, parameter_list):
     templates = runtime_models.get_template_files(parameter_list)
     for template in templates:
-        with open(template.write_file, 'w') as new_file:
-            with open(template.read_file) as old_file:
+        with open(directory+ template.write_file, 'w') as new_file:
+            with open(directory+ template.read_file) as old_file:
                 write_to_file(old_file, new_file, parameter_list)
 
 
