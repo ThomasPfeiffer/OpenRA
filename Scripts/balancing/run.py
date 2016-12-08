@@ -1,5 +1,7 @@
 import sys
 from balancing.openRA import executor
+from balancing.evoalgosOptimization import optimize
+
 
 def main():
     if len(sys.argv) < 2:
@@ -7,9 +9,16 @@ def main():
     else:
         cmd = sys.argv[1]
     if cmd == "paramless":
-        executor.main()
-
-
+        print("Starting "+cmd+" execution")
+        executor.run_paramless()
+    elif cmd == "replay":
+        print("Starting "+cmd+" execution")
+        executor.run_replay()
+    elif cmd == "optimization":
+        print("Starting "+cmd+" execution")
+        optimize.main()
+    else:
+        print ('Unknown command ' + cmd)
 
 if __name__ == "__main__":
     main()
