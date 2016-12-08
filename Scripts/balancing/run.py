@@ -16,7 +16,7 @@ def main():
         executor.run_replay()
     elif cmd == "optimization":
         print("Starting "+cmd+" execution")
-        optimize.main()
+        optimize.run_optimization()
     else:
         print ('Unknown command ' + cmd)
 
