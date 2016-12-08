@@ -25,11 +25,20 @@ def obj_function(phenome):
     return executor.play_game(create_game_id(), phenome)
 
 
-def do(directory):
+def start_run(directory):
+    run = db_models.get_run()
+    try:
+        initialize_database()
+        parameters = executor.read_params(directory)
+        run_algorithm(parameters)
+    finally:
+        run.end()
+
+
+def run_algorithm(parameters):
     problem = Problem(obj_function, num_objectives=1, max_evaluations=5000000, name="Example")
     popsize = settings.popsize
     population = []
-    parameters = executor.read_params(directory)
     for _ in range(popsize):
         population.append(RandomMutationIndividual(genome=[p.clone() for p in parameters], num_parents=1))
 
@@ -50,20 +59,13 @@ def do(directory):
         print(individual)
 
 
-def main():
+def run_optimization():
     directory = settings.map_directory
     LOG.info("Starting algorithm in " + directory)
-    run = db_models.get_run()
-    initialize_database()
     try:
-        do(directory)
+        start_run(directory)
         thread_util.show_messagebox("Evoalgos Balancing Optimization", "Execution finished.")
     except:
         thread_util.show_messagebox("Evoalgos Balancing Optimization", "Execution finished with erros.")
         raise
-    finally:
-        run.end()
     LOG.info("finished")
-
-if __name__ == "__main__":
-    main()
