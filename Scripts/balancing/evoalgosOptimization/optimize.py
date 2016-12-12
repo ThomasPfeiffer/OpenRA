@@ -19,9 +19,6 @@ def create_game_id():
 
 
 def obj_function(phenome):
-    LOG.info("Playing Game with parameters:")
-    for param in phenome:
-        LOG.info("\t {0}: {1}".format(param.name, param.value))
     return executor.play_game(create_game_id(), phenome)
 
 
@@ -50,13 +47,19 @@ def run_algorithm(parameters):
                                max_generations=settings.max_generations,
                                verbosity=1,
                                reproduction=ESReproduction(
-                                    recombination_prob=0, selection=SingleObjectiveSelection()
+                                    recombination_prob=0, selection=SingleObjectiveSelection(obj_function)
                                ),
-                               selection=SingleObjectiveSelection()
+                               selection=SingleObjectiveSelection(obj_function)
                                )
     ea.run()
+    print("Best individuals: ")
+    fStr = "{:15s}: {:5d}"
     for individual in population:
-        print(individual)
+        LOG.info(fStr.format("ID", individual.id_number))
+        LOG.info(fStr.format("Age", individual.age))
+        LOG.info(fStr.format("Date of Birth", individual.date_of_birth))
+        LOG.info(fStr.format("Value", individual.objective_values))
+        LOG.info("-------------------")
 
 
 def run_optimization():
