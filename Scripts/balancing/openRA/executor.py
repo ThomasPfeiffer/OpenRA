@@ -31,7 +31,7 @@ def read_params(directory):
         raise RuntimeError("Could not find at least 2 parameters")
     LOG.info("Initialized {0} parameters: ".format(len(parameters)))
     for p in parameters:
-        LOG.info("\tName: {0} Min: {1} Max: {2}".format(p.name, p.min_value, p.max_value))
+        LOG.info("\tName: {:20s} Min: {:5s} Max: {:5s} Value: {:5s}".format(p.name, p.min_value, p.max_value, p.value))
     return parameters
 
 
