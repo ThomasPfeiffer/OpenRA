@@ -2,6 +2,7 @@ from balancing.model.db_models import initialize_database
 from optproblems import Problem
 from evoalgos.algo import EvolutionaryAlgorithm
 from individual import RandomMutationIndividual
+from individual import FixedMutationIndividual
 from evoalgos.reproduction import ESReproduction
 from selection import SingleObjectiveSelection
 from balancing.openRA import executor
@@ -36,8 +37,14 @@ def run_algorithm(parameters):
     problem = Problem(obj_function, num_objectives=1, max_evaluations=5000000, name="Example")
     popsize = settings.popsize
     population = []
-    for _ in range(popsize):
-        population.append(RandomMutationIndividual(genome=[p.clone() for p in parameters], num_parents=1))
+    if settings.individual == RandomMutationIndividual:
+        for _ in range(popsize):
+            population.append(RandomMutationIndividual(genome=[p.clone() for p in parameters], num_parents=1))
+    elif settings.individual == FixedMutationIndividual:
+        for _ in range(popsize):
+            population.append(FixedMutationIndividual(genome=[p.clone() for p in parameters], num_parents=1))
+    else:
+        raise RuntimeError("Unknown Individual setting")
 
     ea = EvolutionaryAlgorithm(problem=problem,
                                start_population=population,

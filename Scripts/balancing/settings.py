@@ -1,4 +1,6 @@
 from datetime import datetime
+from individual import RandomMutationIndividual
+from individual import FixedMutationIndividual
 
 # Environment settings
 base_path = "C:/dev/OpenRA"
@@ -18,12 +20,13 @@ ai1_faction = "england"
 ai2 = "Rush AI"
 ai2_faction = "ukraine"
 fitness_function_id = 1
-run_description = "Replay 5307"
+run_description = "Use Fixedmutation Individual once more"
 
 # Settings for execution without optimization
 games_to_play = 50 # Amount of games played without changing parameters
 game_for_replay = 5307 # If id is given reconstructs parameters from database to replay with same settings
 
 popsize=1
-max_generations=500
+max_generations=100
 reevaluate=True
+individual=FixedMutationIndividual
