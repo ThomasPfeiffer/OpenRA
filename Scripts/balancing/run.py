@@ -8,14 +8,21 @@ def main():
         cmd = raw_input("Choose what to run. (replay / paramless / optimization)")
     else:
         cmd = sys.argv[1]
-    if cmd == "paramless":
+
+    def print_start(cmd):
         print("Starting "+cmd+" execution")
+
+    if cmd == "paramless":
+        print_start(cmd)
         executor.run_paramless()
     elif cmd == "replay":
-        print("Starting "+cmd+" execution")
+        print_start(cmd)
         executor.run_replay()
+    elif cmd == "write-params":
+        print_start(cmd)
+        executor.replay_params()
     elif cmd == "optimization":
-        print("Starting "+cmd+" execution")
+        print_start(cmd)
         optimize.run_optimization()
     else:
         print ('Unknown command ' + cmd)

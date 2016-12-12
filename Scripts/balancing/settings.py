@@ -1,6 +1,6 @@
 from datetime import datetime
-from individual import RandomMutationIndividual
-from individual import FixedMutationIndividual
+from balancing.evoalgosOptimization.individual import RandomMutationIndividual
+from balancing.evoalgosOptimization.individual import FixedMutationIndividual
 
 # Environment settings
 base_path = "C:/dev/OpenRA"
@@ -20,7 +20,7 @@ ai1_faction = "england"
 ai2 = "Rush AI"
 ai2_faction = "ukraine"
 fitness_function_id = 1
-run_description = "Use Fixedmutation Individual once more"
+run_description = "Experiment 2 with fixed mutation individual"
 
 # Settings for execution without optimization
 games_to_play = 50 # Amount of games played without changing parameters
