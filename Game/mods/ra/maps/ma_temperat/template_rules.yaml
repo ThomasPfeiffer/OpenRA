@@ -1,40 +1,40 @@
 E1:
 	Valued:
-		Cost: param_e1_cost 5 200
+		Cost: param_rules_e1_cost 1 200 59
 	Health:
-		HP: param_e1_health 10 1000
+		HP: param_rules_e1_health 1 100 75
 	Mobile:
-		Speed: param_e1_speed 10 1000
+		Speed: param_rules_e1_speed 1 112 66
 E2:
 	Valued:
-		Cost: param_e2_cost 10 500
+		Cost: param_rules_e2_cost 1 320 60
 	Health:
-		HP: param_e2_health 10 100
+		HP: param_rules_e2_health 1 100 50
 	Mobile:
-		Speed: param_e2_speed 30 500
+		Speed: param_rules_e2_speed 1 136 50
 MEDI:
 	Valued:
-		Cost: param_medi_cost 30 500
+		Cost: param_rules_medi_cost 1 400 357
 	Health:
-		HP: param_medi_health 10 150
+		HP: param_rules_medi_health 1 160 22
 	Mobile:
-		Speed: param_medi_speed 20 200
+		Speed: param_rules_medi_speed 1 112 36
 1TNK:
 	Valued:
-		Cost: param_1tnk_cost 10 1000
+		Cost: param_rules_1tnk_cost 1 1400 540
 	Health:
-		HP: param_1tnk_health 10 500
+		HP: param_rules_1tnk_health 1 440 133
 	Mobile:
-		Speed: param_1tnk_speed 10 300
+		Speed: param_rules_1tnk_speed 1 356 44
 3TNK:
 	Buildable:
 		Prerequisites: ~vehicles.soviet
 	Valued:
-		Cost: param_3tnk_cost 300 2500
+		Cost: param_rules_3tnk_cost 1 2300 1000
 	Health:
-		HP: param_3tnk_health 100 1000
+		HP: param_rules_3tnk_health 1 1100 512
 	Mobile:
-		Speed: param_3tnk_speed 20 1000
+		Speed: param_rules_3tnk_speed 1 142 43
 MSLO:
 	Buildable:
 		Prerequisites: ~disabled
