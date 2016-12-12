@@ -96,8 +96,9 @@ def play_game(game_id, parameter_list=None):
     return game.fitness
 
 
-def replay_params(game_id):
+def replay_params():
     # Get Templates for game from database and write contents to file system
+    game_id = settings.game_for_replay
     game = RAGame.get(RAGame.id == game_id)
     template_files = TemplateFile.select().join(RunHasTemplateFile).where(RunHasTemplateFile.run == game.run)
     for template in template_files:
@@ -118,7 +119,7 @@ def replay_params(game_id):
 def run_replay():
     db_models.initialize_database()
     run = db_models.get_run()
-    replay_params(settings.game_for_replay)
+    replay_params()
     prepend = 'replay_'
     run_game(prepend, run)
 
