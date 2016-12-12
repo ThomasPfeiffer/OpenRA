@@ -18,16 +18,24 @@ class Actor:
 
 
 class Parameter:
-    def __init__(self, name, file_string, template_file, min_value, max_value):
+    def __init__(self, name, file_string, template_file, min_value, max_value, start_value):
         self.name = name
         self.file_string = file_string
         self.template_file = template_file
         self.min_value = min_value
         self.max_value = max_value
-        self.value = randint(min_value, max_value)
+        if start_value is None:
+            self.random = True
+            self.value = randint(min_value, max_value)
+        else:
+            self.random = False
+            self.value = start_value
 
     def clone(self):
-        return Parameter(self.name, self.file_string, self.template_file, self.min_value, self.max_value)
+        if self.random:
+            return Parameter(self.name, self.file_string, self.template_file, self.min_value, self.max_value, None)
+        else:
+            return Parameter(self.name, self.file_string, self.template_file, self.min_value, self.max_value, self.value)
 
 
 def get_template_files(parameter_list):
