@@ -21,6 +21,7 @@ class FixedMutationIndividual(Individual):
 
 
 class RandomMutationIndividual(Individual):
+
     def _mutate(self):
         new_genome = []
         for param in self.genome:
@@ -35,4 +36,4 @@ class RandomMutationIndividual(Individual):
         self.genome = new_genome
 
     def recombine(self, others):
-        return others
+        return self.clone()
