@@ -1,7 +1,7 @@
-from balancing.model.db_models import RAPlayer
-from balancing.model.db_models import RAGame
-from balancing.model import db_models
-from balancing.utility import yaml_util
+from ..model.db_models import RAPlayer
+from ..model.db_models import RAGame
+from ..model import db_models
+from ..utility import yaml_util
 
 import re
 
@@ -12,7 +12,7 @@ def store_results_in_db(params, result_yaml, game_id):
     game.save()
 
     for key in result_yaml:
-        if re.match("Player\d+Stats", key) is not None:
+        if re.match("Player\d+Sta.ts", key) is not None:
             player = RAPlayer(game=game)
             player = yaml_util.populate_ra_player(player, result_yaml[key])
             player.save()

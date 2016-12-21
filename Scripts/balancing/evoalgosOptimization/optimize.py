@@ -1,15 +1,15 @@
-from balancing.model.db_models import initialize_database
 from optproblems import Problem
 from evoalgos.algo import EvolutionaryAlgorithm
 from individual import RandomMutationIndividual
 from individual import FixedMutationIndividual
 from evoalgos.reproduction import ESReproduction
 from selection import SingleObjectiveSelection
-from balancing.openRA import executor
-from balancing.utility import log_util
-from balancing.utility import thread_util
-from balancing.model import db_models
-from balancing import settings
+from model.db_models import initialize_database
+from openRA import executor
+from utility import log_util
+from utility import thread_util
+from model import db_models
+import settings
 
 
 LOG = log_util.get_logger(__name__)

@@ -1,8 +1,8 @@
 import re
 from collections import OrderedDict
 import dateutil.parser
-from balancing.model.runtime_models import Parameter
-from balancing.model import runtime_models
+from model.runtime_models import Parameter
+from model import runtime_models
 import log_util
 
 LOG = log_util.get_logger(__name__)

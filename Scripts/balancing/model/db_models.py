@@ -1,5 +1,5 @@
 from peewee import *
-from balancing import settings
+import settings
 import datetime
 
 db = SqliteDatabase(settings.database)

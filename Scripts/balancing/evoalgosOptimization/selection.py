@@ -1,6 +1,6 @@
 from evoalgos.selection import Selection
-from balancing.utility import log_util
-from balancing import settings
+from utility import log_util
+import settings
 
 LOG = log_util.get_logger(__name__)
 

@@ -1,13 +1,13 @@
-from balancing.model.db_models import TemplateFile
-from balancing.model.db_models import RunHasTemplateFile
-from balancing.model.db_models import RAPlayer
-from balancing.model.db_models import RAGame
-from balancing.model.db_models import RAParameter
-from balancing.model import db_models
-from balancing.utility import thread_util
-from balancing.utility import yaml_util
-from balancing.utility import log_util
-from balancing import settings
+from model.db_models import TemplateFile
+from model.db_models import RunHasTemplateFile
+from model.db_models import RAPlayer
+from model.db_models import RAGame
+from model.db_models import RAParameter
+from model import db_models
+from utility import thread_util
+from utility import yaml_util
+from utility import log_util
+import settings
 import os
 import re
 
