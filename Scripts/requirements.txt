@@ -1,3 +1,3 @@
 peewee==2.8.5
-pyevolve==0.6rc1
+evoalgos==0.6
 python-dateutil==2.5.3
