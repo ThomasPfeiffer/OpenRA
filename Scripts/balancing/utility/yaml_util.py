@@ -3,7 +3,7 @@ from collections import OrderedDict
 import dateutil.parser
 from model.runtime_models import Parameter
 from model import runtime_models
-import log_util
+from utility import log_util
 
 LOG = log_util.get_logger(__name__)
 
@@ -86,7 +86,7 @@ def read_params_from_template(directory, template_file):
     parameters = []
     with open(directory + template_file.read_file, 'r') as param_file:
         for line in param_file:
-            match = re.search("param_\w+ \d+ \d+", line)
+            match = re.search("param_\w+ \d+ \d+( \d+)?", line)
             if match:
                 s = match.group(0).split()
                 p = Parameter(
