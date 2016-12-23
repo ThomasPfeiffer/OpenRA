@@ -1,16 +1,13 @@
 from balancing.model.runtime_models import TemplateFile
 from balancing.model.db_models import RAPlayer, TemplateFile
-from balancing.model.db_models import RAGame
 from balancing.model.db_models import initialize_database
 from balancing.model import db_models
-from balancing.utility import thread_util
 from balancing.utility import yaml_util
 from balancing.utility import log_util
 from balancing import openRA
 from balancing.openRA import results
 
 import os
-import re
 
 from pyevolve import G1DList
 from pyevolve import GAllele
