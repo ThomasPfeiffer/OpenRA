@@ -95,7 +95,7 @@ def read_params_from_template(directory, template_file):
                     file_string= match.group(0),
                     min_value = float(s[1]),
                     max_value = float(s[2]),
-                    start_value= s[3] if len(s) > 3 else None
+                    start_value= float(s[3]) if len(s) > 3 else None
                 )
                 parameters.append(p)
     return parameters
