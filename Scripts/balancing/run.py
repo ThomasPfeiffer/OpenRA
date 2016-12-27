@@ -3,13 +3,7 @@ from openRA import executor
 from evoalgosOptimization import optimize
 import logging
 from utility import log_util
-
-
-def main():
-    cmd = get_arg("-cmd")
-    if not cmd:
-        cmd = raw_input("Choose what to run. (replay / paramless / optimization)")
-    handle_cmd(cmd)
+from utility import thread_util
 
 
 def get_arg(name):
@@ -20,28 +14,36 @@ def get_arg(name):
         if argname == name:
             return value
 
+commands = {
+"paramless" : executor.run_paramless,
+"replay" : executor.run_replay,
+"write-params" : executor.replay_params,
+"optimization": optimize.run_optimization
+}
+
 
 def handle_cmd(cmd):
-    def print_start(cmd):
-        print("Starting "+cmd+" execution")
-
     log = get_arg('-log')
     if log:
         log_util.add_handler(logging.FileHandler(filename=log))
-    if cmd == "paramless":
-        print_start(cmd)
-        executor.run_paramless()
-    elif cmd == "replay":
-        print_start(cmd)
-        executor.run_replay()
-    elif cmd == "write-params":
-        print_start(cmd)
-        executor.replay_params()
-    elif cmd == "optimization":
-        print_start(cmd)
-        optimize.run_optimization()
+
+    if cmd in commands.keys():
+        print("Starting "+cmd+" execution")
+        try:
+            commands[cmd]()
+            thread_util.show_messagebox("Evoalgos Balancing Optimization", "Execution finished.")
+        except:
+            thread_util.show_messagebox("Evoalgos Balancing Optimization", "Execution finished with erros.")
+            raise
     else:
         print ('Unknown command ' + cmd)
 
+def main():
+    cmd = get_arg("-cmd")
+    if not cmd:
+        cmd = raw_input("Choose what to run. ({0})".format(" / ".join(commands.keys())))
+    handle_cmd(cmd)
+
 if __name__ == "__main__":
     main()
+
