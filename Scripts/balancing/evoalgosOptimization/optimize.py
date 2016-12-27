@@ -49,7 +49,7 @@ def run_algorithm(parameters):
     ea = EvolutionaryAlgorithm(problem=problem,
                                start_population=population,
                                population_size=popsize,
-                               max_age=5000,
+                               max_age=settings.max_age,
                                num_offspring=settings.popsize,
                                max_generations=settings.max_generations,
                                verbosity=1,
@@ -72,10 +72,5 @@ def run_algorithm(parameters):
 def run_optimization():
     directory = settings.map_directory
     LOG.info("Starting algorithm in " + directory)
-    try:
-        start_run(directory)
-        thread_util.show_messagebox("Evoalgos Balancing Optimization", "Execution finished.")
-    except:
-        thread_util.show_messagebox("Evoalgos Balancing Optimization", "Execution finished with erros.")
-        raise
+    start_run(directory)
     LOG.info("finished")
