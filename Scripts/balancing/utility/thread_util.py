@@ -1,6 +1,8 @@
 import threading
 import subprocess
-import win32api
+from .. import settings
+if settings.show_msgbox:
+    import win32api
 
 class TimedoutException(Exception):
     pass
@@ -36,5 +38,7 @@ def execute_with_timout(timeout, executable, **kwargs):
     tmr.stop()
     return proc.returncode
 
+
 def show_messagebox(title, text):
-    win32api.MessageBox(0, text, title)
+    if settings.show_msgbox:
+        win32api.MessageBox(0, text, title)
