@@ -1,5 +1,5 @@
 from peewee import *
-import settings
+from balancing import settings
 import datetime
 
 db = SqliteDatabase(settings.database)
@@ -18,6 +18,7 @@ def initialize_database():
     RAGame.create_table(True)
     RAPlayer.create_table(True)
     RAParameter.create_table(True)
+    Individual.create_table(True)
 
 
 class DBModel(Model):
@@ -65,6 +66,7 @@ class RAGame(DBModel):
     ticks = IntegerField()
     fitness = IntegerField()
     map = ForeignKeyField(RAMap, null=True)
+    individual = IntegerField()
 
 
 class RAPlayer(DBModel):
@@ -88,6 +90,14 @@ class RAParameter(DBModel):
     min_value = IntegerField()
     max_value = IntegerField()
     value = IntegerField()
+
+
+class Individual(DBModel):
+    id_in_run = IntegerField()
+    run = ForeignKeyField(Run)
+    fitness = IntegerField(null=True)
+    age = IntegerField(null=True)
+    date_of_birth = IntegerField(null=True)
 
 
 def save_as_ra_param(game, param):
@@ -118,7 +128,7 @@ def get_run():
 def get_map():
     global ra_map
     if not ra_map:
-        ra_map = RAMap.create(name=settings.map_name)
+        ra_map = RAMap.get_or_create(name=settings.map_name)
     return ra_map
 
 

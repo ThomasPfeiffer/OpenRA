@@ -37,10 +37,10 @@ def run_algorithm(parameters):
     problem = Problem(obj_function, num_objectives=1, max_evaluations=5000000, name="Example")
     popsize = settings.popsize
     population = []
-    if settings.individual == RandomMutationIndividual:
+    if settings.individual == "RandomMutationIndividual":
         for _ in range(popsize):
             population.append(RandomMutationIndividual(genome=[p.clone() for p in parameters], num_parents=1))
-    elif settings.individual == FixedMutationIndividual:
+    elif settings.individual == "FixedMutationIndividual":
         for _ in range(popsize):
             population.append(FixedMutationIndividual(genome=[p.clone() for p in parameters], num_parents=1))
     else:

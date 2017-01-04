@@ -1,8 +1,25 @@
 from evoalgos.individual import Individual
 import random
+from balancing.model import db_models
 
 
-class FixedMutationIndividual(Individual):
+class StorableIndividual(Individual):
+
+    def _mutate(self):
+        raise NotImplementedError()
+
+    def recombine(self, others):
+        raise NotImplementedError()
+
+    def store(self):
+        db_individual, _ = db_models.Individual.get_or_create(id_in_run=self.id_number, run=db_models.get_run())
+        db_individual.fitness=self.objective_values
+        db_individual.age=self.age
+        db_individual.date_of_birth = self.date_of_birth
+        db_individual.save()
+
+
+class FixedMutationIndividual(StorableIndividual):
     def _mutate(self):
         new_genome = []
         for param in self.genome:
@@ -20,7 +37,7 @@ class FixedMutationIndividual(Individual):
         return others
 
 
-class RandomMutationIndividual(Individual):
+class RandomMutationIndividual(StorableIndividual):
 
     def _mutate(self):
         new_genome = []
