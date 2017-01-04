@@ -21,6 +21,7 @@ select count(*) from ragame where ragame.run_id == 16;
 
 -- Select run parameter list for excel analysis
 select ragame.game_id, fitness, name, value from raparameter join ragame on ragame.id = raparameter.game_id where run_id = 40;
+select ragame.game_id, fitness, name, value from raparameter join ragame on ragame.id = raparameter.game_id where ragame.id = 12801;
 select ragame.id, rules_e1_cost,rules_e1_health,rules_e1_speed,rules_e2_cost,rules_e2_health,rules_e2_speed,rules_medi_cost,rules_medi_health,rules_medi_speed,rules_1tnk_cost,rules_1tnk_health,rules_1tnk_speed,rules_3tnk_cost,rules_3tnk_health,rules_3tnk_speed,weapon_M1Carbine_reload,weapon_M1Carbine_damage,weapon_Grenade_reload,weapon_Grenade_damage,weapon_Heal_reload,weapon_25mm_reload,weapon_25mm_damage,weapon_105mm_reload,weapon_105mm_damage
 from ragame
 join (select raparameter.game_id, value as 'rules_e1_health' from raparameter join ragame on ragame.id = raparameter.game_id where raparameter.name like 'rules_e1_health') as s1

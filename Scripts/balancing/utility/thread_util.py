@@ -1,6 +1,6 @@
 import threading
 import subprocess
-from .. import settings
+import settings
 if settings.show_msgbox:
     import win32api
 
