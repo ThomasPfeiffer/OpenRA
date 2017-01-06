@@ -4,9 +4,8 @@ import datetime
 
 db = SqliteDatabase(settings.database)
 fitness_function = None
-run = None
 ra_map = None
-
+run = None
 
 def initialize_database():
     db.connect()
@@ -19,6 +18,7 @@ def initialize_database():
     RAPlayer.create_table(True)
     RAParameter.create_table(True)
     Individual.create_table(True)
+    IndividualParameter.create_table(True)
 
 
 class DBModel(Model):
@@ -100,6 +100,15 @@ class Individual(DBModel):
     date_of_birth = IntegerField(null=True)
 
 
+class IndividualParameter(DBModel):
+    name = CharField()
+    individual = ForeignKeyField(Individual)
+    file_string = CharField()
+    min_value = IntegerField()
+    max_value = IntegerField()
+    value = IntegerField()
+
+
 def save_as_ra_param(game, param):
     return RAParameter.create(
         name=param.name,
@@ -111,25 +120,39 @@ def save_as_ra_param(game, param):
     )
 
 
+def save_as_individual_param(individual, param):
+    return IndividualParameter.create(
+        name=param.name,
+        individual=individual,
+        file_string=param.file_string,
+        min_value=param.min_value,
+        max_value=param.max_value,
+        value=param.value
+    )
+
+
+def init():
+    global fitness_function
+    fitness_function = FitnessFunction.get(FitnessFunction.id == settings.fitness_function_id)
+    global ra_map
+    ra_map, _ = RAMap.get_or_create(name=settings.map_name)
+    run = Run.create(fitness_function=fitness_function, description=settings.run_description)
+
+
 def get_fitness_function():
     global fitness_function
-    if not fitness_function:
-        fitness_function = FitnessFunction.get(FitnessFunction.id == settings.fitness_function_id)
     return fitness_function
+
+
+def get_map():
+    return ra_map
 
 
 def get_run():
     global run
     if not run:
-        run = Run.create(fitness_function=get_fitness_function(), description=settings.run_description)
+        run = Run.select().order_by(Run.id.desc()).get()
     return run
-
-
-def get_map():
-    global ra_map
-    if not ra_map:
-        ra_map, _ = RAMap.get_or_create(name=settings.map_name)
-    return ra_map
 
 
 def new_game_id():
