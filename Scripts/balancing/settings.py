@@ -25,8 +25,11 @@ run_description = "Reduced Parameters"
 games_to_play = 1 # Amount of games played without changing parameters
 game_for_replay = 12801 # If id is given reconstructs parameters from database to replay with same settings
 
-max_age=10
-popsize=1
-max_generations=500
+start_values_fixed=False
+recombination_prob=1
+num_parents=2
+max_age=100000
+popsize=4
+max_generations=10
 reevaluate=False
 individual="RandomMutationIndividual"

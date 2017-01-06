@@ -25,17 +25,15 @@ class Parameter:
         self.min_value = min_value
         self.max_value = max_value
         if start_value is None:
-            self.random = True
             self.value = randint(min_value, max_value)
         else:
-            self.random = False
             self.value = start_value
 
     def clone(self):
-        if self.random:
-            return Parameter(self.name, self.file_string, self.template_file, self.min_value, self.max_value, None)
-        else:
-            return Parameter(self.name, self.file_string, self.template_file, self.min_value, self.max_value, self.value)
+        return Parameter(self.name, self.file_string, self.template_file, self.min_value, self.max_value, self.value)
+
+    def random_clone(self):
+        return Parameter(self.name, self.file_string, self.template_file, self.min_value, self.max_value, None)
 
 
 def get_template_files(parameter_list):

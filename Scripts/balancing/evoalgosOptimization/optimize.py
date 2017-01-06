@@ -39,10 +39,16 @@ def run_algorithm(parameters):
     population = []
     if settings.individual == "RandomMutationIndividual":
         for _ in range(popsize):
-            population.append(RandomMutationIndividual(genome=[p.clone() for p in parameters], num_parents=1))
+            if settings.start_values_fixed:
+                population.append(RandomMutationIndividual(genome=[p.clone() for p in parameters], num_parents=settings.num_parents))
+            else:
+                population.append(RandomMutationIndividual(genome=[p.random_clone() for p in parameters], num_parents=settings.num_parents))
     elif settings.individual == "FixedMutationIndividual":
         for _ in range(popsize):
-            population.append(FixedMutationIndividual(genome=[p.clone() for p in parameters], num_parents=1))
+            if settings.start_values_fixed:
+                population.append(FixedMutationIndividual(genome=[p.clone() for p in parameters], num_parents=settings.num_parents))
+            else:
+                population.append(FixedMutationIndividual(genome=[p.random_clone() for p in parameters], num_parents=settings.num_parents))
     else:
         raise RuntimeError("Unknown Individual setting")
 
@@ -54,7 +60,7 @@ def run_algorithm(parameters):
                                max_generations=settings.max_generations,
                                verbosity=1,
                                reproduction=ESReproduction(
-                                    recombination_prob=0, selection=SingleObjectiveSelection(obj_function)
+                                    recombination_prob=settings.recombination_prob, selection=SingleObjectiveSelection(obj_function)
                                ),
                                selection=SingleObjectiveSelection(obj_function)
                                )

@@ -53,4 +53,11 @@ class RandomMutationIndividual(StorableIndividual):
         self.genome = new_genome
 
     def recombine(self, others):
-        return self.clone()
+        parents = [self]
+        parents.extend(others)
+        i = 0
+        child = self.clone()
+        for j in range(0,len(self.genome)):
+            child.genome[j] = parents[i].genome[j].clone()
+            i = 0 if i >= len(parents)-1 else i+1
+        return [child]

@@ -32,8 +32,11 @@ class SingleObjectiveSelection(Selection):
         return rejected
 
     def select(self, population, number, already_chosen=None):
-        sorted_pop = sorted(population, key=lambda individual: individual.objective_values)
+        sorted_pop = sorted(population, key=lambda individual: individual.objective_values, reverse=False)
         selected = []
-        for i in number:
+        i = 0
+        while len(population) > number:
             selected.append(sorted_pop[i])
+            population.remove(sorted_pop[i])
+            i += 1
         return selected
