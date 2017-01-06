@@ -128,7 +128,7 @@ def get_run():
 def get_map():
     global ra_map
     if not ra_map:
-        ra_map = RAMap.get_or_create(name=settings.map_name)
+        ra_map, _ = RAMap.get_or_create(name=settings.map_name)
     return ra_map
 
 
