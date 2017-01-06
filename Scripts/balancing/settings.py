@@ -19,17 +19,19 @@ ai1_faction = "england"
 ai2 = "Rush AI"
 ai2_faction = "ukraine"
 fitness_function_id = 1
-run_description = "Reduced Parameters"
+run_description = "test"
 
 # Settings for execution without optimization
 games_to_play = 1 # Amount of games played without changing parameters
 game_for_replay = 12801 # If id is given reconstructs parameters from database to replay with same settings
 
 start_values_fixed=False
-recombination_prob=1
+recombination_prob=0.5
 num_parents=2
 max_age=100000
-popsize=4
-max_generations=10
+popsize=2
+max_generations=500
 reevaluate=False
 individual="RandomMutationIndividual"
+
+
