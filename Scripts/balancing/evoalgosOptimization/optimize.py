@@ -20,7 +20,14 @@ def create_game_id():
 
 
 def obj_function(phenome):
-    return executor.play_game(create_game_id(), phenome)
+    results = []
+    for _ in range(3):
+        results.append(executor.play_game(create_game_id(), phenome))
+    results.sort()
+    half = len(results) // 2
+    if not len(results) % 2:
+        return (results[half - 1] + results[half]) / 2.0
+    return results[half]
 
 
 def start_run(directory):
