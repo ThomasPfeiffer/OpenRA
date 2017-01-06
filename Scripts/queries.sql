@@ -10,18 +10,22 @@ select ragame.run_id, count(*) from ragame group by ragame.run_id;
 select name, value, run_id,max_ticks_reached, fitness, raparameter.game_id  from raparameter join ragame, run where ragame.id == raparameter.game_id and run.id == ragame.run_id and run.id == 1;
 
 -- fitness list for a run
-select ragame.id, fitness from ragame where ragame.run_id =63;
+select ragame.id, fitness from ragame where ragame.run_id =95;
 
 -- best game of a run
-select ragame.id, min(fitness) from ragame join run where ragame.run_id == run.id and run.id =47;
+select ragame.id, min(fitness) from ragame where ragame.run_id  =95;
 
 -- Game count for a run
 select count(*) from ragame where ragame.run_id == 16;
 
+-- Wins per faction
+select count(*) from raplayer join ragame on raplayer.game_id = ragame.id where ragame.run_id  = 95 and raplayer.winner = 1 and raplayer.faction like "Ukraine";
+select count(*) from raplayer join ragame on raplayer.game_id = ragame.id where ragame.run_id  = 95 and raplayer.winner = 1 and raplayer.faction like "England";
+
 
 -- Select run parameter list for excel analysis
-select ragame.game_id, fitness, name, value from raparameter join ragame on ragame.id = raparameter.game_id where run_id = 40;
-select ragame.game_id, fitness, name, value from raparameter join ragame on ragame.id = raparameter.game_id where ragame.id = 12801;
+select ragame.game_id, fitness, name, value from raparameter join ragame on ragame.id = raparameter.game_id where run_id = 95;
+select ragame.game_id, fitness, name, value from raparameter join ragame on ragame.id = raparameter.game_id where ragame.id = 13113;
 select ragame.id, rules_e1_cost,rules_e1_health,rules_e1_speed,rules_e2_cost,rules_e2_health,rules_e2_speed,rules_medi_cost,rules_medi_health,rules_medi_speed,rules_1tnk_cost,rules_1tnk_health,rules_1tnk_speed,rules_3tnk_cost,rules_3tnk_health,rules_3tnk_speed,weapon_M1Carbine_reload,weapon_M1Carbine_damage,weapon_Grenade_reload,weapon_Grenade_damage,weapon_Heal_reload,weapon_25mm_reload,weapon_25mm_damage,weapon_105mm_reload,weapon_105mm_damage
 from ragame
 join (select raparameter.game_id, value as 'rules_e1_health' from raparameter join ragame on ragame.id = raparameter.game_id where raparameter.name like 'rules_e1_health') as s1
