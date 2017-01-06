@@ -12,11 +12,15 @@ class StorableIndividual(Individual):
         raise NotImplementedError()
 
     def store(self):
-        db_individual, _ = db_models.Individual.get_or_create(id_in_run=self.id_number, run=db_models.get_run())
+        db_individual, created = db_models.Individual.get_or_create(id_in_run=self.id_number, run=db_models.get_run())
         db_individual.fitness=self.objective_values
         db_individual.age=self.age
         db_individual.date_of_birth = self.date_of_birth
         db_individual.save()
+
+        if created:
+            for param in self.genome:
+                db_models.save_as_individual_param(db_individual, param)
 
 
 class FixedMutationIndividual(StorableIndividual):
