@@ -4,7 +4,7 @@ from evoalgosOptimization import optimize
 import logging
 from utility import log_util
 from utility import thread_util
-
+from model import db_models
 
 def get_arg(name):
     for arg in sys.argv:
@@ -23,10 +23,7 @@ commands = {
 
 
 def handle_cmd(cmd):
-    log = get_arg('-log')
-    if log:
-        log_util.add_handler(logging.FileHandler(filename=log))
-
+    db_models.init()
     if cmd in commands.keys():
         print("Starting "+cmd+" execution")
         try:
