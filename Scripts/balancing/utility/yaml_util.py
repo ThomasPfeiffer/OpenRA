@@ -71,7 +71,7 @@ def dump_yaml(yaml_dict, dump_file_name):
         for key, value in entry.items():
             if key == 'self':
                 continue
-            line = '    ' * indent + str(key) + ': '
+            line = '\t' * indent + str(key) + ': '
             if 'self' in value:
                 line += value['self'] + '\n'
             file.write(line)

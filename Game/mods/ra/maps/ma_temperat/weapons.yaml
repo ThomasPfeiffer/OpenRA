@@ -1,0 +1,18 @@
+M1Carbine:
+	ReloadDelay: 38
+	Warhead@1Dam: SpreadDamage
+		Damage: 4
+Grenade:
+	ReloadDelay: 53
+	Warhead@1Dam: SpreadDamage
+		Damage: 43
+Heal:
+	ReloadDelay: 66
+25mm:
+	ReloadDelay: 4
+	Warhead@1Dam: SpreadDamage
+		Damage: 10
+105mm:
+	ReloadDelay: 63
+	Warhead@1Dam: SpreadDamage
+		Damage: 79

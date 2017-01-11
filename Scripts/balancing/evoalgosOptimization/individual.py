@@ -1,6 +1,6 @@
 from evoalgos.individual import Individual
 import random
-from balancing.model import db_models
+from model import db_models
 
 
 class StorableIndividual(Individual):
