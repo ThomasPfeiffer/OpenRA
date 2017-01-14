@@ -114,7 +114,7 @@ def write_to_file(old_file, new_file, parameter_list):
         new_line = line
         for param in parameter_list:
             if param.file_string in line:
-                new_line = line.replace(param.file_string, str(param.value))
+                new_line = line.replace(param.file_string, str(int(param.value)))
         new_file.write(new_line)
 
 

@@ -63,7 +63,7 @@ def run_algorithm(parameters):
                                start_population=population,
                                population_size=popsize,
                                max_age=settings.max_age,
-                               num_offspring=settings.popsize,
+                               num_offspring=settings.offspring,
                                max_generations=settings.max_generations,
                                verbosity=1,
                                reproduction=ESReproduction(
