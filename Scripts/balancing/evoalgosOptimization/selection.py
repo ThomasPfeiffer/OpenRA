@@ -21,7 +21,7 @@ class SingleObjectiveSelection(Selection):
                 self.reevaluate(indi)
 
 
-        sorted_pop = sorted(population, key=lambda individual: individual.objective_values, reverse=True)
+        
         rejected = []
         i = 0
         while len(population)>number:

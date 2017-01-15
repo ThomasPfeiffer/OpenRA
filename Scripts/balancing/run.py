@@ -16,6 +16,7 @@ def get_arg(name):
 
 commands = {
 "paramless" : executor.run_paramless,
+"param-list" : executor.run_paramless_csv,
 "replay" : executor.run_replay,
 "write-params" : executor.replay_params,
 "optimization": optimize.run_optimization

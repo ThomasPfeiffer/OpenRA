@@ -1,18 +1,18 @@
 M1Carbine:
-	ReloadDelay: param_weapon_M1Carbine_reload 5 40
+	ReloadDelay: 17
 	Warhead@1Dam: SpreadDamage
-		Damage: param_weapon_M1Carbine_damage 2 20
+		Damage: param_weapon_M1Carbine_damage 10 20
 Grenade:
-	ReloadDelay: param_weapon_Grenade_reload 15 60
+	ReloadDelay: 25
 	Warhead@1Dam: SpreadDamage
-		Damage: param_weapon_Grenade_damage 10 50
+		Damage: param_weapon_Grenade_damage 20 40
 Heal:
-	ReloadDelay: param_weapon_Heal_reload 40 200
+	ReloadDelay: param_weapon_Heal_reload 80 140
 25mm:
-	ReloadDelay: param_weapon_25mm_reload 2 15
+	ReloadDelay: 4
 	Warhead@1Dam: SpreadDamage
-		Damage: param_weapon_25mm_damage 10 30
+		Damage: param_weapon_25mm_damage 4 6
 105mm:
-	ReloadDelay: param_weapon_105mm_reload 30 100
+	ReloadDelay: 47
 	Warhead@1Dam: SpreadDamage
-		Damage: param_weapon_105mm_damage 35 80
+		Damage: param_weapon_105mm_damage 60 90

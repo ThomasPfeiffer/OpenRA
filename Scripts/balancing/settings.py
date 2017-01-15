@@ -7,10 +7,11 @@ workspace_path = base_path + "/workspace"
 map_directory = base_path + "/Game/mods/ra/maps/ma_temperat/"
 database = workspace_path + "/fitness.db"
 game_log = workspace_path + "/logs/{0}_gen_openra.yaml".format(datetime.now().strftime("%Y%m%d_%H%M%S"))
+param_list=workspace_path+'/param_list.csv'
 show_msgbox = True
 
 # RA Game settings
-headless = True
+headless = False
 max_ticks = 100000
 timestep = 1
 map_name = "ma_temperat"
@@ -19,7 +20,7 @@ ai1_faction = "ukraine"
 ai2 = "Rush AI"
 ai2_faction = "england"
 fitness_function_id = 1
-run_description = "Initial automation"
+run_description = "test"
 
 # Settings for execution without optimization
 games_to_play = 1 # Amount of games played without changing parameters
@@ -27,12 +28,14 @@ game_for_replay = 16827
 
 
 start_values_fixed=False
-recombination_prob=0.3
+recombination_prob=0
 num_parents=2
 max_age=100000
-popsize=5
-max_generations=200
+popsize=3
+offspring=6
+max_generations=100
 reevaluate=False
 individual="RandomMutationIndividual"
+
 
 

@@ -1,40 +1,40 @@
 E1:
 	Valued:
-		Cost: 111
+		Cost: 54
 	Health:
-		HP: 79
+		HP: 1000
 	Mobile:
-		Speed: 68
+		Speed: 55
 E2:
 	Valued:
-		Cost: 44
+		Cost: 172
 	Health:
-		HP: 62
+		HP: 55
 	Mobile:
-		Speed: 70
+		Speed: 50
 MEDI:
 	Valued:
-		Cost: 42
+		Cost: 166
 	Health:
-		HP: 66
+		HP: 27
 	Mobile:
-		Speed: 46
+		Speed: 55
 1TNK:
 	Valued:
-		Cost: 435
+		Cost: 275
 	Health:
-		HP: 310
+		HP: 2700
 	Mobile:
-		Speed: 97
+		Speed: 920
 3TNK:
 	Buildable:
 		Prerequisites: ~vehicles.soviet
 	Valued:
-		Cost: 1274
+		Cost: 863
 	Health:
-		HP: 749
+		HP: 684
 	Mobile:
-		Speed: 34
+		Speed: 36
 MSLO:
 	Buildable:
 		Prerequisites: ~disabled

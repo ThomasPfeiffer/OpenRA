@@ -10,6 +10,7 @@ from utility import log_util
 import settings
 import os
 import re
+from utility import csv_util
 
 LOG = log_util.get_logger(__name__)
 
@@ -142,3 +143,27 @@ def run_game(prepend, run):
         play_game(game_id)
     run.end()
     LOG.info("finished")
+
+
+def run_paramless_csv():
+    directory = settings.map_directory
+    parameters = read_params(directory)
+    run = db_models.get_run()
+    prepend = 'paramlist_'
+    gm = RAGame.select().where(RAGame.game_id.startswith(prepend)).order_by(RAGame.id.desc())
+    if gm.exists():
+        i = int(gm.get().game_id.lstrip(prepend)) + 1
+    else:
+        i = 1
+    value_list = csv_util.read_dict_list(settings.param_list)
+    for param_values in value_list:
+        for p in parameters:
+            if p.name in param_values:
+                p.value = int(param_values[p.name])
+        for _ in range(settings.games_to_play):
+            game_id = prepend + str(i)
+            i += 1
+            play_game(game_id, parameters)
+    run.end()
+    LOG.info("finished")
+

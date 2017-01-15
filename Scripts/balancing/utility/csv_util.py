@@ -1,6 +1,6 @@
 import csv
 
-from ..model.runtime_models import Actor
+from model.runtime_models import Actor
 
 
 def read_actors(file_name):
@@ -12,3 +12,8 @@ def read_actors(file_name):
             actors.append(Actor(row[0],row[1],row[2],row[3]))
     return actors
 
+
+def read_dict_list(file_name):
+    with open(file_name) as f:
+        a = [{k: int(v) for k, v in row.items()} for row in csv.DictReader(f, skipinitialspace=True, delimiter=';')]
+    return a

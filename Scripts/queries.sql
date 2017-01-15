@@ -16,7 +16,7 @@ select ragame.run_id, count(*) from ragame group by ragame.run_id;
 select name, value, run_id,max_ticks_reached, fitness, raparameter.game_id  from raparameter join ragame, run where ragame.id == raparameter.game_id and run.id == ragame.run_id and run.id == 1;
 
 -- fitness list for a run
-select ragame.id, fitness from ragame where ragame.run_id =128;
+select ragame.id, fitness from ragame where ragame.run_id =136;
 
 -- best game of a run
 select ragame.id, min(fitness) from ragame where ragame.run_id  =95;
@@ -96,7 +96,7 @@ select value, avg(fitness), count(ragame.id) from raparameter join ragame on rag
 select fitness, age from individual where individual.age > 0 and individual.run_id = 98;
 
 -- best individuals of a run
-select id, fitness from individual where individual.run_id = 128 order by fitness limit 10;
+select id, fitness from individual where individual.run_id = 136 order by fitness limit 10;
 
 
 select player_name, raplayer.faction, count(raplayer.id) from raplayer join ragame on ragame.id = raplayer.game_id where ragame.run_id = 112 and winner = 1 group by raplayer.player_name;
@@ -153,4 +153,4 @@ left join (select individualparameter.individual_id, value as 'weapon_105mm_relo
 on individual.id == s23.individual_id
 left join (select individualparameter.individual_id, value as 'weapon_105mm_damage' from individualparameter join individual on individual.id = individualparameter.individual_id where individualparameter.name like 'weapon_105mm_damage') as s24
 on individual.id == s24.individual_id
-where individual.id in (2775,2781,3110,2847,2908,2935,2978,3122,3137,2689);
+where individual.id in (3446, 3451, 3257, 3283, 3388, 3438, 3557, 3296, 3309, 3310);
