@@ -11,7 +11,7 @@ param_list=workspace_path+'/param_list.csv'
 show_msgbox = True
 
 # RA Game settings
-headless = False
+headless = True
 max_ticks = 100000
 timestep = 1
 map_name = "ma_temperat"
@@ -20,10 +20,10 @@ ai1_faction = "ukraine"
 ai2 = "Rush AI"
 ai2_faction = "england"
 fitness_function_id = 1
-run_description = "test"
+run_description = "Test SG3 for fairness"
 
 # Settings for execution without optimization
-games_to_play = 1 # Amount of games played without changing parameters
+games_to_play = 100 # Amount of games played without changing parameters
 game_for_replay = 16827
 
 

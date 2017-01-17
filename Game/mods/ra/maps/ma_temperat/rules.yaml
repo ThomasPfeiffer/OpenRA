@@ -1,40 +1,43 @@
 E1:
 	Valued:
-		Cost: 54
+		Cost: 105
 	Health:
-		HP: 1000
+		HP: 54
 	Mobile:
 		Speed: 55
 E2:
 	Valued:
-		Cost: 172
+		Cost: 183
 	Health:
-		HP: 55
+		HP: 40
 	Mobile:
 		Speed: 50
+	Explodes:
+		Weapon: UnitExplodeSmall
+		Chance: 0
 MEDI:
 	Valued:
-		Cost: 166
+		Cost: 192
 	Health:
-		HP: 27
+		HP: 54
 	Mobile:
 		Speed: 55
 1TNK:
 	Valued:
-		Cost: 275
+		Cost: 527
 	Health:
-		HP: 2700
+		HP: 256
 	Mobile:
-		Speed: 920
+		Speed: 65
 3TNK:
 	Buildable:
 		Prerequisites: ~vehicles.soviet
 	Valued:
-		Cost: 863
+		Cost: 893
 	Health:
-		HP: 684
+		HP: 463
 	Mobile:
-		Speed: 36
+		Speed: 50
 MSLO:
 	Buildable:
 		Prerequisites: ~disabled

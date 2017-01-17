@@ -12,6 +12,9 @@ E2:
 		HP: param_rules_e2_health 40 60
 	Mobile:
 		Speed: 50
+	Explodes:
+		Weapon: UnitExplodeSmall
+		Chance: 0
 MEDI:
 	Valued:
 		Cost: param_rules_medi_cost 100 200

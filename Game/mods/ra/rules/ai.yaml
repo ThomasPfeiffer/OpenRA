@@ -47,6 +47,7 @@ Player:
 			e2: 20%
 			e3: 10%
 			e4: 2%
+			medi: 10%
 			dog: 2%
 			shok: 2%
 			harv: 10%
