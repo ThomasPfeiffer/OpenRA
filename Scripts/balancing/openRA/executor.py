@@ -149,21 +149,25 @@ def run_paramless_csv():
     directory = settings.map_directory
     parameters = read_params(directory)
     run = db_models.get_run()
-    prepend = 'paramlist_'
+    prepend = 'paramslist_'
     gm = RAGame.select().where(RAGame.game_id.startswith(prepend)).order_by(RAGame.id.desc())
     if gm.exists():
-        i = int(gm.get().game_id.lstrip(prepend)) + 1
+        conf, nr = gm.get().game_id.lstrip(prepend).split('_')
+        i = int(nr) + 1
+        j = int(conf) +1
     else:
         i = 1
+        j = 1
     value_list = csv_util.read_dict_list(settings.param_list)
     for param_values in value_list:
         for p in parameters:
             if p.name in param_values:
                 p.value = int(param_values[p.name])
         for _ in range(settings.games_to_play):
-            game_id = prepend + str(i)
+            game_id = prepend + str(j) + '_' + str(i)
             i += 1
             play_game(game_id, parameters)
+        j += 1
     run.end()
     LOG.info("finished")
 
