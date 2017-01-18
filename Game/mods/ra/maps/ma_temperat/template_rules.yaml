@@ -1,15 +1,15 @@
 E1:
 	Valued:
-		Cost: param_rules_e1_cost 80 200
+		Cost: 105
 	Health:
-		HP: param_rules_e1_health 40 60
+		HP: 54
 	Mobile:
 		Speed: 55
 E2:
 	Valued:
-		Cost: param_rules_e2_cost 150 200
+		Cost: 183
 	Health:
-		HP: param_rules_e2_health 40 60
+		HP: 40
 	Mobile:
 		Speed: 50
 	Explodes:
@@ -17,27 +17,55 @@ E2:
 		Chance: 0
 MEDI:
 	Valued:
-		Cost: param_rules_medi_cost 100 200
+		Cost: 192
 	Health:
-		HP: param_rules_medi_health 40 60
+		HP: 54
 	Mobile:
 		Speed: 55
 1TNK:
 	Valued:
-		Cost: param_rules_1tnk_cost 350 700
+		Cost: 546
 	Health:
-		HP: param_rules_1tnk_health 80 175
+		HP: 256
 	Mobile:
-		Speed: param_rules_1tnk_speed 65 100
+		Speed: 65
 3TNK:
 	Buildable:
 		Prerequisites: ~vehicles.soviet
 	Valued:
-		Cost: param_rules_3tnk_cost 600 1000
+		Cost: 1018
 	Health:
-		HP: param_rules_3tnk_health 900 1100
+		HP: 463
 	Mobile:
-		Speed: param_rules_3tnk_speed 40 60
+		Speed: 40
+V2RL:
+	Valued:
+		Cost: param_rules_v2rl_cost 450 900
+	Health:
+		HP: param_rules_v2rl_health 100 200
+	Mobile:
+		Speed: 85
+	Buildable:
+		Prerequisites: ~vehicles.soviet
+ARTY:
+	Valued:
+		Cost: param_rules_arty_cost 400 800
+	Health:
+		HP: param_rules_arty_health 50 100
+	Mobile:
+		Speed: 85
+	Buildable:
+		Prerequisites: ~vehicles.allies
+PBOX:
+	Valued:
+		Cost: param_rules_pbox_cost 200 400
+	Health:
+		HP: param_rules_pbox_health 200 400
+FTUR:
+	Valued:
+		Cost: param_rules_ftur_cost 300 600
+	Health:
+		HP: param_rules_ftur_health 200 400
 MSLO:
 	Buildable:
 		Prerequisites: ~disabled
@@ -65,9 +93,6 @@ AGUN:
 DOME:
 	Buildable:
 		Prerequisites: ~disabled
-PBOX:
-	Buildable:
-		Prerequisites: ~disabled
 KENN:
 	Buildable:
 		Prerequisites: ~disabled
@@ -75,9 +100,6 @@ HBOX:
 	Buildable:
 		Prerequisites: ~disabled
 GUN:
-	Buildable:
-		Prerequisites: ~disabled
-FTUR:
 	Buildable:
 		Prerequisites: ~disabled
 SAM:
@@ -188,16 +210,10 @@ Zombie:
 Ant:
 	Buildable:
 		Prerequisites: ~disabled
-V2RL:
-	Buildable:
-		Prerequisites: ~disabled
 2TNK:
 	Buildable:
 		Prerequisites: ~disabled
 4TNK:
-	Buildable:
-		Prerequisites: ~disabled
-ARTY:
 	Buildable:
 		Prerequisites: ~disabled
 HARV:

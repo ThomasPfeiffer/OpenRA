@@ -1,7 +1,7 @@
 M1Carbine:
 	ReloadDelay: 17
 	Warhead@1Dam: SpreadDamage
-		Damage: 19
+		Damage: 14
 Grenade:
 	ReloadDelay: 25
 	Warhead@1Dam: SpreadDamage
@@ -13,6 +13,29 @@ Heal:
 	Warhead@1Dam: SpreadDamage
 		Damage: 6
 105mm:
-	ReloadDelay: 87
+	ReloadDelay: 47
 	Warhead@1Dam: SpreadDamage
 		Damage: 63
+SCUD:
+	ReloadDelay: 240
+	Range: 10c0
+	Warhead@1Dam: SpreadDamage
+		Spread: 341
+		Damage: 45
+155mm:
+	ReloadDelay: 85
+	Range: 14c0
+	Warhead@1Dam: SpreadDamage
+		Spread: 426
+		Damage: 220
+FireballLauncher:
+	ReloadDelay: 65
+	Range: 5c0
+	Warhead@1Dam: SpreadDamage
+		Spread: 213
+		Damage: 150
+Vulcan:
+	ReloadDelay: 30
+	Range: 6c0
+	Warhead@1Dam_1: SpreadDamage
+		Damage: 10

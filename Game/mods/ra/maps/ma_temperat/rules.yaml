@@ -24,7 +24,7 @@ MEDI:
 		Speed: 55
 1TNK:
 	Valued:
-		Cost: 527
+		Cost: 546
 	Health:
 		HP: 256
 	Mobile:
@@ -33,11 +33,39 @@ MEDI:
 	Buildable:
 		Prerequisites: ~vehicles.soviet
 	Valued:
-		Cost: 893
+		Cost: 1018
 	Health:
 		HP: 463
 	Mobile:
-		Speed: 50
+		Speed: 40
+V2RL:
+	Valued:
+		Cost: 900
+	Health:
+		HP: 200
+	Mobile:
+		Speed: 85
+	Buildable:
+		Prerequisites: ~vehicles.soviet
+ARTY:
+	Valued:
+		Cost: 800
+	Health:
+		HP: 100
+	Mobile:
+		Speed: 85
+	Buildable:
+		Prerequisites: ~vehicles.soviet
+PBOX:
+	Valued:
+		Cost: 400
+	Health:
+		HP: 400
+FTUR:
+	Valued:
+		Cost: 600
+	Health:
+		HP: 400
 MSLO:
 	Buildable:
 		Prerequisites: ~disabled
@@ -65,9 +93,6 @@ AGUN:
 DOME:
 	Buildable:
 		Prerequisites: ~disabled
-PBOX:
-	Buildable:
-		Prerequisites: ~disabled
 KENN:
 	Buildable:
 		Prerequisites: ~disabled
@@ -75,9 +100,6 @@ HBOX:
 	Buildable:
 		Prerequisites: ~disabled
 GUN:
-	Buildable:
-		Prerequisites: ~disabled
-FTUR:
 	Buildable:
 		Prerequisites: ~disabled
 SAM:
@@ -188,16 +210,10 @@ Zombie:
 Ant:
 	Buildable:
 		Prerequisites: ~disabled
-V2RL:
-	Buildable:
-		Prerequisites: ~disabled
 2TNK:
 	Buildable:
 		Prerequisites: ~disabled
 4TNK:
-	Buildable:
-		Prerequisites: ~disabled
-ARTY:
 	Buildable:
 		Prerequisites: ~disabled
 HARV:
