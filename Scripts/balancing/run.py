@@ -19,6 +19,7 @@ commands = {
 "param-list" : executor.run_paramless_csv,
 "replay" : executor.run_replay,
 "write-params" : executor.replay_params,
+"write-params-individual" : executor.replay_params_individual,
 "optimization": optimize.run_optimization
 }
 

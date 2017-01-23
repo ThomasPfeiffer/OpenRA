@@ -2,9 +2,12 @@ from model.db_models import TemplateFile
 from model.db_models import RunHasTemplateFile
 from model.db_models import RAPlayer
 from model.db_models import RAGame
+from model.db_models import Individual
+from model.db_models import IndividualParameter
 from model.db_models import RAParameter
 from model import db_models
 from utility import thread_util
+from utility.thread_util import TimedoutException
 from utility import yaml_util
 from utility import log_util
 import settings
@@ -80,7 +83,10 @@ def play_game(game_id, parameter_list=None):
     if parameter_list:
         yaml_util.write_to_templates(settings.map_directory, parameter_list)
 
-    execute_ra(game_id)
+    try:
+        execute_ra(game_id)
+    except (TimedoutException, RuntimeError):
+        return 100000
 
     # Read the results
     game_log_yaml = yaml_util.parse_yaml_file(settings.game_log)
@@ -109,6 +115,26 @@ def replay_params():
 
     # Write parameters to templates
     params = RAParameter.select().where(RAParameter.game == game)
+    assert len(params) > 0
+    print("Found {0} parameters".format(len(params)))
+    for template in template_files:
+        with open(settings.map_directory + template.write_file, 'w') as new_file:
+            with open(settings.map_directory + template.read_file) as old_file:
+                yaml_util.write_to_file(old_file, new_file, params)
+
+
+def replay_params_individual():
+    # Get Templates for game from database and write contents to file system
+    individual_id = settings.individual_for_replay
+    individual = Individual.get(Individual.id == individual_id)
+    template_files = TemplateFile.select().join(RunHasTemplateFile).where(RunHasTemplateFile.run == individual.run)
+    for template in template_files:
+        write_file = settings.map_directory + template.read_file
+        with open(write_file, 'w') as write_template:
+            write_template.write(template.file_content)
+
+    # Write parameters to templates
+    params = IndividualParameter.select().where(IndividualParameter.individual == individual)
     assert len(params) > 0
     print("Found {0} parameters".format(len(params)))
     for template in template_files:
