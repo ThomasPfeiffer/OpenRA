@@ -21,21 +21,21 @@ SCUD:
 	Range: 10c0
 	Warhead@1Dam: SpreadDamage
 		Spread: 341
-		Damage: param_weapons_scud_damage 22 45
+		Damage: param_weapons_scud_damage 20 60
 155mm:
 	ReloadDelay: 85
 	Range: 14c0
 	Warhead@1Dam: SpreadDamage
 		Spread: 426
-		Damage: param_weapons_155mm_damage 110 220
+		Damage: param_weapons_155mm_damage 5 20
 FireballLauncher:
 	ReloadDelay: 65
 	Range: 5c0
 	Warhead@1Dam: SpreadDamage
 		Spread: 213
-		Damage: param_weapons_fireball_damage 75 150
+		Damage: param_weapons_fireball_damage 50 200
 Vulcan:
 	ReloadDelay: 30
 	Range: 6c0
 	Warhead@1Dam_1: SpreadDamage
-		Damage: param_weapons_vulcan_damage 5 10
+		Damage: param_weapons_vulcan_damage 25 100

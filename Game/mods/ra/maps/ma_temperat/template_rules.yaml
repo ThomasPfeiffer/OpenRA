@@ -40,32 +40,32 @@ MEDI:
 		Speed: 40
 V2RL:
 	Valued:
-		Cost: param_rules_v2rl_cost 450 900
+		Cost: param_rules_v2rl_cost 300 800
 	Health:
-		HP: param_rules_v2rl_health 100 200
+		HP: param_rules_v2rl_health 50 200
 	Mobile:
 		Speed: 85
 	Buildable:
 		Prerequisites: ~vehicles.soviet
 ARTY:
 	Valued:
-		Cost: param_rules_arty_cost 400 800
+		Cost: param_rules_arty_cost 300 800
 	Health:
-		HP: param_rules_arty_health 50 100
+		HP: param_rules_arty_health 50 200
 	Mobile:
 		Speed: 85
 	Buildable:
 		Prerequisites: ~vehicles.allies
 PBOX:
 	Valued:
-		Cost: param_rules_pbox_cost 200 400
+		Cost: param_rules_pbox_cost 200 500
 	Health:
-		HP: param_rules_pbox_health 200 400
+		HP: param_rules_pbox_health 200 600
 FTUR:
 	Valued:
-		Cost: param_rules_ftur_cost 300 600
+		Cost: param_rules_ftur_cost 200 500
 	Health:
-		HP: param_rules_ftur_health 200 400
+		HP: param_rules_ftur_health 200 600
 MSLO:
 	Buildable:
 		Prerequisites: ~disabled
