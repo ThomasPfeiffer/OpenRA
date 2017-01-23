@@ -20,20 +20,22 @@ ai1_faction = "ukraine"
 ai2 = "Rush AI"
 ai2_faction = "england"
 fitness_function_id = 1
-run_description = "Test SG3 for fairness"
+run_description = "Try results"
 
 # Settings for execution without optimization
 games_to_play = 100 # Amount of games played without changing parameters
 game_for_replay = 16827
+individual_for_replay = 4148
 
 
 start_values_fixed=False
-recombination_prob=0
+recombination_prob=0.2
 num_parents=2
-max_age=100000
+max_age=1
 popsize=3
-offspring=6
+offspring=15
 max_generations=100
+games_per_evaluation=1
 reevaluate=False
 individual="RandomMutationIndividual"
 

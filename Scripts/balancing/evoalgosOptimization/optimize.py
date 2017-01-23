@@ -21,7 +21,7 @@ def create_game_id():
 
 def obj_function(phenome):
     results = []
-    for _ in range(3):
+    for _ in range(settings.games_per_evaluation):
         results.append(executor.play_game(create_game_id(), phenome))
     results.sort()
     half = len(results) // 2
