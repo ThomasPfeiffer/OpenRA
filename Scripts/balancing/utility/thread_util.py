@@ -4,6 +4,7 @@ import settings
 if settings.show_msgbox:
     import win32api
 
+
 class TimedoutException(Exception):
     pass
 

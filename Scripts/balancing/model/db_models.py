@@ -9,7 +9,9 @@ run = None
 
 def initialize_database():
     db.connect()
-    FitnessFunction.create_table(True)
+    if not FitnessFunction.table_exists():
+        FitnessFunction.create_table()
+        FitnessFunction.insert(function="5*buildingsdestroyeddeviation+unitskilleddeviation", description="Difference in units killed and buildings destroyed")
     Run.create_table(True)
     TemplateFile.create_table(True)
     RunHasTemplateFile.create_table(True)
