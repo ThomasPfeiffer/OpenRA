@@ -14,7 +14,7 @@ namespace OpenRA
 
         public static bool Headless = false;
         public static bool Autostart = false;
-        public static int MaxTicks = 100000;
+        public static int MaxTicks = 400000;
         public static string GameMap; // ma_temperat
         public static string FitnessLog;
         public static string Game_ID;

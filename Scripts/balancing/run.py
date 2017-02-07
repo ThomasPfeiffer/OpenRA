@@ -1,10 +1,9 @@
 import sys
 from openRA import executor
 from evoalgosOptimization import optimize
-import logging
-from utility import log_util
 from utility import thread_util
 from model import db_models
+
 
 def get_arg(name):
     for arg in sys.argv:
@@ -15,12 +14,12 @@ def get_arg(name):
             return value
 
 commands = {
-"paramless" : executor.run_paramless,
-"param-list" : executor.run_paramless_csv,
+"simulation" : executor.run_paramless,
+"csvlist" : executor.run_paramless_csv,
 "replay" : executor.run_replay,
 "write-params" : executor.replay_params,
 "write-params-individual" : executor.replay_params_individual,
-"optimization": optimize.run_optimization
+"evoalgo": optimize.run_optimization
 }
 
 
