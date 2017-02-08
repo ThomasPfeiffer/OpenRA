@@ -1,71 +1,40 @@
 E1:
 	Valued:
-		Cost: 105
+		Cost: param_rules_e1_cost 20 200
 	Health:
-		HP: 54
+		HP: param_rules_e1_health 20 80
 	Mobile:
-		Speed: 55
+		Speed: param_rules_e1_speed 20 80
 E2:
 	Valued:
-		Cost: 183
+		Cost: 110
 	Health:
-		HP: 40
+		HP: 50
 	Mobile:
-		Speed: 50
-	Explodes:
-		Weapon: UnitExplodeSmall
-		Chance: 0
+		Speed: 45
 MEDI:
 	Valued:
-		Cost: 192
+		Cost: 110
 	Health:
-		HP: 54
+		HP: 50
 	Mobile:
-		Speed: 55
+		Speed: 45
 1TNK:
 	Valued:
-		Cost: 546
+		Cost: 600
 	Health:
-		HP: 256
+		HP: 275
 	Mobile:
 		Speed: 65
 3TNK:
 	Buildable:
 		Prerequisites: ~vehicles.soviet
 	Valued:
-		Cost: 1018
+		Cost: 1250
 	Health:
-		HP: 463
+		HP: 750
 	Mobile:
-		Speed: 40
-V2RL:
-	Valued:
-		Cost: param_rules_v2rl_cost 300 800
-	Health:
-		HP: param_rules_v2rl_health 50 200
-	Mobile:
-		Speed: 85
-	Buildable:
-		Prerequisites: ~vehicles.soviet
-ARTY:
-	Valued:
-		Cost: param_rules_arty_cost 300 800
-	Health:
-		HP: param_rules_arty_health 50 200
-	Mobile:
-		Speed: 85
-	Buildable:
-		Prerequisites: ~vehicles.allies
-PBOX:
-	Valued:
-		Cost: param_rules_pbox_cost 200 500
-	Health:
-		HP: param_rules_pbox_health 200 600
-FTUR:
-	Valued:
-		Cost: param_rules_ftur_cost 200 500
-	Health:
-		HP: param_rules_ftur_health 200 600
+		Speed: 35
 MSLO:
 	Buildable:
 		Prerequisites: ~disabled
@@ -93,6 +62,9 @@ AGUN:
 DOME:
 	Buildable:
 		Prerequisites: ~disabled
+PBOX:
+	Buildable:
+		Prerequisites: ~disabled
 KENN:
 	Buildable:
 		Prerequisites: ~disabled
@@ -100,6 +72,9 @@ HBOX:
 	Buildable:
 		Prerequisites: ~disabled
 GUN:
+	Buildable:
+		Prerequisites: ~disabled
+FTUR:
 	Buildable:
 		Prerequisites: ~disabled
 SAM:
@@ -210,10 +185,16 @@ Zombie:
 Ant:
 	Buildable:
 		Prerequisites: ~disabled
+V2RL:
+	Buildable:
+		Prerequisites: ~disabled
 2TNK:
 	Buildable:
 		Prerequisites: ~disabled
 4TNK:
+	Buildable:
+		Prerequisites: ~disabled
+ARTY:
 	Buildable:
 		Prerequisites: ~disabled
 HARV:

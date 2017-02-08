@@ -26,22 +26,21 @@ ai2_faction = "england"
 run_description = "Test the environment"
 
 # Settings for execution without optimization
-games_to_play = 2 # Amount of games played without changing parameters
-game_for_replay = 5
-individual_for_replay = 4148
+games_to_play = 2 # Number of games played, during simulation, csvlist or replay
+game_for_replay = 2
 
 # Evolutionary Algorithm
 fitness_function_id = 1 # Fitness function assigned to games in database, does not affect algorithm
-start_values_fixed=False
+start_values_fixed=False # Whether parameters are initialized with random values -> set True when start values are predefined
 recombination_prob=0.2
 num_parents=2
-max_age=1
+max_age=1000 # Maximal age of an Individuum
 popsize=3
-offspring=15
-max_generations=20
-games_per_evaluation=3
-reevaluate=False
-individual="RandomMutationIndividual"
+offspring=3
+max_generations=5
+games_per_evaluation=1 # Number of games executed for each solution, if > 1 the median of calculated fitness values is taken
+reevaluate=False # Calculate fitness function again each time an individual survives a generation
+individual="RandomMutationIndividual" # RandomMutationIndividual or FixedMutationIndividual as in individual.py
 
 
 
