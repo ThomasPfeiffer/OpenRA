@@ -9,9 +9,7 @@ run = None
 
 def initialize_database():
     db.connect()
-    if not FitnessFunction.table_exists():
-        FitnessFunction.create_table()
-        FitnessFunction.insert(function="5*buildingsdestroyeddeviation+unitskilleddeviation", description="Difference in units killed and buildings destroyed")
+    FitnessFunction.create_table(True)
     Run.create_table(True)
     TemplateFile.create_table(True)
     RunHasTemplateFile.create_table(True)
@@ -29,7 +27,7 @@ class DBModel(Model):
 
 
 class FitnessFunction(DBModel):
-    function = CharField()
+    function = CharField(null=True)
     description = CharField(null=True)
 
 
@@ -68,7 +66,6 @@ class RAGame(DBModel):
     ticks = IntegerField()
     fitness = IntegerField()
     map = ForeignKeyField(RAMap, null=True)
-    individual = IntegerField()
 
 
 class RAPlayer(DBModel):
@@ -134,8 +131,9 @@ def save_as_individual_param(individual, param):
 
 
 def init():
+    initialize_database()
     global fitness_function
-    fitness_function = FitnessFunction.get(FitnessFunction.id == settings.fitness_function_id)
+    fitness_function, _ = FitnessFunction.get_or_create(id=settings.fitness_function_id)
     global ra_map
     ra_map, _ = RAMap.get_or_create(name=settings.map_name)
     run = Run.create(fitness_function=fitness_function, description=settings.run_description)
