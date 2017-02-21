@@ -2,9 +2,9 @@ E1:
 	Valued:
 		Cost: 100
 	Health:
-		HP: 45
+		HP: 2
 	Mobile:
-		Speed: 60
+		Speed: 4
 E2:
 	Valued:
 		Cost: 110

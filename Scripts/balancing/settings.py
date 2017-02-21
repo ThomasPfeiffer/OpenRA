@@ -12,8 +12,8 @@ show_msgbox = True # Specifies whether a Message box "Execution is finished" is 
 
 # Execution settings
 headless = False
-max_ticks = 100000 # Maximal number of milliseconds the game may take
-timestep = 10 # Game speed - Default is 40
+max_ticks = 500000 # Maximal number of milliseconds the game may take
+timestep = 3 # Game speed - Default is 40
 
 # Autostart settings
 map_name = "ma_temperat"
@@ -26,12 +26,12 @@ ai2_faction = "england"
 run_description = "Test the environment"
 
 # Settings for execution without optimization
-games_to_play = 2 # Number of games played, during simulation, csvlist or replay
+games_to_play = 1 # Number of games played, during simulation, csvlist or replay
 game_for_replay = 2
 
 # Evolutionary Algorithm
 fitness_function_id = 1 # Fitness function assigned to games in database, does not affect algorithm
-start_values_fixed=False # Whether parameters are initialized with random values -> set True when start values are predefined
+start_values_fixed=True # Whether parameters are initialized with random values -> set True when start values are predefined
 recombination_prob=0.2
 num_parents=2
 max_age=1000 # Maximal age of an Individuum

@@ -1,4 +1,4 @@
 M1Carbine:
-	ReloadDelay: 10
+	ReloadDelay: 50
 	Warhead@1Dam: SpreadDamage
-		Damage: 10
+		Damage: 5

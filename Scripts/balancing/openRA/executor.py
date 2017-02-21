@@ -185,10 +185,12 @@ def run_paramless_csv():
         i = 1
         j = 1
     value_list = csv_util.read_dict_list(settings.param_list)
+    print len(value_list)
+    print len(parameters)
+    #assert len(value_list) == len(parameters)
     for param_values in value_list:
         for p in parameters:
-            if p.name in param_values:
-                p.value = int(param_values[p.name])
+            p.value = int(param_values[p.name])
         for _ in range(settings.games_to_play):
             game_id = prepend + str(j) + '_' + str(i)
             i += 1
