@@ -1,0 +1,1 @@
+python "C:\dev\OpenRA\Scripts\balancing\run.py" -cmd=csvlist
